@@ -22,6 +22,7 @@ public class ServiceProviderFactory : IServiceProviderFactory
     {
         return new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", false, false)
+            .AddUserSecrets(typeof(Program).Assembly)
             .Build();
     }
 }
