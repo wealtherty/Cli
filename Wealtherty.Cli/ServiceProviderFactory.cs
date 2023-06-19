@@ -12,7 +12,7 @@ public class ServiceProviderFactory : IServiceProviderFactory
         var configuration = GetConfigurationRoot();
 
         return new ServiceCollection()
-            .AddCore()
+            .AddCore(configuration)
             .AddCompaniesHouse(configuration)
             .BuildServiceProvider();
     }

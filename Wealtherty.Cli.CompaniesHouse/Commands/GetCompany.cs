@@ -2,13 +2,14 @@
 using CommandLine;
 using CompaniesHouse;
 using Microsoft.Extensions.DependencyInjection;
+using Neo4j.Driver;
 using Serilog;
 using Wealtherty.Cli.CompaniesHouse.Model;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;
 
-[Verb("companieshouser:company-get")]
+[Verb("ch:company-get")]
 public class GetCompany : Command
 {
     [Option('n', "number", Required = true)]
@@ -18,10 +19,15 @@ public class GetCompany : Command
     {
         var companiesHouseClient = serviceProvider.GetService<ICompaniesHouseClient>();
         var mapper = serviceProvider.GetService<IMapper>();
+        var driver = serviceProvider.GetService<IDriver>();
+        
+        await using var session = driver.AsyncSession();
 
         var respone = await companiesHouseClient.GetCompanyProfileAsync(Number);
-        var company = mapper.Map<Company>(respone.Data);
+        var companyNode = mapper.Map<Company>(respone.Data);
         
-        Log.Information("{@Company}", company);
+        await session.ExecuteCommandsAsync(companyNode);
+        
+        Log.Information("{@Company}", companyNode);
     }
 }
