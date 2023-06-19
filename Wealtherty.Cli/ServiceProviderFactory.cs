@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
-using Wealtherty.Cli.Core.Logging;
 
 namespace Wealtherty.Cli;
 
@@ -13,7 +12,7 @@ public class ServiceProviderFactory : IServiceProviderFactory
         var configuration = GetConfigurationRoot();
 
         return new ServiceCollection()
-            .AddLogging()
+            .AddCore()
             .AddCompaniesHouse(configuration)
             .BuildServiceProvider();
     }
