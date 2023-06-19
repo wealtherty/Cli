@@ -1,7 +1,9 @@
-﻿using CommandLine;
+﻿using AutoMapper;
+using CommandLine;
 using CompaniesHouse;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using Wealtherty.Cli.CompaniesHouse.Model;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;
@@ -15,9 +17,11 @@ public class GetCompany : Command
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
         var companiesHouseClient = serviceProvider.GetService<ICompaniesHouseClient>();
+        var mapper = serviceProvider.GetService<IMapper>();
 
         var respone = await companiesHouseClient.GetCompanyProfileAsync(Number);
+        var company = mapper.Map<Company>(respone.Data);
         
-        Log.Information("{@Response}", respone);
+        Log.Information("{@Company}", company);
     }
 }

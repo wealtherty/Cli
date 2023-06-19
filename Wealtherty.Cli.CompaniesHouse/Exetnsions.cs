@@ -11,6 +11,7 @@ namespace Wealtherty.Cli.CompaniesHouse
         {
             return self
                 .Configure<Settings>(configuration.GetSection("CompaniesHouse"))
+                .AddAutoMapper(typeof(Settings).Assembly)
                 .AddSingleton<ICompaniesHouseSettings>(provider =>
                     new CompaniesHouseSettings(provider.GetService<IOptions<Settings>>().Value.ApiKey))
                 .AddSingleton<ICompaniesHouseClient>(provider =>
