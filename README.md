@@ -1,1 +1,1 @@
-# Wealtherty Command Line Interface
+# Wealtherty Cli
