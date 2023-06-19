@@ -1,6 +1,8 @@
-﻿namespace Wealtherty.Cli.CompaniesHouse.Model;
+﻿using Wealtherty.Cli.Core.GraphDb;
 
-public class Company
+namespace Wealtherty.Cli.CompaniesHouse.Model;
+
+public class Company : Node
 {
     public string Type { get; set; }
 
