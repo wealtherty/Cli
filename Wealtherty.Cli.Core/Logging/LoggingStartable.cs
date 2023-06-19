@@ -5,7 +5,7 @@ namespace Wealtherty.Cli.Core.Logging;
 
 public class LoggingStartable : IStartable
 {
-    public void Start()
+    public void Execute()
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()

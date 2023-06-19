@@ -10,13 +10,18 @@ public abstract class Command
     {
         var serviceProvider = serviceProviderFactory.Create();
 
+        ExecuteStartable(serviceProvider);
+
+        await ExecuteImplAsync(serviceProvider);
+    }
+
+    private static void ExecuteStartable(IServiceProvider serviceProvider)
+    {
         var startables = serviceProvider.GetService<IEnumerable<IStartable>>();
 
         foreach (var startable in startables)
         {
-            startable.Start();
+            startable.Execute();
         }
-            
-        await ExecuteImplAsync(serviceProvider);
     }
 }

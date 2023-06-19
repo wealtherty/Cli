@@ -2,5 +2,5 @@
 
 public interface IStartable
 {
-    void Start();
+    void Execute();
 }
