@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace Wealtherty.Cli.Core;
 
@@ -12,7 +13,16 @@ public abstract class Command
 
         ExecuteStartable(serviceProvider);
 
-        await ExecuteImplAsync(serviceProvider);
+        Log.Information("Executing {@Command}", this);
+        
+        try
+        {
+            await ExecuteImplAsync(serviceProvider);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred executing command");
+        }
     }
 
     private static void ExecuteStartable(IServiceProvider serviceProvider)
