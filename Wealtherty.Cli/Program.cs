@@ -7,7 +7,7 @@ namespace Wealtherty.Cli;
 public static class Program
 {
     private static int Main(string[] args) {
-        return Parser.Default.ParseArguments<HelloWorld>(args)
+        return Parser.Default.ParseArguments<GetCompany>(args)
             .MapResult(
                 Execute,
                 _ => 1);
