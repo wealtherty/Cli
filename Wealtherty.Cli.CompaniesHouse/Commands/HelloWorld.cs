@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using Serilog;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;
@@ -6,8 +7,8 @@ namespace Wealtherty.Cli.CompaniesHouse.Commands;
 [Verb("hello-world")]
 public class HelloWorld : Command
 {
-    protected override Task ExecuteImplAsync()
+    protected override Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        return Task.Run(() => Console.WriteLine("Hello World"));
+        return Task.Run(() => Log.Information("Hello World"));
     }
 }

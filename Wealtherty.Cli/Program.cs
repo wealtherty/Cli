@@ -15,7 +15,8 @@ public static class Program
 
     private static int Execute(Command command)
     {
-        command.ExecuteAsync().Wait();
+        command.ExecuteAsync(new ServiceProviderFactory()).Wait();
+        
         return 0;
     }
 }

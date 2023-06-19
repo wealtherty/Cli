@@ -1,11 +1,22 @@
-﻿namespace Wealtherty.Cli.Core;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace Wealtherty.Cli.Core;
 
 public abstract class Command
 {
-    protected abstract Task ExecuteImplAsync();
+    protected abstract Task ExecuteImplAsync(IServiceProvider serviceProvider);
     
-    public Task ExecuteAsync()
+    public async Task ExecuteAsync(IServiceProviderFactory serviceProviderFactory)
     {
-        return ExecuteImplAsync();
+        var serviceProvider = serviceProviderFactory.Create();
+
+        var startables = serviceProvider.GetService<IEnumerable<IStartable>>();
+
+        foreach (var startable in startables)
+        {
+            startable.Start();
+        }
+            
+        await ExecuteImplAsync(serviceProvider);
     }
 }
