@@ -6,16 +6,22 @@ namespace Wealtherty.Cli.CompaniesHouse.Model;
 
 public class Company : Node
 {
-    public string Type { get; set; }
-
+    public string Number { get; set; }
+    
     [JsonConverter(typeof(TitleConverter))]
     public string Name { get; set; }
+    
+    public string Status { get; set; }
+    
+    public string Type { get; set; }
+    
+    public string Description { get; set; }
+    
+    [JsonConverter(typeof(DateConverter))]
+    public DateTime? CreatedOn { get; set; }
 
-    public string Number { get; set; }
+    [JsonConverter(typeof(DateConverter))]
+    public DateTime? StoppedTradingOn { get; set; }
 
-    public string CompanyStatus { get; set; }
-
-    public DateTime? DateOfCreation { get; set; }
-
-    public DateTime? DateOfCessation { get; set; }
+    protected override object GetMatchObject() => new { Number };
 }
