@@ -1,3 +1,21 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using CommandLine;
+using Wealtherty.Cli.CompaniesHouse.Commands;
+using Wealtherty.Cli.Core;
 
-Console.WriteLine("Hello, World!");
+namespace Wealtherty.Cli;
+
+public static class Program
+{
+    private static int Main(string[] args) {
+        return Parser.Default.ParseArguments<HelloWorld>(args)
+            .MapResult(
+                Execute,
+                _ => 1);
+    }
+
+    private static int Execute(Command command)
+    {
+        command.ExecuteAsync().Wait();
+        return 0;
+    }
+}

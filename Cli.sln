@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealtherty.Cli", "Wealtherty.Cli\Wealtherty.Cli.csproj", "{777354E1-D9AA-46DF-830F-B44AE0C3560B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealtherty.Cli.Core", "Wealtherty.Cli.Core\Wealtherty.Cli.Core.csproj", "{2E6E39D9-CBA4-4E2F-B092-7585CFC19CFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealtherty.Cli.CompaniesHouse", "Wealtherty.Cli.CompaniesHouse\Wealtherty.Cli.CompaniesHouse.csproj", "{A9987176-AF6E-42B8-BFD9-F167A7DDA1E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{777354E1-D9AA-46DF-830F-B44AE0C3560B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{777354E1-D9AA-46DF-830F-B44AE0C3560B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{777354E1-D9AA-46DF-830F-B44AE0C3560B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6E39D9-CBA4-4E2F-B092-7585CFC19CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6E39D9-CBA4-4E2F-B092-7585CFC19CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6E39D9-CBA4-4E2F-B092-7585CFC19CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6E39D9-CBA4-4E2F-B092-7585CFC19CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9987176-AF6E-42B8-BFD9-F167A7DDA1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9987176-AF6E-42B8-BFD9-F167A7DDA1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9987176-AF6E-42B8-BFD9-F167A7DDA1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9987176-AF6E-42B8-BFD9-F167A7DDA1E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
