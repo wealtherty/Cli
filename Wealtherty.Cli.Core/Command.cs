@@ -19,6 +19,8 @@ public abstract class Command
     {
         var startables = serviceProvider.GetService<IEnumerable<IStartable>>();
 
+        if (startables == null) return;
+
         foreach (var startable in startables)
         {
             startable.Execute();
