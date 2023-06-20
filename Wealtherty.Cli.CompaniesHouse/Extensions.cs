@@ -15,7 +15,8 @@ namespace Wealtherty.Cli.CompaniesHouse
                 .AddSingleton<ICompaniesHouseSettings>(provider =>
                     new CompaniesHouseSettings(provider.GetService<IOptions<Settings>>().Value.ApiKey))
                 .AddSingleton<ICompaniesHouseClient>(provider =>
-                    new CompaniesHouseClient(provider.GetService<ICompaniesHouseSettings>()));
+                    new CompaniesHouseClient(provider.GetService<ICompaniesHouseSettings>()))
+                .AddSingleton<Client>();
         }
         
     }

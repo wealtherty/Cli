@@ -17,21 +17,21 @@ public class GetCompany : Command
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
         var companiesHouseClient = serviceProvider.GetService<ICompaniesHouseClient>();
+        var client = serviceProvider.GetService<Client>();
         var mapper = serviceProvider.GetService<IMapper>();
         var driver = serviceProvider.GetService<IDriver>();
 
         await using var session = driver.AsyncSession();
 
-        var getOfficersResponse = await companiesHouseClient.GetOfficersAsync(Number, 0, 250);
+        var officers = await client.GetOfficersAsync(Number);
 
-        foreach (var officer in getOfficersResponse.Data.Items)
+        foreach (var officer in officers)
         {
             var officerNode = mapper.Map<Officer>(officer);
 
-            var getAppointmentsResponse =
-                await companiesHouseClient.GetAppointmentsAsync(officer.Links.Officer.OfficerId, 0, 250);
+            var appointments = await client.GetAppointmentsAsync(officer.Links.Officer.OfficerId);
             
-            foreach (var appointment in getAppointmentsResponse.Data.Items)
+            foreach (var appointment in appointments)
             {
                 var getAppointmentCompanyResponse =
                     await companiesHouseClient.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
