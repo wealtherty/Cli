@@ -16,31 +16,45 @@ public class Client
 
     public async Task<Officer[]> GetOfficersAsync(string companyNumber)
     {
-        var getOfficersResponse = await _companiesHouseClient.GetOfficersAsync(companyNumber);
+        const int pageSize = 50;
         
-        Log.Information("Officers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", companyNumber, new { Expected =  getOfficersResponse.Data.ActiveCount + getOfficersResponse.Data.ResignedCount, Actual = getOfficersResponse.Data.Items.Length});
+        var officers = new List<Officer>();
+        var startIndex = 0;
+        int expected;
+
+        do
+        {
+            var response = await _companiesHouseClient.GetOfficersAsync(companyNumber, startIndex, pageSize);
+            officers.AddRange(response.Data.Items);
+            expected = response.Data.ActiveCount.Value + response.Data.ResignedCount.Value;
+            startIndex += pageSize;
+
+        } while (officers.Count != expected);
+
+        Log.Information("GetOfficers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", 
+            companyNumber, new { Expected = expected, Actual = officers.Count });
         
-        return getOfficersResponse.Data.Items;
+        return officers.ToArray();
     }
 
     public async Task<Appointment[]> GetAppointmentsAsync(string officerId)
     {
         const int pageSize = 50;
         
-        CompaniesHouseClientResponse<Appointments> getAppointmentsResponse;
         var appointmemts = new List<Appointment>();
         var startIndex = 0;
+        int expected;
 
         do
         {
-            getAppointmentsResponse = await _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, pageSize);
-            appointmemts.AddRange(getAppointmentsResponse.Data.Items);
+            var response = await _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, pageSize);
+            appointmemts.AddRange(response.Data.Items);
+            expected = response.Data.TotalResults;
             startIndex += pageSize;
-        } while (appointmemts.Count != getAppointmentsResponse.Data.TotalResults);
-        
-        Log.Information("Appointments - OfficerId: {OfficerId}, Counts: {@Counts}",
-            officerId,
-            new { Expected = getAppointmentsResponse.Data.TotalResults, Actual = appointmemts.Count });
+        } while (appointmemts.Count != expected);
+
+        Log.Information("GetAppointments - OfficerId: {OfficerId}, Counts: {@Counts}",
+            officerId, new { Expected = expected, Actual = appointmemts.Count });
         
         return appointmemts.ToArray();
     } 
