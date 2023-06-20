@@ -18,7 +18,7 @@ public class Client
     {
         var getOfficersResponse = await _companiesHouseClient.GetOfficersAsync(companyNumber);
         
-        Log.Information("Officers: {@Counts}", new { Expected =  getOfficersResponse.Data.ActiveCount + getOfficersResponse.Data.ResignedCount, Actual = getOfficersResponse.Data.Items.Length});
+        Log.Information("Officers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", companyNumber, new { Expected =  getOfficersResponse.Data.ActiveCount + getOfficersResponse.Data.ResignedCount, Actual = getOfficersResponse.Data.Items.Length});
         
         return getOfficersResponse.Data.Items;
     }
@@ -45,7 +45,8 @@ public class Client
             startIndex += pageSize;
         } while (appointmemts.Count != getAppointmentsResponse.Data.TotalResults);
         
-        Log.Information("Appointments: {@Counts}",
+        Log.Information("Appointments - OfficerId: {OfficerId}, Counts: {@Counts}",
+            officerId,
             new { Expected = getAppointmentsResponse.Data.TotalResults, Actual = appointmemts.Count });
         
         return appointmemts.ToArray();
