@@ -13,6 +13,4 @@ public class Project
     public string leadFunder { get; set; }
     
     public string LeadOrganisationDepartment { get; set; }
-    
-    public string AbstractText { get; set; }
 }
