@@ -10,7 +10,7 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<CompanyProfile, Company>()
-            .ForMember(x => x.Name, opt => opt.MapFrom(x => x.CompanyName))
+            .ForMember(x => x.Name, opt => opt.MapFrom<CompanyNameResolver>())
             .ForMember(x => x.Number, opt => opt.MapFrom(x => x.CompanyNumber))
             .ForMember(x => x.Status, opt => opt.MapFrom(x => x.CompanyStatus.ToString()))
             .ForMember(x => x.Status, opt => opt.MapFrom(x => x.CompanyStatus.ToString()))
@@ -18,7 +18,7 @@ public class MappingProfile : Profile
             .ForMember(x => x.StoppedTradingOn, opt => opt.MapFrom(x => x.DateOfCessation));
         
         CreateMap<global::CompaniesHouse.Response.Officers.Officer, Officer>()
-            .ForMember(x => x.Name, opt => opt.MapFrom<NameResolver>())
+            .ForMember(x => x.Name, opt => opt.MapFrom<OfficerNameResolver>())
             .ForMember(x => x.OfficerId, opt => opt.MapFrom(x => x.Links.Officer.OfficerId))
             .ForMember(x => x.YearOfBirth, opt => opt.MapFrom(x => x.DateOfBirth.Year));
     }
