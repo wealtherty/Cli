@@ -1,13 +1,12 @@
-﻿using AutoMapper;
-using CompaniesHouse.Response.CompanyProfile;
+﻿using CompaniesHouse.Response.CompanyProfile;
 using Wealtherty.Cli.CompaniesHouse.Mapping.Resolvers;
 using Wealtherty.Cli.CompaniesHouse.Model;
 
 namespace Wealtherty.Cli.CompaniesHouse.Mapping;
 
-public class MappingProfile : Profile
+public class Profile : AutoMapper.Profile
 {
-    public MappingProfile()
+    public Profile()
     {
         CreateMap<CompanyProfile, Company>()
             .ForMember(x => x.Name, opt => opt.MapFrom<CompanyNameResolver>())

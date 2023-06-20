@@ -1,15 +1,17 @@
 ﻿using CommandLine;
 using Wealtherty.Cli.CompaniesHouse.Commands;
 using Wealtherty.Cli.Core;
+using Wealtherty.Cli.Ukri.Commands;
 
 namespace Wealtherty.Cli;
 
 public static class Program
 {
     private static int Main(string[] args) {
-        return Parser.Default.ParseArguments<GetCompany>(args)
+        return Parser.Default.ParseArguments<GetCompany, SearchProjects>(args)
             .MapResult(
-                Execute,
+                (GetCompany command) => Execute(command),
+                (SearchProjects command) => Execute(command),
                 _ => 1);
     }
 

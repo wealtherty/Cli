@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
+using Wealtherty.Cli.Ukri;
 
 namespace Wealtherty.Cli;
 
@@ -14,6 +15,7 @@ public class ServiceProviderFactory : IServiceProviderFactory
         return new ServiceCollection()
             .AddCore(configuration)
             .AddCompaniesHouse(configuration)
+            .AddUkri()
             .BuildServiceProvider();
     }
     
