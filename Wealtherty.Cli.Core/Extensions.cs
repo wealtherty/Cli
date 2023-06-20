@@ -47,8 +47,5 @@ namespace Wealtherty.Cli.Core
                 await self.RunAsync(command);
             }
         }
-
-        public static string? ToNeo4jDate(this DateTime? self) =>
-            !self.HasValue ? null : $"date({self.Value:yyyy-MM-dd})";
     }
 }
