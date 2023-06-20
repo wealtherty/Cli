@@ -30,10 +30,8 @@ public class Client : IDisposable
         return JsonConvert.DeserializeObject<Fund>(json);
     }
 
-    public async Task<Project[]> SearchProjectsAsync(string query)
+    public async Task<Project[]> SearchProjectsAsync(string query, int size = 100)
     {
-        const int size = 100;
-        
         var page = 0;
         var projects = new List<Project>();
         var searchProjectsResponse = new SearchProjectsResponse();
@@ -46,7 +44,8 @@ public class Client : IDisposable
             var json = await response.Content.ReadAsStringAsync();
             searchProjectsResponse = JsonConvert.DeserializeObject<SearchProjectsResponse>(json);
             projects.AddRange(searchProjectsResponse.Projects);
-        } while (page != searchProjectsResponse.TotalPages);
+        } while (false);
+        // } while (page != searchProjectsResponse.TotalPages);
 
         return projects.ToArray();
     }

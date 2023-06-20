@@ -16,7 +16,7 @@ public class SearchProjects : Command
     {
         var client = serviceProvider.GetService<Client>();
 
-        var projects = await client.SearchProjectsAsync(Query);
+        var projects = await client.SearchProjectsAsync(Query, 50);
         
         Log.Information("Projects: {@Projects}", projects);
     }

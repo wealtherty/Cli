@@ -1,4 +1,6 @@
-﻿namespace Wealtherty.Cli.Ukri.Api.Model;
+﻿using Newtonsoft.Json;
+
+namespace Wealtherty.Cli.Ukri.Api.Model;
 
 public class Project
 {
@@ -13,4 +15,7 @@ public class Project
     public string leadFunder { get; set; }
     
     public string LeadOrganisationDepartment { get; set; }
+    
+    [JsonProperty("Links")]
+    public LinksWrapper LinksWrapper { get; set; } = new LinksWrapper();
 }
