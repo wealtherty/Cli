@@ -14,5 +14,6 @@ public class Officer : Node
     public string Nationality { get; set; }
     
     public int? YearOfBirth { get; set; }
+    
     protected override object GetMatchObject() => new { OfficerId };
 }
