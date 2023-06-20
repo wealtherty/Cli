@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 
 namespace Wealtherty.Cli.CompaniesHouse
 {
-    public static class Exetnsions
+    public static class Extensions
     {
         public static IServiceCollection AddCompaniesHouse(this IServiceCollection self, IConfigurationRoot configuration)
         {
@@ -17,5 +17,6 @@ namespace Wealtherty.Cli.CompaniesHouse
                 .AddSingleton<ICompaniesHouseClient>(provider =>
                     new CompaniesHouseClient(provider.GetService<ICompaniesHouseSettings>()));
         }
+        
     }
 }

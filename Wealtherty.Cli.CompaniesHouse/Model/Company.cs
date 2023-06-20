@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using Wealtherty.Cli.CompaniesHouse.Converters;
-using Wealtherty.Cli.Core.GraphDb;
+﻿using Wealtherty.Cli.Core.GraphDb;
 
 namespace Wealtherty.Cli.CompaniesHouse.Model;
 
@@ -16,11 +14,9 @@ public class Company : Node
     
     public string Description { get; set; }
     
-    [JsonConverter(typeof(DateConverter))]
-    public DateTime? CreatedOn { get; set; }
+    public string CreatedOn { get; set; }
 
-    [JsonConverter(typeof(DateConverter))]
-    public DateTime? StoppedTradingOn { get; set; }
+    public string StoppedTradingOn { get; set; }
 
     protected override object GetMatchObject() => new { Number };
 }

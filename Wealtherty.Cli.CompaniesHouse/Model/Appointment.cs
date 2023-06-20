@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Wealtherty.Cli.CompaniesHouse.Converters;
+﻿using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Core.GraphDb;
 
 namespace Wealtherty.Cli.CompaniesHouse.Model;
@@ -14,16 +13,14 @@ public class Appointment : Relationship<Officer, Company>
         _company = child;
         _appointment = appointment;
 
-        From = _appointment.AppointedOn;
-        To = _appointment.ResignedOn;
+        From = _appointment.AppointedOn.ToNeo4jDate();
+        To = _appointment.ResignedOn.ToNeo4jDate();
         Role = _appointment.OfficerRole.ToString();
     }
     
-    [JsonConverter(typeof(DateConverter))]
-    public DateTime? From { get; set; }
+    public string From { get; set; }
         
-    [JsonConverter(typeof(DateConverter))]
-    public DateTime? To { get; set; }
+    public string To { get; set; }
     
     public string Role { get; set; }
 

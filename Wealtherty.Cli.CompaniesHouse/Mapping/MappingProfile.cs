@@ -14,8 +14,8 @@ public class MappingProfile : Profile
             .ForMember(x => x.Number, opt => opt.MapFrom(x => x.CompanyNumber))
             .ForMember(x => x.Status, opt => opt.MapFrom(x => x.CompanyStatus.ToString()))
             .ForMember(x => x.Status, opt => opt.MapFrom(x => x.CompanyStatus.ToString()))
-            .ForMember(x => x.CreatedOn, opt => opt.MapFrom(x => x.DateOfCreation))
-            .ForMember(x => x.StoppedTradingOn, opt => opt.MapFrom(x => x.DateOfCessation));
+            .ForMember(x => x.CreatedOn, opt => opt.MapFrom<ComnpanyCreatedOnResolver>())
+            .ForMember(x => x.StoppedTradingOn, opt => opt.MapFrom<StoppedTradingOnResolver>());
         
         CreateMap<global::CompaniesHouse.Response.Officers.Officer, Officer>()
             .ForMember(x => x.Name, opt => opt.MapFrom<OfficerNameResolver>())
