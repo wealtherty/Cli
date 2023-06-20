@@ -27,20 +27,13 @@ public class Client
     {
         const int pageSize = 50;
         
-        async Task<CompaniesHouseClientResponse<Appointments>> GetPageOfAppointmentsAsync(string id, int startIndex)
-        {
-            var getAppointmentsResponse = await _companiesHouseClient.GetAppointmentsAsync(id, startIndex, pageSize);
-            
-            return getAppointmentsResponse;
-        }
-
-        CompaniesHouseClientResponse<Appointments> getAppointmentsResponse = null;
+        CompaniesHouseClientResponse<Appointments> getAppointmentsResponse;
         var appointmemts = new List<Appointment>();
         var startIndex = 0;
 
         do
         {
-            getAppointmentsResponse = await GetPageOfAppointmentsAsync(officerId, startIndex);
+            getAppointmentsResponse = await _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, pageSize);
             appointmemts.AddRange(getAppointmentsResponse.Data.Items);
             startIndex += pageSize;
         } while (appointmemts.Count != getAppointmentsResponse.Data.TotalResults);
