@@ -18,17 +18,36 @@ public class Client
     {
         var getOfficersResponse = await _companiesHouseClient.GetOfficersAsync(companyNumber);
         
-        Log.Information("Officers: {@Counts}", new { getOfficersResponse.Data.ActiveCount, getOfficersResponse.Data.ResignedCount, getOfficersResponse.Data.Items.Length});
+        Log.Information("Officers: {@Counts}", new { Expected =  getOfficersResponse.Data.ActiveCount + getOfficersResponse.Data.ResignedCount, Actual = getOfficersResponse.Data.Items.Length});
         
         return getOfficersResponse.Data.Items;
     }
 
     public async Task<Appointment[]> GetAppointmentsAsync(string officerId)
     {
-        var getAppointmentsResponse = await _companiesHouseClient.GetAppointmentsAsync(officerId);
+        const int pageSize = 50;
+        
+        async Task<CompaniesHouseClientResponse<Appointments>> GetPageOfAppointmentsAsync(string id, int startIndex)
+        {
+            var getAppointmentsResponse = await _companiesHouseClient.GetAppointmentsAsync(id, startIndex, pageSize);
             
-        Log.Information("Appointments: {@Counts}", new { getAppointmentsResponse.Data.TotalResults, getAppointmentsResponse.Data.Items.Length});
+            return getAppointmentsResponse;
+        }
 
-        return getAppointmentsResponse.Data.Items;
+        CompaniesHouseClientResponse<Appointments> getAppointmentsResponse = null;
+        var appointmemts = new List<Appointment>();
+        var startIndex = 0;
+
+        do
+        {
+            getAppointmentsResponse = await GetPageOfAppointmentsAsync(officerId, startIndex);
+            appointmemts.AddRange(getAppointmentsResponse.Data.Items);
+            startIndex += pageSize;
+        } while (appointmemts.Count != getAppointmentsResponse.Data.TotalResults);
+        
+        Log.Information("Appointments: {@Counts}",
+            new { Expected = getAppointmentsResponse.Data.TotalResults, Actual = appointmemts.Count });
+        
+        return appointmemts.ToArray();
     } 
 }
