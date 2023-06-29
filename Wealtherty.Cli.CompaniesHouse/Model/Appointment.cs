@@ -17,15 +17,17 @@ public class Appointment : Relationship<Officer, Company>
         From = _appointment.AppointedOn;
         To = _appointment.ResignedOn;
         Role = _appointment.OfficerRole.ToString();
+        Occupation = _appointment.Occupation;
     }
-    
+
+
     [JsonConverter(typeof(DateConverter))]
     public DateTime? From { get; set; }
         
     [JsonConverter(typeof(DateConverter))]
     public DateTime? To { get; set; }
-    
     public string Role { get; set; }
+    public string Occupation { get; set; }
     
     protected override string GetName()
     {
