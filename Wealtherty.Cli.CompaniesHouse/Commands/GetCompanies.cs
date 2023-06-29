@@ -1,5 +1,4 @@
 ﻿using CommandLine;
-using CompaniesHouse;
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
 using Wealtherty.Cli.CompaniesHouse.Model;
@@ -33,7 +32,6 @@ public class GetCompanies : Command
     
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var companiesHouseClient = serviceProvider.GetService<ICompaniesHouseClient>();
         var client = serviceProvider.GetService<Client>();
         var driver = serviceProvider.GetService<IDriver>();
 
@@ -51,7 +49,7 @@ public class GetCompanies : Command
             
                 foreach (var appointment in appointments)
                 {
-                    var getAppointmentCompanyResponse = await companiesHouseClient.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
+                    var getAppointmentCompanyResponse = await client.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
                     var appointmentCompanyNode = new Company(getAppointmentCompanyResponse.Data);
 
                     officerNode.AddRelation(new Appointment(officerNode, appointmentCompanyNode, appointment));

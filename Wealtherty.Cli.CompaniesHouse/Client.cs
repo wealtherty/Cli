@@ -1,5 +1,6 @@
 ﻿using CompaniesHouse;
 using CompaniesHouse.Response.Appointments;
+using CompaniesHouse.Response.CompanyProfile;
 using CompaniesHouse.Response.Officers;
 using Polly;
 using Polly.Retry;
@@ -32,7 +33,7 @@ public class Client
         _companiesHouseClient = companiesHouseClient;
     }
 
-    public async Task<Officer[]> GetOfficersAsync(string companyNumber)
+    public async Task<Officer[]> GetOfficersAsync(string companyNumber, CancellationToken cancellationToken = new CancellationToken())
     {
         const int pageSize = 50;
         
@@ -42,7 +43,7 @@ public class Client
 
         do
         {
-            var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetOfficersAsync(companyNumber, startIndex, pageSize));
+            var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetOfficersAsync(companyNumber, startIndex, pageSize, cancellationToken));
             var response = policyResult.Result;
             
             officers.AddRange(response.Data.Items);
@@ -57,7 +58,7 @@ public class Client
         return officers.ToArray();
     }
 
-    public async Task<Appointment[]> GetAppointmentsAsync(string officerId)
+    public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new CancellationToken())
     {
         const int pageSize = 50;
         
@@ -67,7 +68,7 @@ public class Client
 
         do
         {
-            var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, pageSize));
+            var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, pageSize, cancellationToken));
             var response = policyResult.Result;
 
             appointmemts.AddRange(response.Data.Items);
@@ -79,5 +80,14 @@ public class Client
             officerId, new { Expected = expected, Actual = appointmemts.Count });
         
         return appointmemts.ToArray();
-    } 
+    }
+
+    public async Task<CompaniesHouseClientResponse<CompanyProfile>> GetCompanyProfileAsync(string companyNumber, CancellationToken cancellationToken = default(CancellationToken))
+    {
+        var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetCompanyProfileAsync(companyNumber, cancellationToken));
+        var response = policyResult.Result;
+        
+        return response;
+    }
+
 }
