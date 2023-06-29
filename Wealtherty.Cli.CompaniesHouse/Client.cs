@@ -57,7 +57,7 @@ public class Client
                 expected = response.Data.ActiveCount.Value + response.Data.ResignedCount.Value;
                 startIndex += PageSize;
 
-            } while (officers.Count != expected);
+            } while (officers.Count < expected);
 
             Log.Debug("Company Officers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", companyNumber,
                 new { Expected = expected, Actual = officers.Count });
