@@ -38,6 +38,8 @@ public class Client
     public async Task<Officer[]> GetOfficersAsync(string companyNumber, CancellationToken cancellationToken = new CancellationToken())
     {
         await Semaphore.WaitAsync(cancellationToken);
+        
+        Log.Debug("Getting Company Officers - CompanyNumber: {CompanyNumber}", companyNumber);
 
         try
         {
@@ -56,9 +58,8 @@ public class Client
 
             } while (officers.Count != expected);
 
-            Log.Information("GetOfficers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", 
-                companyNumber, new { Expected = expected, Actual = officers.Count });
-        
+            Log.Debug("Company Officers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", companyNumber,
+                new { Expected = expected, Actual = officers.Count });
             return officers.ToArray();
         }
         finally
@@ -70,6 +71,8 @@ public class Client
     public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new CancellationToken())
     {
         await Semaphore.WaitAsync(cancellationToken);
+        
+        Log.Debug("Getting Officer Appointments - OfficerId: {OfficerId}", officerId);
 
         try
         {
@@ -87,8 +90,8 @@ public class Client
                 startIndex += PageSize;
             } while (appointmemts.Count != expected);
 
-            Log.Information("GetAppointments - OfficerId: {OfficerId}, Counts: {@Counts}",
-                officerId, new { Expected = expected, Actual = appointmemts.Count });
+            Log.Debug("Officer Appointments - OfficerId: {OfficerId}, Counts: {@Counts}", officerId,
+                new { Expected = expected, Actual = appointmemts.Count });
         
             return appointmemts.ToArray();
         }

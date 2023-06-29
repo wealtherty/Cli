@@ -21,7 +21,7 @@ public class Officer : Node
         
         Name = resource.GetFormattedName();
         OfficerId = resource.Links.Officer.OfficerId;
-        YearOfBirth = resource.DateOfBirth.Year;
+        YearOfBirth = resource.DateOfBirth?.Year;
     }
     
     

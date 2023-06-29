@@ -5,7 +5,6 @@ using Neo4j.Driver;
 using Newtonsoft.Json;
 using Serilog;
 using Wealtherty.Cli.Core.GraphDb;
-using Wealtherty.Cli.Core.Logging;
 
 namespace Wealtherty.Cli.Core
 {
@@ -15,7 +14,6 @@ namespace Wealtherty.Cli.Core
         {
             return self
                 .Configure<Settings>(configuration.GetSection("Neo4j"))
-                .AddScoped<IStartable, LoggingStartable>()
                 .AddSingleton(provider =>
                 {
                     var settings = provider.GetService<IOptions<Settings>>().Value;

@@ -1,18 +1,22 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CommandLine;
 using Serilog;
+using Serilog.Events;
 
 namespace Wealtherty.Cli.Core;
 
 public abstract class Command
 {
+    [Option('l', "loglevel", Default = LogEventLevel.Information)]
+    public LogEventLevel LogLevel { get; set; }
+
     protected abstract Task ExecuteImplAsync(IServiceProvider serviceProvider);
     
     public async Task ExecuteAsync(IServiceProviderFactory serviceProviderFactory)
     {
+        InitialiseLogging();
+        
         var serviceProvider = serviceProviderFactory.Create();
-
-        ExecuteStartable(serviceProvider);
-
+        
         Log.Information("Executing {@Command}", this);
         
         try
@@ -25,15 +29,11 @@ public abstract class Command
         }
     }
 
-    private static void ExecuteStartable(IServiceProvider serviceProvider)
+    private void InitialiseLogging()
     {
-        var startables = serviceProvider.GetService<IEnumerable<IStartable>>();
-
-        if (startables == null) return;
-
-        foreach (var startable in startables)
-        {
-            startable.Execute();
-        }
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .MinimumLevel.Is(LogLevel)
+            .CreateLogger();
     }
 }

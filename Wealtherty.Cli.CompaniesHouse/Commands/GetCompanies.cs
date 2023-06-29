@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Wealtherty.Cli.CompaniesHouse.Services;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;
@@ -16,7 +15,7 @@ public class GetCompanies : Command
         private const string CentreForPolicyStudies = "01174651";
         private const string CentreForSocialJustice = "05137036";
         private const string InstitueOfEconomicAffairs = null;
-        private const string PolicyExchange = null;
+        private const string PolicyExchange = "04297905";
         private const string Reform = null;
         private const string LegatumInstitute = null;
         
@@ -24,7 +23,14 @@ public class GetCompanies : Command
         {
             return new[]
             {
-                CentreForSocialJustice,
+                // AdamSmithInstitute,
+                // BowGroup,
+                // CentreForPolicyStudies,
+                // CentreForSocialJustice,
+                // InstitueOfEconomicAffairs,
+                PolicyExchange,
+                // Reform,
+                // LegatumInstitute
             };
         }
     }

@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Wealtherty.Cli.CompaniesHouse.Services;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;

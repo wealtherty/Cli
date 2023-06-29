@@ -4,7 +4,6 @@ using Humanizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Wealtherty.Cli.CompaniesHouse.Services;
 
 namespace Wealtherty.Cli.CompaniesHouse
 {
