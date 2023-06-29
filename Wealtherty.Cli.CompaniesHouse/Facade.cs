@@ -13,6 +13,7 @@ public class Facade
     private readonly Client _client;
 
     private static readonly OfficerRole[] RolesToIgnore = {
+        OfficerRole.CorporateNomineeDirector,
         OfficerRole.CorporateNomineeSecretary,
         OfficerRole.CorporateSecretary,
         OfficerRole.NomineeDirector, 
