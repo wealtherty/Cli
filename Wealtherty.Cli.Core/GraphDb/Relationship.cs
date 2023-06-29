@@ -16,13 +16,24 @@ public abstract class Relationship
 
 public class Relationship<TParent, TChild> : Relationship where TParent : Node where TChild: Node
 {
+    private readonly string _name;
+
     public Relationship(TParent parent, TChild child)
     {
         Parent = parent;
         Child = child;
+
+        _name = GetType().Name;
+    }
+
+    public Relationship(TParent parent, TChild child, string name)
+    {
+        Parent = parent;
+        Child = child;
+        _name = name;
     }
     
-    protected virtual string GetName() => GetType().Name;
+    protected virtual string GetName() => _name;
 
 
     public override string GetMergeCommand()

@@ -8,10 +8,11 @@ namespace Wealtherty.Cli;
 public static class Program
 {
     private static int Main(string[] args) {
-        return Parser.Default.ParseArguments<GetCompanies, GetCompany, SearchProjects>(args)
+        return Parser.Default.ParseArguments<GetCompanies, GetCompany, GetThinkTanks, SearchProjects>(args)
             .MapResult(
                 (GetCompanies command) => Execute(command),
                 (GetCompany command) => Execute(command),
+                (GetThinkTanks command) => Execute(command),
                 (SearchProjects command) => Execute(command),
                 _ => 1);
     }

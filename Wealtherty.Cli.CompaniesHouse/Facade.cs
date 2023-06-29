@@ -3,6 +3,7 @@ using Neo4j.Driver;
 using Serilog;
 using Wealtherty.Cli.CompaniesHouse.Model;
 using Wealtherty.Cli.Core;
+using Wealtherty.Cli.Core.GraphDb;
 using Officer = Wealtherty.Cli.CompaniesHouse.Model.Officer;
 
 namespace Wealtherty.Cli.CompaniesHouse;
@@ -77,5 +78,22 @@ public class Facade
             await session.ExecuteCommandsAsync(officerNode);
         }
 
+    }
+
+    public async Task ModelThinkTankAsync(string name, PoliticalWing politicalWing, string companyNumber, CancellationToken cancellationToken)
+    {
+        await using var session = _driver.AsyncSession();
+        
+        var thinkTank = new ThinkTank
+        {
+            Name = name,
+            Wing = politicalWing.ToString()
+        };
+        
+        thinkTank.AddRelation(new Relationship<ThinkTank, Company>(thinkTank, new Company(companyNumber), "HAS_COMPANY"));
+        
+        await session.ExecuteCommandsAsync(thinkTank);
+
+        await ModelCompanyAsync(companyNumber, cancellationToken);
     }
 }

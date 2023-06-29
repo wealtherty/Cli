@@ -34,7 +34,11 @@ public class Company : Node
     [JsonIgnore]
     public CompanyProfile Resource { get; }
 
-    
+    public Company(string companyNumber)
+    {
+        Number = companyNumber;
+    }
+
     public Company(CompanyProfile resource)
     {
         Resource = resource;
