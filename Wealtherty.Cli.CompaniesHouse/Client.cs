@@ -36,7 +36,7 @@ public class Client
         _companiesHouseClient = companiesHouseClient;
     }
 
-    public async Task<Officer[]> GetOfficersAsync(string companyNumber, CancellationToken cancellationToken = new CancellationToken())
+    public async Task<Officer[]> GetOfficersAsync(string companyNumber, CancellationToken cancellationToken = new())
     {
         await Semaphore.WaitAsync(cancellationToken);
         
@@ -52,9 +52,14 @@ public class Client
             {
                 var policyResult = await Retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetOfficersAsync(companyNumber, startIndex, PageSize, cancellationToken));
                 var response = policyResult.Result;
+
+                if (response.Data?.Items == null)
+                {
+                    throw new Exception($"Error getting officers.  Response items is null - CompanyNumber: {companyNumber}");
+                }
             
                 officers.AddRange(response.Data.Items);
-                expected = response.Data.ActiveCount.Value + response.Data.ResignedCount.Value;
+                expected = response.Data.ActiveCount ?? 0 + response.Data.ResignedCount?? 0;
                 startIndex += PageSize;
 
             } while (officers.Count < expected);
@@ -69,7 +74,7 @@ public class Client
         }
     }
 
-    public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new CancellationToken(), int maxResults = 1000)
+    public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new(), int maxResults = 1000)
     {
         await Semaphore.WaitAsync(cancellationToken);
         
