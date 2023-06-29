@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Wealtherty.Cli.Core.GraphDb;
 
-namespace Wealtherty.Cli.Ukri.Api.Model;
+namespace Wealtherty.Cli.Ukri.Graph.Model;
 
-public class Project
+public class Project : Node
 {
-    public string Id { get; set; }
+    public string ProjectId { get; set; }
     
     public string Title { get; set; }
     
@@ -15,7 +15,5 @@ public class Project
     public string LeadFunder { get; set; }
     
     public string LeadOrganisationDepartment { get; set; }
-    
-    [JsonProperty("Links")]
-    public LinksWrapper LinksWrapper { get; set; } = new LinksWrapper();
+
 }

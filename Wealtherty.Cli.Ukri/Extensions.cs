@@ -7,7 +7,8 @@ namespace Wealtherty.Cli.Ukri
     {
         public static IServiceCollection AddUkri(this IServiceCollection self)
         {
-            return self.AddSingleton<Client>();
+            return self.AddSingleton<Client>()
+                .AddAutoMapper(typeof(Extensions).Assembly);
         }
         
     }

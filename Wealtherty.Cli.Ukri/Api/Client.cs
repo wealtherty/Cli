@@ -21,15 +21,6 @@ public class Client : IDisposable
 
     }
     
-    public async Task<Fund> GetFundAsync(string id)
-    {
-        var response = await _httpClient.GetAsync($"/gtr/api/funds/{id}");
-        response.EnsureSuccessStatusCode();
-        var json = await response.Content.ReadAsStringAsync();
-
-        return JsonConvert.DeserializeObject<Fund>(json);
-    }
-
     public async Task<Project[]> SearchProjectsAsync(string query, int size = 100)
     {
         var page = 0;
@@ -44,21 +35,28 @@ public class Client : IDisposable
             var json = await response.Content.ReadAsStringAsync();
             searchProjectsResponse = JsonConvert.DeserializeObject<SearchProjectsResponse>(json);
             projects.AddRange(searchProjectsResponse.Projects);
-        } while (false);
-        // } while (page != searchProjectsResponse.TotalPages);
+        } while (page != searchProjectsResponse.TotalPages);
 
         return projects.ToArray();
     }
+    
+    public Task<Fund> GetFundAsync(string id) => GetAsync<Fund>($"/gtr/api/funds/{id}");
 
-    public void Dispose() => _httpClient?.Dispose();
 
-    public async Task<Organisation> GetOrganisationbyHrefAsync(string href)
+    public Task<Organisation> GetOrganisationAsync(string id) => GetAsync<Organisation>($"/gtr/api/organisations/{id}");
+
+    public Task<Person> GetPersonAsync(string id) => GetAsync<Person>($"/gtr/api/persons/{id}");
+
+    private async Task<T> GetAsync<T>(string uri)
     {
-        var id = href.Split('/').Last();
-        var response = await _httpClient.GetAsync($"/gtr/api/funds/{id}");
+        var response = await _httpClient.GetAsync(uri);
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync();
 
-        return JsonConvert.DeserializeObject<Organisation>(json);
+        return JsonConvert.DeserializeObject<T>(json);
     }
+
+
+    public void Dispose() => _httpClient?.Dispose();
+
 }

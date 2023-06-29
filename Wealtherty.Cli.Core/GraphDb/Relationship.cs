@@ -16,7 +16,7 @@ public abstract class Relationship
 
 public class Relationship<TParent, TChild> : Relationship where TParent : Node where TChild: Node
 {
-    protected Relationship(TParent parent, TChild child)
+    public Relationship(TParent parent, TChild child)
     {
         Parent = parent;
         Child = child;
