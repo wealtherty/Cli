@@ -14,23 +14,25 @@ public class GetCompanies : Command
         private const string BowGroup = null;
         private const string CentreForPolicyStudies = "01174651";
         private const string CentreForSocialJustice = "05137036";
-        private const string InstitueOfEconomicAffairs = null;
+        private const string InstituteOfEconomicAffairs = null;
         private const string PolicyExchange = "04297905";
-        private const string Reform = null;
-        private const string LegatumInstitute = null;
+        private const string ReformResearchTrust = "null05064109";
+        private const string LegatumInstitute = "FC028686";
+        private const string LegatumInstituteLimited = "14543238";
         
         public static IEnumerable<string> All()
         {
             return new[]
             {
-                // AdamSmithInstitute,
-                // BowGroup,
-                // CentreForPolicyStudies,
-                // CentreForSocialJustice,
-                // InstitueOfEconomicAffairs,
+                AdamSmithInstitute,
+                BowGroup,
+                CentreForPolicyStudies,
+                CentreForSocialJustice,
+                InstituteOfEconomicAffairs,
                 PolicyExchange,
-                // Reform,
-                // LegatumInstitute
+                ReformResearchTrust,
+                LegatumInstitute,
+                LegatumInstituteLimited
             };
         }
     }
