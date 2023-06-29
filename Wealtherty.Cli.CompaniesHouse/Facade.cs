@@ -19,6 +19,12 @@ public class Facade
         OfficerRole.NomineeSecretary
     };
 
+    private static string[] OfficersToIgnore =
+    {
+        "SBjtBss_I4XEupbfAUXoeAkMcIk",
+        "8d_bnTiwfxh8JIr3YfuwkmkWkCg"
+    };
+
     public Facade(IDriver driver, Client client)
     {
         _driver = driver;
@@ -35,7 +41,7 @@ public class Facade
 
         foreach (var officer in officers)
         {
-            if (RolesToIgnore.Contains(officer.OfficerRole))
+            if (OfficersToIgnore.Contains(officer.Links.Officer.OfficerId, StringComparer.OrdinalIgnoreCase) ||  RolesToIgnore.Contains(officer.OfficerRole))
             {
                 Log.Information("Ignoring Officer: {@Officer}", new { Id = officer.Links.Officer.OfficerId, officer.Name, Role = officer.OfficerRole});
                 continue;

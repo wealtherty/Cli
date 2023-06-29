@@ -5,6 +5,7 @@ using CompaniesHouse.Response.Officers;
 using Polly;
 using Polly.Retry;
 using Serilog;
+using Serilog.Events;
 
 namespace Wealtherty.Cli.CompaniesHouse;
 
@@ -68,7 +69,7 @@ public class Client
         }
     }
 
-    public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new CancellationToken())
+    public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new CancellationToken(), int maxResults = 1000)
     {
         await Semaphore.WaitAsync(cancellationToken);
         
@@ -88,11 +89,11 @@ public class Client
                 appointmemts.AddRange(response.Data.Items);
                 expected = response.Data.TotalResults;
                 startIndex += PageSize;
-            } while (appointmemts.Count != expected);
+            } while (expected < maxResults && appointmemts.Count != expected);
 
-            Log.Debug("Officer Appointments - OfficerId: {OfficerId}, Counts: {@Counts}", officerId,
-                new { Expected = expected, Actual = appointmemts.Count });
-        
+            Log.Write(expected > maxResults ? LogEventLevel.Warning : LogEventLevel.Debug, "Officer Appointments - OfficerId: {OfficerId}, Counts: {@Counts}", officerId,
+                new { Max = maxResults, Expected = expected, Actual = appointmemts.Count });
+            
             return appointmemts.ToArray();
         }
         finally
