@@ -6,20 +6,6 @@ namespace Wealtherty.Cli.CompaniesHouse.Model;
 
 public class Appointment : Relationship<Officer, Company>
 {
-    private readonly Company _company;
-    private readonly global::CompaniesHouse.Response.Appointments.Appointment _appointment;
-
-    public Appointment(Officer parent, Company child, global::CompaniesHouse.Response.Appointments.Appointment appointment) : base(parent, child)
-    {
-        _company = child;
-        _appointment = appointment;
-
-        From = _appointment.AppointedOn;
-        To = _appointment.ResignedOn;
-        Role = _appointment.OfficerRole.ToString();
-        Occupation = _appointment.Occupation;
-    }
-
 
     [JsonConverter(typeof(DateConverter))]
     public DateTime? From { get; set; }
@@ -29,14 +15,30 @@ public class Appointment : Relationship<Officer, Company>
     public string Role { get; set; }
     public string Occupation { get; set; }
     
-    protected override string GetName()
-    {
-        if (_company.Status.Equals("Dissolved", StringComparison.OrdinalIgnoreCase))
-        {
-            return "WORKED_FOR";
-        }
+    public bool IsCurrent { get; set; }
+    
+    [JsonIgnore]
+    public global::CompaniesHouse.Response.Appointments.Appointment Resource { get; }
 
-        return _appointment.ResignedOn.HasValue ? "WORKED_FOR" : "WORKS_FOR";
+    public Appointment(Officer parent, Company child, global::CompaniesHouse.Response.Appointments.Appointment resource) : base(parent, child)
+    {
+        Resource = resource;
+        
+        From = resource.AppointedOn;
+        To = resource.ResignedOn;
+        Role = resource.OfficerRole.ToString();
+        Occupation = resource.Occupation;
+        
+        if (child.Status.Equals("Dissolved", StringComparison.OrdinalIgnoreCase))
+        {
+            IsCurrent = false;
+        }
+        else
+        {
+            IsCurrent = !Resource.ResignedOn.HasValue;
+        }
     }
+    
+    protected override string GetName() => IsCurrent ?  "WORKS_FOR" : "WORKED_FOR";
 }
 

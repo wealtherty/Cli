@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using CommandLine;
+﻿using CommandLine;
 using CompaniesHouse;
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
@@ -18,7 +17,6 @@ public class GetCompany : Command
     {
         var companiesHouseClient = serviceProvider.GetService<ICompaniesHouseClient>();
         var client = serviceProvider.GetService<Client>();
-        var mapper = serviceProvider.GetService<IMapper>();
         var driver = serviceProvider.GetService<IDriver>();
 
         await using var session = driver.AsyncSession();
@@ -27,15 +25,14 @@ public class GetCompany : Command
 
         foreach (var officer in officers)
         {
-            var officerNode = mapper.Map<Officer>(officer);
+            var officerNode = new Officer(officer);
 
             var appointments = await client.GetAppointmentsAsync(officer.Links.Officer.OfficerId);
             
             foreach (var appointment in appointments)
             {
-                var getAppointmentCompanyResponse =
-                    await companiesHouseClient.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
-                var appointmentCompanyNode = mapper.Map<Company>(getAppointmentCompanyResponse.Data);
+                var getAppointmentCompanyResponse = await companiesHouseClient.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
+                var appointmentCompanyNode = new Company(getAppointmentCompanyResponse.Data);
 
                 officerNode.AddRelation(new Appointment(officerNode, appointmentCompanyNode, appointment));
             }
