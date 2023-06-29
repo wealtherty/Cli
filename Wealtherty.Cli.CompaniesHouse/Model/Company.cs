@@ -18,14 +18,23 @@ public class Company : Node
     public string Description { get; set; }
     
     [JsonConverter(typeof(DateConverter))]
-    public DateTime? CreatedOn { get; set; }
+    public DateTime? DateOfCreation { get; set; }
 
     [JsonConverter(typeof(DateConverter))]
-    public DateTime? StoppedTradingOn { get; set; }
+    public DateTime? DateOfCessation { get; set; }
 
+    public bool? HasInsolvencyHistory { get; set; }
+
+    public bool? HasCharges { get; set; }
+
+    public bool? HasBeenLiquidated { get; set; }
+
+    public bool? IsCommunityInterestCompany { get; set; }
+    
     [JsonIgnore]
     public CompanyProfile Resource { get; }
 
+    
     public Company(CompanyProfile resource)
     {
         Resource = resource;
@@ -33,10 +42,13 @@ public class Company : Node
         Name = resource.GetFormattedName();
         Number = resource.CompanyNumber;
         Status = resource.CompanyStatus.ToString();
-        CreatedOn = resource.DateOfCessation;
-        StoppedTradingOn = resource.DateOfCessation;
+        DateOfCreation = resource.DateOfCreation;
+        DateOfCessation = resource.DateOfCessation;
+        IsCommunityInterestCompany = resource.IsCommunityInterestCompany;
+        HasBeenLiquidated = resource.HasBeenLiquidated;
+        HasCharges = resource.HasCharges;
+        HasInsolvencyHistory = resource.HasInsolvencyHistory;
     }
-
-
+    
     protected override object GetMatchObject() => new { Number };
 }
