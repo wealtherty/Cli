@@ -20,6 +20,8 @@ public class Facade
         OfficerRole.NomineeSecretary
     };
 
+    private static readonly string[] CompaniesToIgnore = Array.Empty<string>();
+
     private static readonly string[] OfficersToIgnore =
     {
         "SBjtBss_I4XEupbfAUXoeAkMcIk",
@@ -35,6 +37,12 @@ public class Facade
     public async Task ModelCompanyAsync(string companyNumber, CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(companyNumber)) return;
+        
+        if (CompaniesToIgnore.Contains(companyNumber, StringComparer.OrdinalIgnoreCase))
+        {
+            Log.Information("Ignoring Company: {Number}", companyNumber);
+            return;
+        }
         
         await using var session = _driver.AsyncSession();
 
@@ -54,6 +62,12 @@ public class Facade
             
             foreach (var appointment in appointments.Where(x => !RolesToIgnore.Contains(x.OfficerRole)))
             {
+                if (CompaniesToIgnore.Contains(appointment.Appointed.CompanyNumber, StringComparer.OrdinalIgnoreCase))
+                {
+                    Log.Information("Ignoring Appointment: {@Appointment}", new { OfficeId = officer.Links.Officer.OfficerId, officer.Name, appointment.Appointed.CompanyNumber, appointment.Appointed.CompanyName});
+                    continue;
+                }
+                
                 var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber, cancellationToken);
                 var appointmentCompanyNode = new Company(getAppointmentCompanyResponse.Data);
 

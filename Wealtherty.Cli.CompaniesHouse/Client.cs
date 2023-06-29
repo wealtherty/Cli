@@ -27,7 +27,7 @@ public class Client
             TimeSpan.FromMinutes(1),
             TimeSpan.FromMinutes(1),
             TimeSpan.FromMinutes(1)
-        }, (exception, span) => Log.Error(exception, "Error calling Companies House - Sleeping for: {@Span}", span));
+        }, (exception, span) => Log.Debug(exception, "Error calling Companies House - Sleeping for: {@Span}", span));
 
     private readonly ICompaniesHouseClient _companiesHouseClient;
 

@@ -16,7 +16,7 @@ public class GetCompanies : Command
         private const string CentreForSocialJustice = "05137036";
         private const string InstituteOfEconomicAffairs = null;
         private const string PolicyExchange = "04297905";
-        private const string ReformResearchTrust = "null05064109";
+        private const string ReformResearchTrust = "05064109";
         private const string LegatumInstitute = "FC028686";
         private const string LegatumInstituteLimited = "14543238";
         
