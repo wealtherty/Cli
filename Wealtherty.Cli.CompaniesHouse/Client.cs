@@ -10,7 +10,9 @@ namespace Wealtherty.Cli.CompaniesHouse;
 
 public class Client
 {
-    private readonly AsyncRetryPolicy _retry = Policy
+    private const int PageSize = 50;
+    private static readonly SemaphoreSlim Semaphore = new(1,1);
+    private static readonly AsyncRetryPolicy Retry = Policy
         .Handle<HttpRequestException>(x => !x.Message.Contains("404"))
         .WaitAndRetryAsync(new[]
         {
@@ -35,59 +37,82 @@ public class Client
 
     public async Task<Officer[]> GetOfficersAsync(string companyNumber, CancellationToken cancellationToken = new CancellationToken())
     {
-        const int pageSize = 50;
-        
-        var officers = new List<Officer>();
-        var startIndex = 0;
-        int expected;
+        await Semaphore.WaitAsync(cancellationToken);
 
-        do
+        try
         {
-            var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetOfficersAsync(companyNumber, startIndex, pageSize, cancellationToken));
-            var response = policyResult.Result;
+            var officers = new List<Officer>();
+            var startIndex = 0;
+            int expected;
+
+            do
+            {
+                var policyResult = await Retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetOfficersAsync(companyNumber, startIndex, PageSize, cancellationToken));
+                var response = policyResult.Result;
             
-            officers.AddRange(response.Data.Items);
-            expected = response.Data.ActiveCount.Value + response.Data.ResignedCount.Value;
-            startIndex += pageSize;
+                officers.AddRange(response.Data.Items);
+                expected = response.Data.ActiveCount.Value + response.Data.ResignedCount.Value;
+                startIndex += PageSize;
 
-        } while (officers.Count != expected);
+            } while (officers.Count != expected);
 
-        Log.Information("GetOfficers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", 
-            companyNumber, new { Expected = expected, Actual = officers.Count });
+            Log.Information("GetOfficers - CompanyNumber: {CompanyNumber}, Counts: {@Counts}", 
+                companyNumber, new { Expected = expected, Actual = officers.Count });
         
-        return officers.ToArray();
+            return officers.ToArray();
+        }
+        finally
+        {
+            Semaphore.Release();
+        }
     }
 
     public async Task<Appointment[]> GetAppointmentsAsync(string officerId, CancellationToken cancellationToken = new CancellationToken())
     {
-        const int pageSize = 50;
-        
-        var appointmemts = new List<Appointment>();
-        var startIndex = 0;
-        int expected;
+        await Semaphore.WaitAsync(cancellationToken);
 
-        do
+        try
         {
-            var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, pageSize, cancellationToken));
-            var response = policyResult.Result;
+            var appointmemts = new List<Appointment>();
+            var startIndex = 0;
+            int expected;
 
-            appointmemts.AddRange(response.Data.Items);
-            expected = response.Data.TotalResults;
-            startIndex += pageSize;
-        } while (appointmemts.Count != expected);
+            do
+            {
+                var policyResult = await Retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetAppointmentsAsync(officerId, startIndex, PageSize, cancellationToken));
+                var response = policyResult.Result;
 
-        Log.Information("GetAppointments - OfficerId: {OfficerId}, Counts: {@Counts}",
-            officerId, new { Expected = expected, Actual = appointmemts.Count });
+                appointmemts.AddRange(response.Data.Items);
+                expected = response.Data.TotalResults;
+                startIndex += PageSize;
+            } while (appointmemts.Count != expected);
+
+            Log.Information("GetAppointments - OfficerId: {OfficerId}, Counts: {@Counts}",
+                officerId, new { Expected = expected, Actual = appointmemts.Count });
         
-        return appointmemts.ToArray();
+            return appointmemts.ToArray();
+        }
+        finally
+        {
+            Semaphore.Release();
+        }
     }
 
     public async Task<CompaniesHouseClientResponse<CompanyProfile>> GetCompanyProfileAsync(string companyNumber, CancellationToken cancellationToken = default(CancellationToken))
     {
-        var policyResult = await _retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetCompanyProfileAsync(companyNumber, cancellationToken));
-        var response = policyResult.Result;
+        await Semaphore.WaitAsync(cancellationToken);
+
+        try
+        {
+            var policyResult = await Retry.ExecuteAndCaptureAsync(() => _companiesHouseClient.GetCompanyProfileAsync(companyNumber, cancellationToken));
+            var response = policyResult.Result;
         
-        return response;
+            return response;
+        }
+        finally
+        {
+            Semaphore.Release();
+        }
     }
 
 }
