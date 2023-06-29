@@ -12,14 +12,14 @@ public class Facade
     private readonly IDriver _driver;
     private readonly Client _client;
 
-    private static OfficerRole[] RolesToIgnore = {
+    private static readonly OfficerRole[] RolesToIgnore = {
         OfficerRole.CorporateNomineeSecretary,
         OfficerRole.CorporateSecretary,
         OfficerRole.NomineeDirector, 
         OfficerRole.NomineeSecretary
     };
 
-    private static string[] OfficersToIgnore =
+    private static readonly string[] OfficersToIgnore =
     {
         "SBjtBss_I4XEupbfAUXoeAkMcIk",
         "8d_bnTiwfxh8JIr3YfuwkmkWkCg"
