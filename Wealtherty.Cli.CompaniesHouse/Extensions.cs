@@ -4,6 +4,7 @@ using Humanizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Wealtherty.Cli.CompaniesHouse.Services;
 
 namespace Wealtherty.Cli.CompaniesHouse
 {
@@ -17,7 +18,8 @@ namespace Wealtherty.Cli.CompaniesHouse
                     new CompaniesHouseSettings(provider.GetService<IOptions<Settings>>().Value.ApiKey))
                 .AddSingleton<ICompaniesHouseClient>(provider =>
                     new CompaniesHouseClient(provider.GetService<ICompaniesHouseSettings>()))
-                .AddSingleton<Client>();
+                .AddSingleton<Client>()
+                .AddSingleton<Facade>();
         }
 
         public static string GetFormattedName(this global::CompaniesHouse.Response.Officers.Officer self)

@@ -1,7 +1,6 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Neo4j.Driver;
-using Wealtherty.Cli.CompaniesHouse.Model;
+using Wealtherty.Cli.CompaniesHouse.Services;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;
@@ -32,32 +31,13 @@ public class GetCompanies : Command
     
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var client = serviceProvider.GetService<Client>();
-        var driver = serviceProvider.GetService<IDriver>();
-
-        await using var session = driver.AsyncSession();
-
+        var facade = serviceProvider.GetService<Facade>();
+        
+        var cancellationToken = new CancellationToken();
+        
         foreach (var companyNumber in CompanyNumbers.All().Where(x => x != null))
         {
-            var officers = await client.GetOfficersAsync(companyNumber);
-
-            foreach (var officer in officers)
-            {
-                var officerNode = new Officer(officer);
-
-                var appointments = await client.GetAppointmentsAsync(officer.Links.Officer.OfficerId);
-            
-                foreach (var appointment in appointments)
-                {
-                    var getAppointmentCompanyResponse = await client.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
-                    var appointmentCompanyNode = new Company(getAppointmentCompanyResponse.Data);
-
-                    officerNode.AddRelation(new Appointment(officerNode, appointmentCompanyNode, appointment));
-                }
-
-                await session.ExecuteCommandsAsync(officerNode);
-            }
-            
+            await facade.ModelCompanyAsync(companyNumber, cancellationToken);
         }
 
     }
