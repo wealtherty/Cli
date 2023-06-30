@@ -18,7 +18,8 @@ namespace Wealtherty.Cli.CompaniesHouse
                 .AddSingleton<ICompaniesHouseClient>(provider =>
                     new CompaniesHouseClient(provider.GetService<ICompaniesHouseSettings>()))
                 .AddSingleton<Client>()
-                .AddSingleton<Facade>();
+                .AddSingleton<Facade>()
+                .AddSingleton<SicCodeReader>();
         }
 
         public static string GetFormattedName(this global::CompaniesHouse.Response.Officers.Officer self)

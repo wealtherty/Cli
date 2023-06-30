@@ -12,6 +12,13 @@ public abstract class Node
     public string GetMatchExpression(char prefix) => $"({prefix}:{GetType().Name} {GetMatchObject().ToJson()})";
     
     public void AddRelation(Relationship relationship) => _relationships.Add(relationship);
+    public void AddRelations(IEnumerable<Relationship> relationships)
+    {
+        foreach (var relationship in relationships)
+        {
+            AddRelation(relationship);
+        }
+    }
 
     public string[] GetCommands()
     {

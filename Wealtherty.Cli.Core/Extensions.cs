@@ -45,5 +45,10 @@ namespace Wealtherty.Cli.Core
                 await self.RunAsync(command);
             }
         }
+
+        public static IEnumerable<T> OrEmpty<T>(this IEnumerable<T> self)
+        {
+            return self ?? Enumerable.Empty<T>();
+        }
     }
 }

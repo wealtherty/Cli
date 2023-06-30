@@ -15,4 +15,9 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resrouces\SicCodes.csv" />
+      <EmbeddedResource Include="Resources\SicCodes.csv" />
+    </ItemGroup>
+
 </Project>

@@ -12,6 +12,7 @@ public class Facade
 {
     private readonly IDriver _driver;
     private readonly Client _client;
+    private readonly SicCodeReader _sicCodeReader;
 
     private static readonly OfficerRole[] RolesToIgnore = {
         OfficerRole.CorporateNomineeDirector,
@@ -29,10 +30,11 @@ public class Facade
         "8d_bnTiwfxh8JIr3YfuwkmkWkCg"
     };
 
-    public Facade(IDriver driver, Client client)
+    public Facade(IDriver driver, Client client, SicCodeReader sicCodeReader)
     {
         _driver = driver;
         _client = client;
+        _sicCodeReader = sicCodeReader;
     }
     
     public async Task ModelCompanyAsync(string companyNumber, CancellationToken cancellationToken)
@@ -70,9 +72,11 @@ public class Facade
                 }
                 
                 var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber, cancellationToken);
-                var appointmentCompanyNode = new Company(getAppointmentCompanyResponse.Data);
-
-                officerNode.AddRelation(new Appointment(officerNode, appointmentCompanyNode, appointment));
+                var companyProfile = getAppointmentCompanyResponse.Data;
+                
+                var companyNode = new Company(companyProfile);
+                companyNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
+                officerNode.AddRelation(new Appointment(officerNode, companyNode, appointment));
             }
 
             await session.ExecuteCommandsAsync(officerNode);
