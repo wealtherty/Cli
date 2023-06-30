@@ -84,15 +84,21 @@ public class Facade
     {
         await using var session = _driver.AsyncSession();
         
-        var thinkTank = new ThinkTank
+        var thinkTankNode = new ThinkTank
         {
             Name = name,
             Wing = politicalWing.ToString()
         };
+
+        if (companyNumber != null)
+        {
+            var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(companyNumber, cancellationToken);
+            var companyNode = new Company(getAppointmentCompanyResponse.Data);
         
-        thinkTank.AddRelation(new Relationship<ThinkTank, Company>(thinkTank, new Company(companyNumber), "HAS_COMPANY"));
+            thinkTankNode.AddRelation(new Relationship<ThinkTank, Company>(thinkTankNode, companyNode, "HAS_COMPANY"));
+        }
         
-        await session.ExecuteCommandsAsync(thinkTank);
+        await session.ExecuteCommandsAsync(thinkTankNode);
 
         await ModelCompanyAsync(companyNumber, cancellationToken);
     }
