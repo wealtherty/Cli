@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Wealtherty.Cli.CharityCommission.Model;
+namespace Wealtherty.Cli.CharityCommission.Api.Model;
 
 public class Trustee
 {

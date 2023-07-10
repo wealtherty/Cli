@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Wealtherty.Cli.CharityCommission.Model;
+using Wealtherty.Cli.CharityCommission.Api.Model;
 
-namespace Wealtherty.Cli.CharityCommission;
+namespace Wealtherty.Cli.CharityCommission.Api;
 
 public class Client
 {
