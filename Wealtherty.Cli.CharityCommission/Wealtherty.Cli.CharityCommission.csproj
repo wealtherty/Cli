@@ -10,8 +10,4 @@
       <ProjectReference Include="..\Wealtherty.Cli.Core\Wealtherty.Cli.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Model" />
-    </ItemGroup>
-
 </Project>
