@@ -15,8 +15,10 @@ public class GetCharity : Command
     {
         var client = serviceProvider.GetService<Client>();
 
-        var charity = await client.GetCharityDetailsAsync(RegisteredNumber);
-        
+        var charity = await client.GetDetailsAsync(RegisteredNumber);
         Log.Information("{@Charity}", charity);
+
+        var trustees = await client.GetTrusteesAsync(RegisteredNumber);
+        Log.Information("{@Trustees}", trustees);
     }
 }
