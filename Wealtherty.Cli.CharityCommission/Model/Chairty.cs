@@ -1,14 +1,15 @@
 ﻿using Newtonsoft.Json;
+using Wealtherty.Cli.Core.GraphDb;
 
 namespace Wealtherty.Cli.CharityCommission.Model;
 
-public class Chairty
+public class Chairty : Node
 {
     [JsonProperty("organisation_number")]
     public string OrganisationNumber { get; set; }
     
     [JsonProperty("reg_charity_number")]
-    public string RegisteredNumber { get; set; }
+    public string Number { get; set; }
     
     [JsonProperty("charity_name")]
     public string Name { get; set; }

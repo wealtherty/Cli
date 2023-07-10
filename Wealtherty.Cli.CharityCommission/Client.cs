@@ -17,18 +17,18 @@ public class Client
         _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", settings.Value.SubscriptionKey);
     }
 
-    public async Task<Chairty> GetDetailsAsync(string registeredNumber)
+    public async Task<Chairty> GetDetailsAsync(string number)
     {
-        var response = await _httpClient.GetAsync($"/register/api/charitydetails/{registeredNumber}/0");
+        var response = await _httpClient.GetAsync($"/register/api/charitydetails/{number}/0");
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync();
         
         return JsonConvert.DeserializeObject<Chairty>(json);
     }
 
-    public async Task<Trustee[]> GetTrusteesAsync(string registeredNumber)
+    public async Task<Trustee[]> GetTrusteesAsync(string number)
     {
-        var response = await _httpClient.GetAsync($"/register/api/charitytrusteeinformation/{registeredNumber}/0");
+        var response = await _httpClient.GetAsync($"/register/api/charitytrusteeinformation/{number}/0");
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync();
         

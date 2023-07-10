@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CharityCommission.Commands;
@@ -9,16 +8,12 @@ namespace Wealtherty.Cli.CharityCommission.Commands;
 public class GetCharity : Command
 {
     [Option('n', "charityNumber", Required = true)]
-    public string RegisteredNumber { get; set; }
+    public string CharityNumber { get; set; }
     
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var client = serviceProvider.GetService<Client>();
+        var client = serviceProvider.GetService<Facade>();
 
-        var charity = await client.GetDetailsAsync(RegisteredNumber);
-        Log.Information("{@Charity}", charity);
-
-        var trustees = await client.GetTrusteesAsync(RegisteredNumber);
-        Log.Information("{@Trustees}", trustees);
+        await client.ModelCharityAsync(CharityNumber);
     }
 }

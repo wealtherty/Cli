@@ -9,6 +9,7 @@ public static class Extensions
     {
         return self
             .Configure<Settings>(configuration.GetSection("CharityCommission"))
-            .AddSingleton<Client>();
+            .AddSingleton<Client>()
+            .AddSingleton<Facade>();
     }
 }
