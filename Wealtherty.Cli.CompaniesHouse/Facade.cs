@@ -37,15 +37,17 @@ public class Facade
         _sicCodeReader = sicCodeReader;
     }
     
-    public async Task ModelCompanyAsync(string companyNumber, CancellationToken cancellationToken)
+    public async Task<Company> ModelCompanyAsync(string companyNumber, CancellationToken cancellationToken)
     {
-        if (string.IsNullOrEmpty(companyNumber)) return;
+        if (string.IsNullOrEmpty(companyNumber)) return null;
         
         if (CompaniesToIgnore.Contains(companyNumber, StringComparer.OrdinalIgnoreCase))
         {
             Log.Information("Ignoring Company: {Number}", companyNumber);
-            return;
+            return null;
         }
+
+        Company company = null;
         
         await using var session = _driver.AsyncSession();
 
@@ -74,17 +76,23 @@ public class Facade
                 var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber, cancellationToken);
                 var companyProfile = getAppointmentCompanyResponse.Data;
                 
-                var companyNode = new Company(companyProfile);
-                companyNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
-                officerNode.AddRelation(new Appointment(officerNode, companyNode, appointment));
+                var companyProfileNode = new Company(companyProfile);
+                companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyProfileNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
+                officerNode.AddRelation(new Appointment(officerNode, companyProfileNode, appointment));
+
+                if (companyProfileNode.Number.Equals(companyNumber))
+                {
+                    company = companyProfileNode;
+                }
             }
 
             await session.ExecuteCommandsAsync(officerNode);
         }
 
+        return company;
     }
 
-    public async Task ModelThinkTankAsync(string name, PoliticalWing politicalWing, string companyNumber, CancellationToken cancellationToken)
+    public async Task<ThinkTank> ModelThinkTankAsync(string name, PoliticalWing politicalWing, string companyNumber, CancellationToken cancellationToken)
     {
         await using var session = _driver.AsyncSession();
         
@@ -105,5 +113,7 @@ public class Facade
         await session.ExecuteCommandsAsync(thinkTankNode);
 
         await ModelCompanyAsync(companyNumber, cancellationToken);
+
+        return thinkTankNode;
     }
 }
