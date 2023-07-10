@@ -13,6 +13,6 @@ public static class Extensions
             .Configure<Settings>(configuration.GetSection("CharityCommission"))
             .AddAutoMapper(typeof(Profile).Assembly)
             .AddSingleton<Client>()
-            .AddSingleton<Facade>();
+            .AddSingleton<CharityCommissionFacade>();
     }
 }

@@ -5,13 +5,13 @@ using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CharityCommission;
 
-public class Facade
+public class CharityCommissionFacade
 {
     private readonly IDriver _driver;
     private readonly IMapper _mapper;
     private readonly Client _client;
 
-    public Facade(IDriver driver, Client client, IMapper mapper)
+    public CharityCommissionFacade(IDriver driver, Client client, IMapper mapper)
     {
         _driver = driver;
         _client = client;

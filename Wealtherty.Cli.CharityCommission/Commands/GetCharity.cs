@@ -12,7 +12,7 @@ public class GetCharity : Command
     
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var client = serviceProvider.GetService<Facade>();
+        var client = serviceProvider.GetService<CharityCommissionFacade>();
 
         await client.ModelCharityAsync(CharityNumber);
     }
