@@ -12,7 +12,7 @@ public class GetCompany : Command
 
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var facade = serviceProvider.GetService<Facade>();
+        var facade = serviceProvider.GetService<CompaniesHouseFacade>();
 
         await facade.ModelCompanyAsync(Number, new CancellationToken());
 

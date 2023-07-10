@@ -8,7 +8,7 @@ using Officer = Wealtherty.Cli.CompaniesHouse.Model.Officer;
 
 namespace Wealtherty.Cli.CompaniesHouse;
 
-public class Facade
+public class CompaniesHouseFacade
 {
     private readonly IDriver _driver;
     private readonly Client _client;
@@ -30,7 +30,7 @@ public class Facade
         "8d_bnTiwfxh8JIr3YfuwkmkWkCg"
     };
 
-    public Facade(IDriver driver, Client client, SicCodeReader sicCodeReader)
+    public CompaniesHouseFacade(IDriver driver, Client client, SicCodeReader sicCodeReader)
     {
         _driver = driver;
         _client = client;
