@@ -2,19 +2,19 @@
 
 namespace Wealtherty.Cli.CharityCommission.Graph.Model;
 
-public class Chairty : Node
+public class Charity : Node
 {
-    public Chairty(Api.Model.Chairty chairty)
+    public Charity(Api.Model.Charity charity)
     {
-        OrganisationNumber = chairty.OrganisationNumber;
-        Number = chairty.Number;
-        Name = chairty.GetFormattedName();
-        Type = chairty.Type;
-        RegisteredOn = chairty.RegisteredOn;
-        RemovedOn = chairty.RemovedOn;
-        LatestIncome = chairty.LatestIncome;
-        LatestExpenditure = chairty.LatestExpenditure;
-        CompanyHouseNumber = chairty.CompanyHouseNumber?.PadLeft(8, '0');
+        OrganisationNumber = charity.OrganisationNumber;
+        Number = charity.Number;
+        Name = charity.GetFormattedName();
+        Type = charity.Type;
+        RegisteredOn = charity.RegisteredOn;
+        RemovedOn = charity.RemovedOn;
+        LatestIncome = charity.LatestIncome;
+        LatestExpenditure = charity.LatestExpenditure;
+        CompanyHouseNumber = charity.CompanyHouseNumber?.PadLeft(8, '0');
     }
     
     public string OrganisationNumber { get; set; }

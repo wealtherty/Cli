@@ -50,5 +50,26 @@ namespace Wealtherty.Cli.Core
         {
             return self ?? Enumerable.Empty<T>();
         }
+        
+        public static async Task<TNode> GetNode<TNode>(this IAsyncSession self, string query) where TNode : Node
+        {
+            try
+            {
+                var result = await self.ExecuteReadAsync(async tx =>
+                {
+                    var resultCursor = await tx.RunAsync(query);
+                    var record = await resultCursor.SingleAsync();
+                    var node = record[0].As<TNode>();
+                    return node;
+                });
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred getting node - Query: {query}", query);
+                throw;
+            }
+        }
     }
 }

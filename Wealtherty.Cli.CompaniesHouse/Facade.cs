@@ -116,4 +116,9 @@ public class Facade
 
         return thinkTankNode;
     }
+
+    public Task<Company> GetCompanyAsync(string companyNumber, CancellationToken cancellationToken)
+    {
+        return Task.FromResult<Company>(null); 
+    }
 }

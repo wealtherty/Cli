@@ -2,7 +2,7 @@
 
 namespace Wealtherty.Cli.CharityCommission.Api.Model;
 
-public class Chairty
+public class Charity
 {
     [JsonProperty("organisation_number")]
     public string OrganisationNumber { get; set; }

@@ -15,7 +15,7 @@ public static class Extensions
             .AddSingleton<Facade>();
     }
     
-    public static string GetFormattedName(this Api.Model.Chairty self)
+    public static string GetFormattedName(this Api.Model.Charity self)
     {
         return self.Name.ToLower().Transform(To.TitleCase);
     }

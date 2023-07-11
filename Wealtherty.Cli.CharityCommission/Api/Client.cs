@@ -18,7 +18,7 @@ public class Client
         _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", settings.Value.SubscriptionKey);
     }
 
-    public async Task<Chairty> GetDetailsAsync(string number, CancellationToken cancellationToken)
+    public async Task<Charity> GetDetailsAsync(string number, CancellationToken cancellationToken)
     {
         Log.Debug("Getting Charity - Number: {Number}", number);
         
@@ -26,7 +26,7 @@ public class Client
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync(cancellationToken);
 
-        var chairty = JsonConvert.DeserializeObject<Chairty>(json);
+        var chairty = JsonConvert.DeserializeObject<Charity>(json);
         
         Log.Debug("Got Charity - Number: {Number}, Charity: {@Charity}", number, chairty);
         

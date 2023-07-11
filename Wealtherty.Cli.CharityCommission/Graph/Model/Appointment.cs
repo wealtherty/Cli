@@ -2,13 +2,13 @@
 
 namespace Wealtherty.Cli.CharityCommission.Graph.Model;
 
-public class Appointment : Relationship<Chairty, Trustee>
+public class Appointment : Relationship<Charity, Trustee>
 {
     public bool IsChair { get; set; }
 
     public DateTime? AppointedOn { get; set; }
     
-    public Appointment(Chairty parent, Trustee child, Api.Model.Trustee trustee) : base(parent, child)
+    public Appointment(Charity parent, Trustee child, Api.Model.Trustee trustee) : base(parent, child)
     {
         AppointedOn = trustee.AppointedOn;
         IsChair = trustee.IsChair;

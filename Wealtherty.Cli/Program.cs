@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using Wealtherty.Cli.Bridge.Commands;
 using Wealtherty.Cli.CharityCommission.Commands;
 using Wealtherty.Cli.CompaniesHouse.Commands;
 using Wealtherty.Cli.Core;
@@ -9,13 +10,14 @@ namespace Wealtherty.Cli;
 public static class Program
 {
     private static int Main(string[] args) {
-        return Parser.Default.ParseArguments<GetCompanies, GetCompany, GetThinkTanks, SearchProjects, GetCharity>(args)
+        return Parser.Default.ParseArguments<GetCompanies, GetCompany, GetThinkTanks, SearchProjects, GetCharity, ConnectCharitiesAndCompanies>(args)
             .MapResult(
                 (GetCompanies command) => Execute(command),
                 (GetCompany command) => Execute(command),
                 (GetThinkTanks command) => Execute(command),
                 (SearchProjects command) => Execute(command),
                 (GetCharity command) => Execute(command),
+                (ConnectCharitiesAndCompanies command) => Execute(command),
                 _ => 1);
     }
 

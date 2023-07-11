@@ -22,7 +22,7 @@ public class Facade
         await using var session = _driver.AsyncSession();
         
         var charity = await _client.GetDetailsAsync(number, cancellationToken);
-        var charityNode = new Chairty(charity);
+        var charityNode = new Charity(charity);
 
         var trustees = await _client.GetTrusteesAsync(number, cancellationToken);
         
@@ -42,11 +42,16 @@ public class Facade
             if (trustee.CharityNumber == null) continue;
             
             var otherCharity = await _client.GetDetailsAsync(trustee.CharityNumber, cancellationToken);
-            var otherCharityNode = new Chairty(otherCharity);
+            var otherCharityNode = new Charity(otherCharity);
                 
             otherCharityNode.AddRelation(new Appointment(otherCharityNode, trusteeNode, trustee));
             
             await session.ExecuteCommandsAsync(otherCharityNode);
         }
+    }
+
+    public Task<Charity[]> GetCharitiesAsync(CancellationToken cancellationToken)
+    {
+        return Task.FromResult(Array.Empty<Charity>());
     }
 }
