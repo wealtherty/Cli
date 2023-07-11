@@ -4,6 +4,9 @@ namespace Wealtherty.Cli.CharityCommission.Graph.Model;
 
 public class Charity : Node
 {
+
+    public Charity() {}
+    
     public Charity(Api.Model.Charity charity)
     {
         OrganisationNumber = charity.OrganisationNumber;

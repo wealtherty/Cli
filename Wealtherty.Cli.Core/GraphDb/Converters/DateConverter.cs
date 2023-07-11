@@ -14,6 +14,6 @@ public class DateConverter : JsonConverter<DateTime?>
 
     public override DateTime? ReadJson(JsonReader reader, Type objectType, DateTime? existingValue, bool hasExistingValue, JsonSerializer serializer)
     {
-        throw new NotImplementedException();
+        return existingValue;
     }
 }

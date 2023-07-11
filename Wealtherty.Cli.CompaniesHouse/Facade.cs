@@ -117,8 +117,14 @@ public class Facade
         return thinkTankNode;
     }
 
-    public Task<Company> GetCompanyAsync(string companyNumber, CancellationToken cancellationToken)
+    public async Task<Company> GetCompanyAsync(string companyNumber)
     {
-        return Task.FromResult<Company>(null); 
+        await using var session = _driver.AsyncSession();
+
+        return await session.GetNodeAsync<Company>("MATCH (c:Company) WHERE c.Number = $Number RETURN c",
+            new Dictionary<string, object>
+            {
+                { "Number", companyNumber }
+            });
     }
 }

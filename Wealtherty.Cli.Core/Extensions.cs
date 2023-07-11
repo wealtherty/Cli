@@ -37,11 +37,8 @@ namespace Wealtherty.Cli.Core
         
         public static async Task ExecuteCommandsAsync(this IAsyncSession self, Node node)
         {
-            var commands = node.GetCommands();
-            
-            foreach (var command in commands)
+            foreach (var command in node.GetCommands())
             {
-                Log.Debug(command);
                 await self.RunAsync(command);
             }
         }
@@ -51,19 +48,61 @@ namespace Wealtherty.Cli.Core
             return self ?? Enumerable.Empty<T>();
         }
         
-        public static async Task<TNode> GetNode<TNode>(this IAsyncSession self, string query) where TNode : Node
+        public static async Task<TNode> GetNodeAsync<TNode>(this IAsyncSession self, string query, IDictionary<string,object> parameters = null) where TNode : Node
         {
             try
             {
                 var result = await self.ExecuteReadAsync(async tx =>
                 {
-                    var resultCursor = await tx.RunAsync(query);
-                    var record = await resultCursor.SingleAsync();
-                    var node = record[0].As<TNode>();
-                    return node;
+                    var resultCursor = await tx.RunAsync(query, parameters);
+
+                    var fetched = await resultCursor.FetchAsync();
+                    if (!fetched)
+                    {
+                        return null;
+                    }
+
+                    var record = resultCursor.Current;
+                    
+                    var json = JsonConvert.SerializeObject(record[0].As<INode>().Properties);
+
+                    return JsonConvert.DeserializeObject<TNode>(json);
                 });
 
                 return result;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred getting node - Query: {query}", query);
+                throw;
+            }
+        }
+        
+        public static async Task<TNode[]> GetNodesAsync<TNode>(this IAsyncSession self, string query, IDictionary<string,object> parameters = null) where TNode : Node
+        {
+            try
+            {
+                var result = await self.ExecuteReadAsync(async tx =>
+                {
+                    var nodes = new List<TNode>();
+                    
+                    var resultCursor = await tx.RunAsync(query, parameters);
+
+                    while (await resultCursor.FetchAsync())
+                    {
+                        var record = resultCursor.Current;
+                        
+                        var json = JsonConvert.SerializeObject(record[0].As<INode>().Properties);
+
+                        var node = JsonConvert.DeserializeObject<TNode>(json);
+                        
+                        nodes.Add(node);
+                    }
+
+                    return nodes;
+                });
+
+                return result.OrEmpty().ToArray();
             }
             catch (Exception ex)
             {

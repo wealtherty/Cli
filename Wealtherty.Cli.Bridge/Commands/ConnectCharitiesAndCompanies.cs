@@ -20,13 +20,13 @@ public class ConnectCharitiesAndCompanies : Command
         var cancellationToken = new CancellationToken();
         await using var session = driver.AsyncSession();
 
-        var charityNodes = await charityCommissionFacade.GetCharitiesAsync(cancellationToken);
+        var charityNodes = await charityCommissionFacade.GetCharitiesAsync();
 
         foreach (var charityNode in charityNodes)
         {
             if (charityNode.CompanyHouseNumber == null) continue;
             
-            var companyNode = await companiesHouseFacade.GetCompanyAsync(charityNode.CompanyHouseNumber, cancellationToken) ??
+            var companyNode = await companiesHouseFacade.GetCompanyAsync(charityNode.CompanyHouseNumber) ??
                               await companiesHouseFacade.ModelCompanyAsync(charityNode.CompanyHouseNumber, cancellationToken);
             
             charityNode.AddRelation(new Relationship<Charity,Company>(charityNode, companyNode, "HAS_COMPANY"));

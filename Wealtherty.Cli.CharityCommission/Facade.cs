@@ -1,4 +1,5 @@
 ﻿using Neo4j.Driver;
+using Serilog;
 using Wealtherty.Cli.CharityCommission.Api;
 using Wealtherty.Cli.CharityCommission.Graph.Model;
 using Wealtherty.Cli.Core;
@@ -50,8 +51,10 @@ public class Facade
         }
     }
 
-    public Task<Charity[]> GetCharitiesAsync(CancellationToken cancellationToken)
+    public async Task<Charity[]> GetCharitiesAsync()
     {
-        return Task.FromResult(Array.Empty<Charity>());
+        await using var session = _driver.AsyncSession();
+
+        return await session.GetNodesAsync<Charity>("MATCH (c:Charity) return c");
     }
 }
