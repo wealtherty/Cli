@@ -30,7 +30,7 @@ public class Facade
         {
             var trusteeNode = new Trustee(trustee);
             
-            charityNode.AddRelation(new Relationship<Chairty,Trustee>(charityNode, trusteeNode, "HAS_TRUSTEE"));
+            charityNode.AddRelation(new Appointment(charityNode, trusteeNode, trustee));
         }
         await session.ExecuteCommandsAsync(charityNode);
         
@@ -43,7 +43,7 @@ public class Facade
             var otherCharity = await _client.GetDetailsAsync(trustee.CharityNumber);
             var otherCharityNode = new Chairty(otherCharity);
                 
-            otherCharityNode.AddRelation(new Relationship<Chairty,Trustee>(otherCharityNode, trusteeNode, "HAS_TRUSTEE"));
+            otherCharityNode.AddRelation(new Appointment(otherCharityNode, trusteeNode, trustee));
             
             await session.ExecuteCommandsAsync(otherCharityNode);
         }

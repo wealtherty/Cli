@@ -1,0 +1,19 @@
+﻿using Wealtherty.Cli.Core.GraphDb;
+
+namespace Wealtherty.Cli.CharityCommission.Graph.Model;
+
+public class Appointment : Relationship<Chairty, Trustee>
+{
+    public bool IsChair { get; set; }
+
+    public DateTime? AppointedOn { get; set; }
+    
+    public Appointment(Chairty parent, Trustee child, Api.Model.Trustee trustee) : base(parent, child)
+    {
+        AppointedOn = trustee.AppointedOn;
+        IsChair = trustee.IsChair;
+    }
+    
+    protected override string GetName() => "HAS_TRUSTEE";
+}
+
