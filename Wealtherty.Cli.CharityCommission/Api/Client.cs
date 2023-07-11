@@ -18,13 +18,13 @@ public class Client
         _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", settings.Value.SubscriptionKey);
     }
 
-    public async Task<Chairty> GetDetailsAsync(string number)
+    public async Task<Chairty> GetDetailsAsync(string number, CancellationToken cancellationToken)
     {
         Log.Debug("Getting Charity - Number: {Number}", number);
         
-        var response = await _httpClient.GetAsync($"/register/api/charitydetails/{number}/0");
+        var response = await _httpClient.GetAsync($"/register/api/charitydetails/{number}/0", cancellationToken);
         response.EnsureSuccessStatusCode();
-        var json = await response.Content.ReadAsStringAsync();
+        var json = await response.Content.ReadAsStringAsync(cancellationToken);
 
         var chairty = JsonConvert.DeserializeObject<Chairty>(json);
         
@@ -33,13 +33,13 @@ public class Client
         return chairty;
     }
 
-    public async Task<Trustee[]> GetTrusteesAsync(string number)
+    public async Task<Trustee[]> GetTrusteesAsync(string number, CancellationToken cancellationToken)
     {
         Log.Debug("Getting Trustees - Number: {Number}", number);
         
-        var response = await _httpClient.GetAsync($"/register/api/charitytrusteeinformation/{number}/0");
+        var response = await _httpClient.GetAsync($"/register/api/charitytrusteeinformation/{number}/0", cancellationToken);
         response.EnsureSuccessStatusCode();
-        var json = await response.Content.ReadAsStringAsync();
+        var json = await response.Content.ReadAsStringAsync(cancellationToken);
 
         var trustees = JsonConvert.DeserializeObject<Trustee[]>(json);
         

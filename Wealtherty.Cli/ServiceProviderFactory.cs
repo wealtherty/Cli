@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Wealtherty.Cli.Bridge;
 using Wealtherty.Cli.CharityCommission;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
@@ -15,6 +16,7 @@ public class ServiceProviderFactory : IServiceProviderFactory
 
         return new ServiceCollection()
             .AddCore(configuration)
+            .AddBridge(configuration)
             .AddCompaniesHouse(configuration)
             .AddCharityCommission(configuration)
             .AddUkri()
