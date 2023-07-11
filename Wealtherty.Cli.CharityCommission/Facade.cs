@@ -1,8 +1,10 @@
 ﻿using Neo4j.Driver;
 using Wealtherty.Cli.CharityCommission.Api;
 using Wealtherty.Cli.CharityCommission.Graph.Model;
+using Wealtherty.Cli.CompaniesHouse.Model;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Core.GraphDb;
+using Appointment = Wealtherty.Cli.CharityCommission.Graph.Model.Appointment;
 
 namespace Wealtherty.Cli.CharityCommission;
 
@@ -10,14 +12,16 @@ public class Facade
 {
     private readonly IDriver _driver;
     private readonly Client _client;
+    private readonly CompaniesHouse.Facade _companiesHouseFacade;
 
-    public Facade(IDriver driver, Client client)
+    public Facade(IDriver driver, Client client, CompaniesHouse.Facade companiesHouseFacade)
     {
         _driver = driver;
         _client = client;
+        _companiesHouseFacade = companiesHouseFacade;
     }
 
-    public async Task ModelCharityAsync(string number)
+    public async Task ModelCharityAsync(string number, CancellationToken cancellationToken)
     {
         await using var session = _driver.AsyncSession();
         
@@ -32,6 +36,13 @@ public class Facade
             
             charityNode.AddRelation(new Appointment(charityNode, trusteeNode, trustee));
         }
+
+        if (charityNode.CompanyHouseNumber != null)
+        {
+            var company = await _companiesHouseFacade.ModelCompanyAsync(charityNode.CompanyHouseNumber, cancellationToken);
+            
+            charityNode.AddRelation(new Relationship<Chairty, Company>(charityNode, company, "HAS_COMPANY"));
+        }
         await session.ExecuteCommandsAsync(charityNode);
         
         foreach (var trustee in trustees)
@@ -45,6 +56,13 @@ public class Facade
                 
             otherCharityNode.AddRelation(new Appointment(otherCharityNode, trusteeNode, trustee));
             
+            if (otherCharityNode.CompanyHouseNumber != null)
+            {
+                var company = await _companiesHouseFacade.ModelCompanyAsync(otherCharityNode.CompanyHouseNumber, cancellationToken);
+            
+                otherCharityNode.AddRelation(new Relationship<Chairty, Company>(otherCharityNode, company, "HAS_COMPANY"));
+            }
+
             await session.ExecuteCommandsAsync(otherCharityNode);
         }
     }

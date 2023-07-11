@@ -14,6 +14,6 @@ public class GetCharity : Command
     {
         var client = serviceProvider.GetService<Facade>();
 
-        await client.ModelCharityAsync(CharityNumber);
+        await client.ModelCharityAsync(CharityNumber, new CancellationToken());
     }
 }

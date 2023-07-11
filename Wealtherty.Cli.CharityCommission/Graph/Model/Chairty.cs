@@ -14,7 +14,7 @@ public class Chairty : Node
         RemovedOn = chairty.RemovedOn;
         LatestIncome = chairty.LatestIncome;
         LatestExpenditure = chairty.LatestExpenditure;
-        CompanyHouseNumber = chairty.CompanyHouseNumber;
+        CompanyHouseNumber = chairty.CompanyHouseNumber?.PadLeft(8, '0');
     }
     
     public string OrganisationNumber { get; set; }
