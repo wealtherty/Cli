@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Wealtherty.Cli.CharityCommission\Wealtherty.Cli.CharityCommission.csproj" />
+      <ProjectReference Include="..\Wealtherty.Cli.CompaniesHouse\Wealtherty.Cli.CompaniesHouse.csproj" />
       <ProjectReference Include="..\Wealtherty.Cli.Core\Wealtherty.Cli.Core.csproj" />
     </ItemGroup>
 
