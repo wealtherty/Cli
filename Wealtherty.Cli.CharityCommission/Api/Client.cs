@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Serilog;
 using Wealtherty.Cli.CharityCommission.Api.Model;
 
 namespace Wealtherty.Cli.CharityCommission.Api;
@@ -19,19 +20,31 @@ public class Client
 
     public async Task<Chairty> GetDetailsAsync(string number)
     {
+        Log.Debug("Getting Charity - Number: {Number}", number);
+        
         var response = await _httpClient.GetAsync($"/register/api/charitydetails/{number}/0");
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync();
+
+        var chairty = JsonConvert.DeserializeObject<Chairty>(json);
         
-        return JsonConvert.DeserializeObject<Chairty>(json);
+        Log.Debug("Got Charity - Number: {Number}, Charity: {@Charity}", number, chairty);
+        
+        return chairty;
     }
 
     public async Task<Trustee[]> GetTrusteesAsync(string number)
     {
+        Log.Debug("Getting Trustees - Number: {Number}", number);
+        
         var response = await _httpClient.GetAsync($"/register/api/charitytrusteeinformation/{number}/0");
         response.EnsureSuccessStatusCode();
         var json = await response.Content.ReadAsStringAsync();
+
+        var trustees = JsonConvert.DeserializeObject<Trustee[]>(json);
         
-        return JsonConvert.DeserializeObject<Trustee[]>(json);
+        Log.Debug("Got Trustees - Number: {Number}, Trustees: {@Trustees}", number, trustees);
+        
+        return trustees;
     }
 }

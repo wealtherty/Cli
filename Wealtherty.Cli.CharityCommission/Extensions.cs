@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Humanizer;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Wealtherty.Cli.CharityCommission.Api;
-using Wealtherty.Cli.CharityCommission.Mapping;
 
 namespace Wealtherty.Cli.CharityCommission;
 
@@ -11,8 +11,17 @@ public static class Extensions
     {
         return self
             .Configure<Settings>(configuration.GetSection("CharityCommission"))
-            .AddAutoMapper(typeof(Profile).Assembly)
             .AddSingleton<Client>()
-            .AddSingleton<CharityCommissionFacade>();
+            .AddSingleton<Facade>();
+    }
+    
+    public static string GetFormattedName(this Api.Model.Chairty self)
+    {
+        return self.Name.ToLower().Transform(To.TitleCase);
+    }
+
+    public static string GetFormattedName(this Api.Model.Trustee self)
+    {
+        return self.Name.ToLower().Transform(To.TitleCase);
     }
 }

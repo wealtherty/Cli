@@ -39,7 +39,7 @@ public class GetCompanies : Command
     
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var facade = serviceProvider.GetService<CompaniesHouseFacade>();
+        var facade = serviceProvider.GetService<Facade>();
         
         var cancellationToken = new CancellationToken();
         

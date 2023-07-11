@@ -18,7 +18,7 @@ namespace Wealtherty.Cli.CompaniesHouse
                 .AddSingleton<ICompaniesHouseClient>(provider =>
                     new CompaniesHouseClient(provider.GetService<ICompaniesHouseSettings>()))
                 .AddSingleton<Client>()
-                .AddSingleton<CompaniesHouseFacade>()
+                .AddSingleton<Facade>()
                 .AddSingleton<SicCodeReader>();
         }
 
