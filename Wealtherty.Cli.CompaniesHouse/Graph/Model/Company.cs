@@ -36,6 +36,11 @@ public class Company : Node
 
     public Company() { }
 
+    public Company(string number)
+    {
+        Number = number;
+    }
+
     public Company(CompanyProfile resource)
     {
         Resource = resource;

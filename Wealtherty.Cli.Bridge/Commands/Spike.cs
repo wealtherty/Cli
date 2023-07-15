@@ -1,9 +1,13 @@
 ﻿using System.Globalization;
 using CommandLine;
 using CsvHelper;
-using Serilog;
-using Wealtherty.Cli.Bridge.Csv.Model;
+using Microsoft.Extensions.DependencyInjection;
+using Neo4j.Driver;
+using Wealtherty.Cli.CharityCommission.Graph.Model;
+using Wealtherty.Cli.CompaniesHouse.Graph.Model;
 using Wealtherty.Cli.Core;
+using Wealtherty.Cli.Core.GraphDb;
+using ThinkTank = Wealtherty.Cli.Bridge.Csv.Model.ThinkTank;
 
 namespace Wealtherty.Cli.Bridge.Commands;
 
@@ -13,10 +17,20 @@ public class Spike : Command
     [Option('p', "path", Default = "ThinkTanks.csv")]
     public string Path { get; set; }
     
-    protected override Task ExecuteImplAsync(IServiceProvider serviceProvider)
+    [Option('d', "deleteAll", Default = true)]
+    public bool DeleteAll { get; set; }
+    
+    protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
         using var reader = new StreamReader(Path);
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+        var session = serviceProvider.GetService<IAsyncSession>();
+
+        if (DeleteAll)
+        {
+            await session.DeleteAllAsync();
+        }
 
         var thinkTanks =
             csv
@@ -26,14 +40,25 @@ public class Spike : Command
         
         foreach (var thinkTank in thinkTanks)
         {
-            Log.Information("{@ThinkTank}", thinkTank.Key);
-
-            foreach (var blah in thinkTank)
+            var thinkTankNode = new ThinkTanks.Graph.Model.ThinkTank
             {
-                Log.Information("{@Blah}", blah);
+                Name = thinkTank.Key.Name,
+                Wing = thinkTank.Key.Wing.ToString()
+            };
+            
+            foreach (var otherData in thinkTank)
+            {
+                if (!string.IsNullOrEmpty(otherData.CompanyNumber))
+                {
+                    thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Company>(thinkTankNode, new Company(otherData.CompanyNumber), "HAS_COMPANY"));
+                }
+                if (!string.IsNullOrEmpty(otherData.CharityNumber))
+                {
+                    thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Charity>(thinkTankNode, new Charity(otherData.CharityNumber), "HAS_CHARITY"));
+                }
             }
+            
+            await session.ExecuteCommandsAsync(thinkTankNode);
         }
-        
-        return Task.CompletedTask;
     }
 }

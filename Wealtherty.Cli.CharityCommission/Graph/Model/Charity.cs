@@ -7,6 +7,11 @@ public class Charity : Node
 
     public Charity() {}
     
+    public Charity(string number)
+    {
+        Number = number;
+    }
+    
     public Charity(Api.Model.Charity charity)
     {
         OrganisationNumber = charity.OrganisationNumber;
@@ -28,7 +33,7 @@ public class Charity : Node
     
     public string Type { get; set; }
     
-    public DateTime RegisteredOn { get; set; }
+    public DateTime? RegisteredOn { get; set; }
     
     public DateTime? RemovedOn { get; set; }
     
