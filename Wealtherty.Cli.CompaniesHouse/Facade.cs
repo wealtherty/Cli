@@ -89,30 +89,7 @@ public class Facade
 
         return company;
     }
-
-    public async Task<ThinkTank> ModelThinkTankAsync(string name, PoliticalWing politicalWing, string companyNumber, CancellationToken cancellationToken)
-    {
-        var thinkTankNode = new ThinkTank
-        {
-            Name = name,
-            Wing = politicalWing.ToString()
-        };
-
-        if (companyNumber != null)
-        {
-            var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(companyNumber, cancellationToken);
-            var companyNode = new Company(getAppointmentCompanyResponse.Data);
-        
-            thinkTankNode.AddRelation(new Relationship<ThinkTank, Company>(thinkTankNode, companyNode, "HAS_COMPANY"));
-        }
-        
-        await _session.ExecuteCommandsAsync(thinkTankNode);
-
-        await ModelCompanyAsync(companyNumber, cancellationToken);
-
-        return thinkTankNode;
-    }
-
+    
     public async Task<Company> GetCompanyAsync(string companyNumber)
     {
         return await _session.GetNodeAsync<Company>("MATCH (c:Company) WHERE c.Number = $Number RETURN c",

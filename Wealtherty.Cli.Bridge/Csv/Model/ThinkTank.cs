@@ -1,4 +1,4 @@
-﻿using Wealtherty.Cli.CompaniesHouse.Graph.Model;
+﻿using Wealtherty.ThinkTanks.Graph.Model;
 
 namespace Wealtherty.Cli.Bridge.Csv.Model;
 
