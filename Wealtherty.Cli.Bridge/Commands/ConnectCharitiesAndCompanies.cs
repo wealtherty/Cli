@@ -13,12 +13,11 @@ public class ConnectCharitiesAndCompanies : Command
 {
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var driver = serviceProvider.GetService<IDriver>();
+        var session = serviceProvider.GetService<IAsyncSession>();
         var companiesHouseFacade = serviceProvider.GetService<CompaniesHouse.Facade>();
         var charityCommissionFacade = serviceProvider.GetService<CharityCommission.Facade>();
 
         var cancellationToken = new CancellationToken();
-        await using var session = driver.AsyncSession();
 
         var charityNodes = await charityCommissionFacade.GetCharitiesAsync();
 

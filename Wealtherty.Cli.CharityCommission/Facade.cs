@@ -1,5 +1,4 @@
 ﻿using Neo4j.Driver;
-using Serilog;
 using Wealtherty.Cli.CharityCommission.Api;
 using Wealtherty.Cli.CharityCommission.Graph.Model;
 using Wealtherty.Cli.Core;
@@ -9,19 +8,17 @@ namespace Wealtherty.Cli.CharityCommission;
 
 public class Facade
 {
-    private readonly IDriver _driver;
     private readonly Client _client;
+    private readonly IAsyncSession _session;
 
-    public Facade(IDriver driver, Client client)
+    public Facade(Client client, IAsyncSession session)
     {
-        _driver = driver;
         _client = client;
+        _session = session;
     }
 
     public async Task ModelCharityAsync(string number, CancellationToken cancellationToken)
     {
-        await using var session = _driver.AsyncSession();
-        
         var charity = await _client.GetDetailsAsync(number, cancellationToken);
         var charityNode = new Charity(charity);
 
@@ -34,7 +31,7 @@ public class Facade
             charityNode.AddRelation(new Appointment(charityNode, trusteeNode, trustee));
         }
 
-        await session.ExecuteCommandsAsync(charityNode);
+        await _session.ExecuteCommandsAsync(charityNode);
         
         foreach (var trustee in trustees)
         {
@@ -47,14 +44,12 @@ public class Facade
                 
             otherCharityNode.AddRelation(new Appointment(otherCharityNode, trusteeNode, trustee));
             
-            await session.ExecuteCommandsAsync(otherCharityNode);
+            await _session.ExecuteCommandsAsync(otherCharityNode);
         }
     }
 
     public async Task<Charity[]> GetCharitiesAsync()
     {
-        await using var session = _driver.AsyncSession();
-
-        return await session.GetNodesAsync<Charity>("MATCH (c:Charity) return c");
+        return await _session.GetNodesAsync<Charity>("MATCH (c:Charity) return c");
     }
 }

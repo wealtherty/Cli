@@ -18,12 +18,10 @@ namespace Wealtherty.Cli.Ukri.Commands
         {
             var client = serviceProvider.GetService<Client>();
             var mapper = serviceProvider.GetService<IMapper>();
-            var driver = serviceProvider.GetService<IDriver>();
+            var session = serviceProvider.GetService<IAsyncSession>();
 
             var projects = await client.SearchProjectsAsync(Query);
             
-            await using var session = driver.AsyncSession();
-
             foreach (var project in projects)
             {
                 var projectNode = mapper.Map<Project>(project);

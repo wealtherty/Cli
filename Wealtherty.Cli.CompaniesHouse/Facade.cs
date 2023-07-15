@@ -10,7 +10,7 @@ namespace Wealtherty.Cli.CompaniesHouse;
 
 public class Facade
 {
-    private readonly IDriver _driver;
+    private readonly IAsyncSession _session;
     private readonly Client _client;
     private readonly SicCodeReader _sicCodeReader;
 
@@ -30,11 +30,11 @@ public class Facade
         "8d_bnTiwfxh8JIr3YfuwkmkWkCg"
     };
 
-    public Facade(IDriver driver, Client client, SicCodeReader sicCodeReader)
+    public Facade(Client client, SicCodeReader sicCodeReader, IAsyncSession session)
     {
-        _driver = driver;
         _client = client;
         _sicCodeReader = sicCodeReader;
+        _session = session;
     }
     
     public async Task<Company> ModelCompanyAsync(string companyNumber, CancellationToken cancellationToken)
@@ -49,8 +49,6 @@ public class Facade
 
         Company company = null;
         
-        await using var session = _driver.AsyncSession();
-
         var officers = await _client.GetOfficersAsync(companyNumber, cancellationToken);
 
         foreach (var officer in officers)
@@ -86,7 +84,7 @@ public class Facade
                 }
             }
 
-            await session.ExecuteCommandsAsync(officerNode);
+            await _session.ExecuteCommandsAsync(officerNode);
         }
 
         return company;
@@ -94,8 +92,6 @@ public class Facade
 
     public async Task<ThinkTank> ModelThinkTankAsync(string name, PoliticalWing politicalWing, string companyNumber, CancellationToken cancellationToken)
     {
-        await using var session = _driver.AsyncSession();
-        
         var thinkTankNode = new ThinkTank
         {
             Name = name,
@@ -110,7 +106,7 @@ public class Facade
             thinkTankNode.AddRelation(new Relationship<ThinkTank, Company>(thinkTankNode, companyNode, "HAS_COMPANY"));
         }
         
-        await session.ExecuteCommandsAsync(thinkTankNode);
+        await _session.ExecuteCommandsAsync(thinkTankNode);
 
         await ModelCompanyAsync(companyNumber, cancellationToken);
 
@@ -119,9 +115,7 @@ public class Facade
 
     public async Task<Company> GetCompanyAsync(string companyNumber)
     {
-        await using var session = _driver.AsyncSession();
-
-        return await session.GetNodeAsync<Company>("MATCH (c:Company) WHERE c.Number = $Number RETURN c",
+        return await _session.GetNodeAsync<Company>("MATCH (c:Company) WHERE c.Number = $Number RETURN c",
             new Dictionary<string, object>
             {
                 { "Number", companyNumber }
