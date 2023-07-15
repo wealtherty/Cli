@@ -2,9 +2,10 @@
 using CommandLine;
 using CsvHelper;
 using Serilog;
+using Wealtherty.Cli.Bridge.Csv.Model;
 using Wealtherty.Cli.Core;
 
-namespace Wealtherty.ThinkTanks.Commands;
+namespace Wealtherty.Cli.Bridge.Commands;
 
 [Verb("spike")]
 public class Spike : Command
@@ -19,7 +20,7 @@ public class Spike : Command
 
         var thinkTanks =
             csv
-                .GetRecords<Model.Csv.ThinkTank>()
+                .GetRecords<ThinkTank>()
                 .GroupBy(x => new { x.Name, x.Wing },
                     tank => new { tank.CompanyNumber, tank.CharityNumber });
         

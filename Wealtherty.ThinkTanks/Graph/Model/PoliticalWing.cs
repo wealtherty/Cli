@@ -1,4 +1,4 @@
-﻿namespace Wealtherty.ThinkTanks.Model;
+﻿namespace Wealtherty.ThinkTanks.Graph.Model;
 
 public enum PoliticalWing
 {

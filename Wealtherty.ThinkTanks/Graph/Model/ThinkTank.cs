@@ -1,6 +1,6 @@
 ﻿using Wealtherty.Cli.Core.GraphDb;
 
-namespace Wealtherty.ThinkTanks.Model.Graph;
+namespace Wealtherty.ThinkTanks.Graph.Model;
 
 public class ThinkTank : Node
 {

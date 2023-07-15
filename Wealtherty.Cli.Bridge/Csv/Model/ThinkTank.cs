@@ -1,4 +1,6 @@
-﻿namespace Wealtherty.ThinkTanks.Model.Csv;
+﻿using Wealtherty.Cli.CompaniesHouse.Graph.Model;
+
+namespace Wealtherty.Cli.Bridge.Csv.Model;
 
 public class ThinkTank
 {

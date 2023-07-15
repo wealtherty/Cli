@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Wealtherty.Cli.CompaniesHouse.Model;
+using Wealtherty.Cli.CompaniesHouse.Graph.Model;
 using Wealtherty.Cli.Core;
 
 namespace Wealtherty.Cli.CompaniesHouse.Commands;

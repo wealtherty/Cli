@@ -4,7 +4,6 @@ using Wealtherty.Cli.CharityCommission.Commands;
 using Wealtherty.Cli.CompaniesHouse.Commands;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Ukri.Commands;
-using Wealtherty.ThinkTanks.Commands;
 
 namespace Wealtherty.Cli;
 

@@ -2,7 +2,7 @@
 using System.Reflection;
 using CsvHelper;
 using Serilog;
-using Wealtherty.Cli.CompaniesHouse.Model;
+using Wealtherty.Cli.CompaniesHouse.Graph.Model;
 
 namespace Wealtherty.Cli.CompaniesHouse
 {

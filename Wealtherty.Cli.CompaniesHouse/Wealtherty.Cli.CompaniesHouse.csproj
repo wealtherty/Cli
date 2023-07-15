@@ -20,4 +20,8 @@
       <EmbeddedResource Include="Resources\SicCodes.csv" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Graph" />
+    </ItemGroup>
+
 </Project>
