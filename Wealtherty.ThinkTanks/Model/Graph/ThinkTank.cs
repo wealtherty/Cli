@@ -1,12 +1,6 @@
 ﻿using Wealtherty.Cli.Core.GraphDb;
 
-namespace Wealtherty.ThinkTanks.Graph.Model;
-
-public enum PoliticalWing
-{
-    Left,
-    Right
-}
+namespace Wealtherty.ThinkTanks.Model.Graph;
 
 public class ThinkTank : Node
 {

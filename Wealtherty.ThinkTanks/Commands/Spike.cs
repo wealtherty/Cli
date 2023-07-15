@@ -1,24 +1,38 @@
-﻿using CommandLine;
-using Microsoft.Extensions.DependencyInjection;
-using Neo4j.Driver;
+﻿using System.Globalization;
+using CommandLine;
+using CsvHelper;
+using Serilog;
 using Wealtherty.Cli.Core;
-using Wealtherty.ThinkTanks.Graph.Model;
 
 namespace Wealtherty.ThinkTanks.Commands;
 
 [Verb("spike")]
 public class Spike : Command
 {
-    protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
+    [Option('p', "path", Default = "ThinkTanks.csv")]
+    public string Path { get; set; }
+    
+    protected override Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var session = serviceProvider.GetService<IAsyncSession>();
+        using var reader = new StreamReader(Path);
+        using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
-        var thinkTank = new ThinkTank
-        {
-            Name = "Foo",
-            Wing = PoliticalWing.Left.ToString()
-        };
+        var thinkTanks =
+            csv
+                .GetRecords<Model.Csv.ThinkTank>()
+                .GroupBy(x => new { x.Name, x.Wing },
+                    tank => new { tank.CompanyNumber, tank.CharityNumber });
         
-        await session.ExecuteCommandsAsync(thinkTank);
+        foreach (var thinkTank in thinkTanks)
+        {
+            Log.Information("{@ThinkTank}", thinkTank.Key);
+
+            foreach (var blah in thinkTank)
+            {
+                Log.Information("{@Blah}", blah);
+            }
+        }
+        
+        return Task.CompletedTask;
     }
 }
