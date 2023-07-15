@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealtherty.Cli.CharityCommi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealtherty.Cli.Bridge", "Wealtherty.Cli.Bridge\Wealtherty.Cli.Bridge.csproj", "{ECF2A267-4358-4F02-90E8-D5DC4091D4CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealtherty.ThinkTanks", "Wealtherty.ThinkTanks\Wealtherty.ThinkTanks.csproj", "{CFD1616E-6A4E-4E32-AF53-74C03B7BE3C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{ECF2A267-4358-4F02-90E8-D5DC4091D4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF2A267-4358-4F02-90E8-D5DC4091D4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF2A267-4358-4F02-90E8-D5DC4091D4CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD1616E-6A4E-4E32-AF53-74C03B7BE3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD1616E-6A4E-4E32-AF53-74C03B7BE3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD1616E-6A4E-4E32-AF53-74C03B7BE3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD1616E-6A4E-4E32-AF53-74C03B7BE3C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -40,6 +40,8 @@ namespace Wealtherty.Cli.Core
         {
             foreach (var command in node.GetCommands())
             {
+                Log.Debug("Running command - Command: {@Command}", command);
+
                 await self.RunAsync(command);
             }
         }

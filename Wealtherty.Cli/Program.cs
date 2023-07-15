@@ -4,13 +4,14 @@ using Wealtherty.Cli.CharityCommission.Commands;
 using Wealtherty.Cli.CompaniesHouse.Commands;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Ukri.Commands;
+using Wealtherty.ThinkTanks.Commands;
 
 namespace Wealtherty.Cli;
 
 public static class Program
 {
     private static int Main(string[] args) {
-        return Parser.Default.ParseArguments<GetCompanies, GetCompany, GetThinkTanks, SearchProjects, GetCharity, ConnectCharitiesAndCompanies>(args)
+        return Parser.Default.ParseArguments<GetCompanies, GetCompany, GetThinkTanks, SearchProjects, GetCharity, ConnectCharitiesAndCompanies, Spike>(args)
             .MapResult(
                 (GetCompanies command) => Execute(command),
                 (GetCompany command) => Execute(command),
@@ -18,6 +19,7 @@ public static class Program
                 (SearchProjects command) => Execute(command),
                 (GetCharity command) => Execute(command),
                 (ConnectCharitiesAndCompanies command) => Execute(command),
+                (Spike command) => Execute(command),
                 _ => 1);
     }
 

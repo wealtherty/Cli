@@ -5,6 +5,7 @@ using Wealtherty.Cli.CharityCommission;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Ukri;
+using Wealtherty.ThinkTanks;
 
 namespace Wealtherty.Cli;
 
@@ -16,10 +17,11 @@ public class ServiceProviderFactory : IServiceProviderFactory
 
         return new ServiceCollection()
             .AddCore(configuration)
-            .AddBridge(configuration)
+            .AddThinkTanks(configuration)
             .AddCompaniesHouse(configuration)
             .AddCharityCommission(configuration)
             .AddUkri()
+            .AddBridge(configuration)
             .BuildServiceProvider();
     }
     
