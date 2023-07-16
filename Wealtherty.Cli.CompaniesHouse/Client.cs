@@ -1,4 +1,5 @@
 ﻿using CompaniesHouse;
+using CompaniesHouse.Request;
 using CompaniesHouse.Response.Appointments;
 using CompaniesHouse.Response.CompanyProfile;
 using CompaniesHouse.Response.Officers;
@@ -39,7 +40,7 @@ public class Client
     public async Task<Officer[]> GetOfficersAsync(string companyNumber, CancellationToken cancellationToken = new())
     {
         await Semaphore.WaitAsync(cancellationToken);
-        
+
         Log.Debug("Getting Company Officers - CompanyNumber: {CompanyNumber}", companyNumber);
 
         try

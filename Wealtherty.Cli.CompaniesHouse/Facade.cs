@@ -37,19 +37,93 @@ public class Facade
         _session = session;
     }
     
-    public async Task<Company> ModelCompanyAsync(string companyNumber, CancellationToken cancellationToken)
+    public async Task<Company> CreateCompanyAsync(string companyNumber, CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(companyNumber)) return null;
+
+        var safeCompanyNumber = companyNumber.PadLeft(8, '0');
         
-        if (CompaniesToIgnore.Contains(companyNumber, StringComparer.OrdinalIgnoreCase))
+        if (CompaniesToIgnore.Contains(safeCompanyNumber, StringComparer.OrdinalIgnoreCase))
         {
-            Log.Information("Ignoring Company: {Number}", companyNumber);
+            Log.Information("Ignoring Company: {Number}", safeCompanyNumber);
+            return null;
+        }
+        
+        var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(safeCompanyNumber, cancellationToken);
+        var companyProfile = getAppointmentCompanyResponse.Data;
+                
+        var companyProfileNode = new Company(companyProfile);
+
+        await _session.ExecuteCommandsAsync(companyProfileNode);
+        
+        return companyProfileNode;
+    }
+    
+    
+    public async Task CreateOfficersAsync(string companyNumber, CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrEmpty(companyNumber)) return;
+
+        var safeCompanyNumber = companyNumber.PadLeft(8, '0');
+        
+        if (CompaniesToIgnore.Contains(safeCompanyNumber, StringComparer.OrdinalIgnoreCase))
+        {
+            Log.Information("Ignoring Company: {Number}", safeCompanyNumber);
+            return;
+        }
+        
+        var getAppointmentCompanyResponse = await _client.GetCompanyProfileAsync(safeCompanyNumber, cancellationToken);
+        var companyProfile = getAppointmentCompanyResponse.Data;
+
+        var companyProfileNode = new Company(companyProfile);
+        companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyProfileNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
+
+        var officers = await _client.GetOfficersAsync(safeCompanyNumber, cancellationToken);
+
+        foreach (var officer in officers)
+        {
+            if (OfficersToIgnore.Contains(officer.Links.Officer.OfficerId, StringComparer.OrdinalIgnoreCase) ||  RolesToIgnore.Contains(officer.OfficerRole))
+            {
+                Log.Information("Ignoring Officer: {@Officer}", new { Id = officer.Links.Officer.OfficerId, officer.Name, Role = officer.OfficerRole});
+                continue;
+            }
+            
+            var officerNode = new Officer(officer);
+
+            var appointments = await _client.GetAppointmentsAsync(officer.Links.Officer.OfficerId, cancellationToken);
+            
+            foreach (var appointment in appointments.Where(x => x.Appointed.CompanyNumber.Equals(safeCompanyNumber) && !RolesToIgnore.Contains(x.OfficerRole)))
+            {
+                if (CompaniesToIgnore.Contains(appointment.Appointed.CompanyNumber, StringComparer.OrdinalIgnoreCase))
+                {
+                    Log.Information("Ignoring Appointment: {@Appointment}", new { OfficeId = officer.Links.Officer.OfficerId, officer.Name, appointment.Appointed.CompanyNumber, appointment.Appointed.CompanyName});
+                    continue;
+                }
+
+                if (!companyProfileNode.Number.Equals(safeCompanyNumber)) continue;
+                
+                companyProfileNode.AddRelation(new Appointment(companyProfileNode, officerNode, appointment));
+            }
+        }
+        
+        await _session.ExecuteCommandsAsync(companyProfileNode);
+    }
+
+    public async Task<Company> CreateOfficersAndCompaniesAsync(string companyNumber, CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrEmpty(companyNumber)) return null;
+
+        var safeCompanyNumber = companyNumber.PadLeft(8, '0');
+        
+        if (CompaniesToIgnore.Contains(safeCompanyNumber, StringComparer.OrdinalIgnoreCase))
+        {
+            Log.Information("Ignoring Company: {Number}", safeCompanyNumber);
             return null;
         }
 
         Company company = null;
         
-        var officers = await _client.GetOfficersAsync(companyNumber, cancellationToken);
+        var officers = await _client.GetOfficersAsync(safeCompanyNumber, cancellationToken);
 
         foreach (var officer in officers)
         {
@@ -76,15 +150,15 @@ public class Facade
                 
                 var companyProfileNode = new Company(companyProfile);
                 companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyProfileNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
-                officerNode.AddRelation(new Appointment(officerNode, companyProfileNode, appointment));
+                companyProfileNode.AddRelation(new Appointment(companyProfileNode, officerNode, appointment));
 
-                if (companyProfileNode.Number.Equals(companyNumber))
+                if (companyProfileNode.Number.Equals(safeCompanyNumber))
                 {
                     company = companyProfileNode;
                 }
+                
+                await _session.ExecuteCommandsAsync(companyProfileNode);
             }
-
-            await _session.ExecuteCommandsAsync(officerNode);
         }
 
         return company;
@@ -98,4 +172,6 @@ public class Facade
                 { "Number", companyNumber }
             });
     }
+
+    public Task DeleteAllAsync() => _session.DeleteAllAsync();
 }

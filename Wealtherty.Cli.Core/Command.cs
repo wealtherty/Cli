@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Events;
 
@@ -21,11 +22,22 @@ public abstract class Command
         
         try
         {
+            await RunStartablesAsync(serviceProvider);
             await ExecuteImplAsync(serviceProvider);
         }
         catch (Exception ex)
         {
             Log.Error(ex, "Error occurred executing command");
+        }
+    }
+
+    private static async Task RunStartablesAsync(IServiceProvider serviceProvider)
+    {
+        var startables = serviceProvider.GetServices<IStartable>();
+
+        foreach (var startable in startables)
+        {
+            await startable.StartAsync();
         }
     }
 

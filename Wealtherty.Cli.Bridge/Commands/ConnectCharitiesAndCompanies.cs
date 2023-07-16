@@ -26,7 +26,7 @@ public class ConnectCharitiesAndCompanies : Command
             if (charityNode.CompanyHouseNumber == null) continue;
             
             var companyNode = await companiesHouseFacade.GetCompanyAsync(charityNode.CompanyHouseNumber) ??
-                              await companiesHouseFacade.ModelCompanyAsync(charityNode.CompanyHouseNumber, cancellationToken);
+                              await companiesHouseFacade.CreateOfficersAndCompaniesAsync(charityNode.CompanyHouseNumber, cancellationToken);
             
             charityNode.AddRelation(new Relationship<Charity,Company>(charityNode, companyNode, "HAS_COMPANY"));
             

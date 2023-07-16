@@ -4,7 +4,7 @@ using Wealtherty.Cli.Core.GraphDb.Converters;
 
 namespace Wealtherty.Cli.CompaniesHouse.Graph.Model;
 
-public class Appointment : Relationship<Officer, Company>
+public class Appointment : Relationship<Company, Officer>
 {
 
     [JsonConverter(typeof(DateConverter))]
@@ -20,7 +20,7 @@ public class Appointment : Relationship<Officer, Company>
     [JsonIgnore]
     public global::CompaniesHouse.Response.Appointments.Appointment Resource { get; }
 
-    public Appointment(Officer parent, Company child, global::CompaniesHouse.Response.Appointments.Appointment resource) : base(parent, child)
+    public Appointment(Company company, Officer officer, global::CompaniesHouse.Response.Appointments.Appointment resource) : base(company, officer)
     {
         Resource = resource;
         
@@ -29,7 +29,7 @@ public class Appointment : Relationship<Officer, Company>
         Role = resource.OfficerRole.ToString();
         Occupation = resource.Occupation;
         
-        if (child.Status.Equals("Dissolved", StringComparison.OrdinalIgnoreCase))
+        if (company.Status.Equals("Dissolved", StringComparison.OrdinalIgnoreCase))
         {
             IsCurrent = false;
         }
@@ -39,6 +39,6 @@ public class Appointment : Relationship<Officer, Company>
         }
     }
     
-    protected override string GetName() => IsCurrent ?  "WORKS_FOR" : "WORKED_FOR";
+    protected override string GetName() => IsCurrent ?  "HAS_OFFICER" : "HAD_OFFICER";
 }
 

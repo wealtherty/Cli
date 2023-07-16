@@ -35,7 +35,7 @@ public abstract class Node
 
     public virtual object GetRelationshipObject() => throw new NotImplementedException();
 
-    private string GetMergeCommand() => $"MERGE ({'n'}:{GetType().Name} {GetMergeObject().ToJson()}) RETURN n;";
+    private string GetMergeCommand() => $"MERGE (n:{GetType().Name} {GetMergeObject().ToJson()}) RETURN n;";
 
     private object GetMergeObject() => this;
 }

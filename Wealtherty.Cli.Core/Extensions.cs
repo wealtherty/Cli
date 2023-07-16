@@ -46,11 +46,17 @@ namespace Wealtherty.Cli.Core
 
         public static Task DeleteAllAsync(this IAsyncSession self) => self.LogAndRunAsync("MATCH (n) DETACH DELETE n");
 
-        private static Task LogAndRunAsync(this IAsyncSession self, string command)
+        public static async Task LogAndRunAsync(this IAsyncSession self, string command)
         {
-            Log.Debug("Running command - Command: {@Command}", command);
-
-            return self.RunAsync(command);
+            try
+            {
+                Log.Debug("Running command - Command: {@Command}", command);
+                await self.RunAsync(command);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred executing command - Command: {Command}", command);
+            }
         }
 
         public static IEnumerable<T> OrEmpty<T>(this IEnumerable<T> self)

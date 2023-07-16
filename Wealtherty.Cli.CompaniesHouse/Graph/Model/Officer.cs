@@ -9,9 +9,6 @@ public class Officer : Node
     
     public string Name { get; set; }
     
-    public string Nationality { get; set; }
-    public int? YearOfBirth { get; set; }
-    
     [JsonIgnore]
     public global::CompaniesHouse.Response.Officers.Officer Resource { get; }
     
@@ -21,7 +18,6 @@ public class Officer : Node
         
         Name = resource.GetFormattedName();
         OfficerId = resource.Links.Officer.OfficerId;
-        YearOfBirth = resource.DateOfBirth?.Year;
     }
     
     

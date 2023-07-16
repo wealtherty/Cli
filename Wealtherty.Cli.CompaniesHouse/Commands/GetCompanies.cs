@@ -45,7 +45,7 @@ public class GetCompanies : Command
         
         foreach (var companyNumber in CompanyNumbers.All().Where(x => x != null))
         {
-            await facade.ModelCompanyAsync(companyNumber, cancellationToken);
+            await facade.CreateOfficersAndCompaniesAsync(companyNumber, cancellationToken);
         }
 
     }

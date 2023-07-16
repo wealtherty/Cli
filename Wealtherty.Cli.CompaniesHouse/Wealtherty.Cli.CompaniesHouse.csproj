@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CompaniesHouse" Version="7.12.16" />
+      <PackageReference Include="CompaniesHouse" Version="8.0.21" />
       <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
     </ItemGroup>
 

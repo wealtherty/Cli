@@ -3,7 +3,6 @@ using CommandLine;
 using CsvHelper;
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
-using Wealtherty.Cli.CharityCommission.Graph.Model;
 using Wealtherty.Cli.CompaniesHouse.Graph.Model;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Core.GraphDb;
@@ -22,11 +21,13 @@ public class Spike : Command
     
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
+        var session = serviceProvider.GetService<IAsyncSession>();
+        var companiesHouse = serviceProvider.GetService<CompaniesHouse.Facade>();
+        var charityCommission = serviceProvider.GetService<CharityCommission.Facade>();
+
         using var reader = new StreamReader(Path);
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-
-        var session = serviceProvider.GetService<IAsyncSession>();
-
+        
         if (DeleteAll)
         {
             await session.DeleteAllAsync();
@@ -46,16 +47,19 @@ public class Spike : Command
                 Wing = thinkTank.Key.Wing.ToString()
             };
             
-            foreach (var otherData in thinkTank)
+            foreach (var references in thinkTank)
             {
-                if (!string.IsNullOrEmpty(otherData.CompanyNumber))
+                if (!string.IsNullOrEmpty(references.CompanyNumber))
                 {
-                    thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Company>(thinkTankNode, new Company(otherData.CompanyNumber), "HAS_COMPANY"));
+                    var companyNode = await companiesHouse.CreateOfficersAndCompaniesAsync(references.CompanyNumber, CancellationToken.None);
+                    
+                    thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Company>(thinkTankNode, companyNode, "HAS_COMPANY"));
                 }
-                if (!string.IsNullOrEmpty(otherData.CharityNumber))
-                {
-                    thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Charity>(thinkTankNode, new Charity(otherData.CharityNumber), "HAS_CHARITY"));
-                }
+                // if (!string.IsNullOrEmpty(references.CharityNumber))
+                // {
+                //     var charityNode = await charityCommission.ModelCharityAsync(references.CharityNumber, CancellationToken.None);
+                //     thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Charity>(thinkTankNode, charityNode, "HAS_CHARITY"));
+                // }
             }
             
             await session.ExecuteCommandsAsync(thinkTankNode);

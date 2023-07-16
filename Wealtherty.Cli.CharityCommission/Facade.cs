@@ -17,7 +17,7 @@ public class Facade
         _session = session;
     }
 
-    public async Task ModelCharityAsync(string number, CancellationToken cancellationToken)
+    public async Task<Charity> ModelCharityAsync(string number, CancellationToken cancellationToken)
     {
         var charity = await _client.GetDetailsAsync(number, cancellationToken);
         var charityNode = new Charity(charity);
@@ -46,6 +46,8 @@ public class Facade
             
             await _session.ExecuteCommandsAsync(otherCharityNode);
         }
+        
+        return charityNode;
     }
 
     public async Task<Charity[]> GetCharitiesAsync()
