@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using Wealtherty.ThinkTanks.Graph.Model;
 
-namespace Wealtherty.Cli.Bridge.Csv.Model;
+namespace Wealtherty.ThinkTanks.Csv.Model;
 
 public class ThinkTank
 {

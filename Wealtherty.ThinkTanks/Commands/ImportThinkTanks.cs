@@ -3,15 +3,13 @@ using CommandLine;
 using CsvHelper;
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
-using Wealtherty.Cli.CompaniesHouse.Graph.Model;
 using Wealtherty.Cli.Core;
-using Wealtherty.Cli.Core.GraphDb;
-using ThinkTank = Wealtherty.Cli.Bridge.Csv.Model.ThinkTank;
+using ThinkTank = Wealtherty.ThinkTanks.Csv.Model.ThinkTank;
 
-namespace Wealtherty.Cli.Bridge.Commands;
+namespace Wealtherty.ThinkTanks.Commands;
 
-[Verb("spike")]
-public class Spike : Command
+[Verb("tt:thinktanks-import")]
+public class ImportThinkTanks : Command
 {
     [Option('p', "path", Default = "v2_thinktanks.csv")]
     public string Path { get; set; }
@@ -22,8 +20,6 @@ public class Spike : Command
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
         var session = serviceProvider.GetService<IAsyncSession>();
-        var companiesHouse = serviceProvider.GetService<CompaniesHouse.Facade>();
-        var charityCommission = serviceProvider.GetService<CharityCommission.Facade>();
 
         using var reader = new StreamReader(Path);
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
