@@ -33,7 +33,7 @@ public class Spike : Command
         var thinkTanks = ReadCsvFile<ThinkTank>("v2_thinktanks.csv");
         var companies = ReadCsvFile<ThinkTankCompany>("v2_thinktanks_companies.csv");
         
-        var things = new List<Thing>();
+        var allAppointments = new List<ThinkTankAppointment>();
 
         foreach (var thinkTank in thinkTanks)
         {
@@ -45,31 +45,33 @@ public class Spike : Command
                 .ToArray();
 
             foreach (var thinkTankCompany in thinkTankCompanies)
-            {   
-                Log.Debug("ThinkTankCompany: {@ThinkTankCompany}", thinkTankCompany);
-                
+            {
                 var company = await companiesHouseClient.GetCompanyProfileAsync(thinkTankCompany.CompanyNumber);
                 if (company.Data == null)
                 {
-                    Log.Warning("ThinkTank Company doesn't exist - CompanyNumber: {CompanyNumber}", thinkTankCompany.CompanyNumber);
+                    Log.Warning(
+                        "Ignoring: ThinkTank-Company doesn't exist - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}",
+                        thinkTank.PoliticalWing, thinkTank.Name, thinkTankCompany.CompanyNumber);
                     continue;
                 }
                 if (company.Data.SicCodes == null)
                 {
-                    Log.Warning("ThinkTank Company doesn't have any SIC Codes - Company: {@Company}", company.Data);
+                    Log.Warning(
+                        "Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}",
+                        thinkTank.PoliticalWing, thinkTank.Name, company.Data.CompanyNumber);
                     continue;
                 }
 
                 var officers = await companiesHouseClient.GetOfficersAsync(thinkTankCompany.CompanyNumber);
 
-                foreach (var officer in officers.Take(2))
+                foreach (var officer in officers)
                 {
-                    Log.Debug("Officer: {@Officer}", officer);
-
-                    
                     if (RolesToIgnore.Contains(officer.OfficerRole))
                     {
-                        Log.Warning("Ignoring - Officer: {@Officer}", officer);
+                        Log.Warning(
+                            "Ignoring: Officer-Role is excluded - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, OfficerName: {OfficerName}, OfficerRole: {OfficerRole}",
+                            thinkTank.PoliticalWing, thinkTank.Name, thinkTankCompany.CompanyNumber, 
+                            officer.Name, officer.OfficerRole);
                         continue;
                     }
 
@@ -77,19 +79,21 @@ public class Spike : Command
 
                     foreach (var appointment in appointments)
                     {
-                        Log.Debug("Appointment: {@Appointment}", appointment);
-                        
                         var appointmentCompany =
                             await companiesHouseClient.GetCompanyProfileAsync(appointment.Appointed.CompanyNumber);
                         
                         if (appointmentCompany.Data == null)
                         {
-                            Log.Warning("Appointment Company doesn't exist - CompanyNumber: {CompanyNumber}", appointment.Appointed.CompanyNumber);
+                            Log.Warning(
+                                "Ignoring: Company doesn't exist - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}",
+                                thinkTank.PoliticalWing, thinkTank.Name, appointment.Appointed.CompanyNumber);
                             continue;
                         }
                         if (appointmentCompany.Data.SicCodes == null)
                         {
-                            Log.Warning("Appointment Company doesn't have any SIC Codes - Company: {@Company}", appointmentCompany.Data);
+                            Log.Warning(
+                                "Ignoring: Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}",
+                                thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber);
                             continue;
                         }
 
@@ -97,9 +101,15 @@ public class Spike : Command
                         {
                             var sicCode = sicCodeReader.Read(code);
                             
-                            Log.Debug("SicCode: {@SicCode}", sicCode);
-                            
-                            var thing = new Thing
+                            if (sicCode == null)
+                            {
+                                Log.Warning(
+                                    "Ignoring: SIC Code not recognised - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, SicCode: {SicCode}",
+                                    thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber, code);
+                                continue;
+                            }
+
+                            var thinkTankAppointment = new ThinkTankAppointment
                             {
                                 ThinkTankPoliticalWing = thinkTank.PoliticalWing,
                                 ThinkTankName = thinkTank.Name,
@@ -109,9 +119,9 @@ public class Spike : Command
                                 CompanyName = appointmentCompany.Data.GetFormattedName(),
                                 CompanyDateOfCreation = appointmentCompany.Data.DateOfCreation,
                                 CompanyDateOfCessation = appointmentCompany.Data.DateOfCessation,
-                                CompanySicCode = code,
-                                CompanySicCodeCategory = sicCode?.Category,
-                                CompanySicCodeDescription = sicCode?.Description,
+                                CompanySicCode = sicCode.Code,
+                                CompanySicCodeCategory = sicCode.Category,
+                                CompanySicCodeDescription = sicCode.Description,
                         
                                 OfficerId = officer.Links.Officer.OfficerId,
                                 OfficerName = officer.GetFormattedName(),
@@ -120,7 +130,7 @@ public class Spike : Command
                                 OfficerResignedOn = appointment.ResignedOn
                             };
                     
-                            things.Add(thing);
+                            allAppointments.Add(thinkTankAppointment);
                         }
                     }
                     
@@ -128,25 +138,31 @@ public class Spike : Command
             }
         }
 
-        await WriteToCsvFileAsync(things, "all_appointments.csv");
+        await WriteToCsvFileAsync(allAppointments, "all_appointments.csv");
 
         var years = new[] { 2000, 2005, 2010, 2015 };
 
-        var dates = years.Select(year => new KeyValuePair<int, Tuple<DateTime, DateTime>>(year,
-            Tuple.Create(new DateTime(year, 1, 1),
-                new DateTime(year, 1, 1).AddYears(5).AddMilliseconds(-1))))
-            .ToDictionary(x => x.Key, x=> x.Value);
+        var dates = years.Select(year => new KeyValuePair<string, DateRange>($"{year}_to_{year + 5}",
+                new DateRange
+                {
+                    FromDate = new DateTime(year, 1, 1),
+                    ToDate = new DateTime(year, 1, 1).AddYears(5).AddMilliseconds(-1)
+                }))
+            .ToDictionary(x => x.Key, x => x.Value);
 
         foreach (var date in dates)
         {
-            var thingsForDate = things
-                .Where(x => x.ThinkTankFoundedOn <= date.Value.Item2)
-                .Where(x => x.OfficerAppointedOn <= date.Value.Item2)
+            var appointmentsForDateRange = allAppointments
+                .Where(x => x.ThinkTankFoundedOn <= date.Value.ToDate)
+                .Where(x => x.CompanyDateOfCreation.HasValue && x.CompanyDateOfCreation <= date.Value.ToDate)
+                .Where(x => !x.CompanyDateOfCessation.HasValue || (x.CompanyDateOfCessation.HasValue && x.CompanyDateOfCessation >= date.Value.FromDate))
+                .Where(x => x.OfficerAppointedOn.HasValue && x.OfficerAppointedOn <= date.Value.ToDate)
+                .Where(x => !x.OfficerResignedOn.HasValue || (x.OfficerResignedOn.HasValue && x.OfficerResignedOn >= date.Value.FromDate))
                 .ToArray();
             
-            await WriteToCsvFileAsync(thingsForDate, $"appointments_for_{date.Key}.csv");
+            await WriteToCsvFileAsync(appointmentsForDateRange, $"appointments_for_{date.Key}.csv");
 
-            var politicalSicCodes = thingsForDate.GroupBy(x => new
+            var sicCodesForDateRange = appointmentsForDateRange.GroupBy(x => new
                 {
                     x.ThinkTankPoliticalWing,
                     x.CompanySicCode,
@@ -165,9 +181,9 @@ public class Spike : Command
                 .ThenByDescending(x => x.Count)
                 .ToArray();
             
-            await WriteToCsvFileAsync(politicalSicCodes, $"sic_codes_for_{date.Key}.csv");
+            await WriteToCsvFileAsync(sicCodesForDateRange, $"sic_codes_for_{date.Key}.csv");
 
-            var politicalSicCodeCategories = thingsForDate.GroupBy(x => new
+            var sicCodeCategoriesForDateRange = appointmentsForDateRange.GroupBy(x => new
                 {
                     x.ThinkTankPoliticalWing,
                     x.CompanySicCodeCategory
@@ -182,15 +198,15 @@ public class Spike : Command
                 .ThenByDescending(x => x.Count)
                 .ToArray();
             
-            await WriteToCsvFileAsync(politicalSicCodeCategories, $"sic_code_categories_for_{date.Key}.csv");
+            await WriteToCsvFileAsync(sicCodeCategoriesForDateRange, $"sic_code_categories_for_{date.Key}.csv");
         }
     }
 
-    private static async Task WriteToCsvFileAsync<T>(IEnumerable<T> things, string path)
+    private static async Task WriteToCsvFileAsync<T>(IEnumerable<T> rows, string path)
     {
         await using var writer = new StreamWriter(path);
         await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-        await csv.WriteRecordsAsync(things);
+        await csv.WriteRecordsAsync(rows);
     }
 
     private static IEnumerable<T> ReadCsvFile<T>(string path)
@@ -198,12 +214,16 @@ public class Spike : Command
         using var reader = new StreamReader(path);
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
-        var rows =
-            csv.GetRecords<T>()
-                .ToArray();
-        
-        return rows;
+        return csv.GetRecords<T>()
+            .ToArray();
 
+    }
+
+    public class DateRange
+    {
+        public DateTime FromDate { get; set; }
+        
+        public DateTime ToDate { get; set; }
     }
 
     public class PoliticalSicCodeCategory
@@ -229,7 +249,7 @@ public class Spike : Command
         
     }
 
-    public class Thing
+    public class ThinkTankAppointment
     {
         public PoliticalWing ThinkTankPoliticalWing { get; set; }
         
