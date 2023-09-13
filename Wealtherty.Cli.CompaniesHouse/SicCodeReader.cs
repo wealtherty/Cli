@@ -28,6 +28,7 @@ namespace Wealtherty.Cli.CompaniesHouse
             return new SicCode
             {
                 Code = code,
+                Category = "UNKNOWN",
                 Description = "UNKNOWN"
             };
         }
