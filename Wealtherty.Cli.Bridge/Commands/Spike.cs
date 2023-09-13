@@ -13,7 +13,7 @@ namespace Wealtherty.Cli.Bridge.Commands;
 [Verb("spike")]
 public class Spike : Command
 {
-    [Option('p', "path", Default = "ThinkTanks.csv")]
+    [Option('p', "path", Default = "v2_thinktanks.csv")]
     public string Path { get; set; }
     
     [Option('d', "deleteAll", Default = true)]
@@ -34,33 +34,18 @@ public class Spike : Command
         }
 
         var thinkTanks =
-            csv
-                .GetRecords<ThinkTank>()
-                .GroupBy(x => new { x.Name, x.Wing },
-                    tank => new { tank.CompanyNumber, tank.CharityNumber });
+            csv.GetRecords<ThinkTank>();
         
         foreach (var thinkTank in thinkTanks)
         {
             var thinkTankNode = new ThinkTanks.Graph.Model.ThinkTank
             {
-                Name = thinkTank.Key.Name,
-                Wing = thinkTank.Key.Wing.ToString()
+                OttId = thinkTank.OttId,
+                Name = thinkTank.Name,
+                FoundedOn = thinkTank.FoundedOn,
+                Website = thinkTank.Website,
+                Wing = thinkTank.PoliticalWing.ToString()
             };
-            
-            foreach (var references in thinkTank)
-            {
-                if (!string.IsNullOrEmpty(references.CompanyNumber))
-                {
-                    var companyNode = await companiesHouse.CreateOfficersAndCompaniesAsync(references.CompanyNumber, CancellationToken.None);
-                    
-                    thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Company>(thinkTankNode, companyNode, "HAS_COMPANY"));
-                }
-                // if (!string.IsNullOrEmpty(references.CharityNumber))
-                // {
-                //     var charityNode = await charityCommission.ModelCharityAsync(references.CharityNumber, CancellationToken.None);
-                //     thinkTankNode.AddRelation(new Relationship<ThinkTanks.Graph.Model.ThinkTank,Charity>(thinkTankNode, charityNode, "HAS_CHARITY"));
-                // }
-            }
             
             await session.ExecuteCommandsAsync(thinkTankNode);
         }
