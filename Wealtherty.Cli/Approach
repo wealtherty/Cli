@@ -1,0 +1,85 @@
+Approach
+
+Defined SIC Code data
+
+- Parsed data from https://resources.companieshouse.gov.uk/sic/ to establish: Code, Category, Description
+- See SicCodes.csv
+
+Defined Think Tank data
+
+- Sarah provided list of Think Tanks
+- Used "On Think Tanks" to manually find the following properties for each Think Tank: founded-on date, website.  
+	See https://airtable.com/app5Tu5McTOQC3pYw/shrnWdKAQxofzjZg4/tblr8Lc3OsoygJ7og
+- Assigned Political wing to each Think Tank
+- Created csv file. See v2_thinktanks.csv
+
+Established Companies associated with each Think Thank
+
+- For each Think Tank in vs_thinktanks.csv, manually find any associated companies (past or present) 
+- Used various techniques to find companies:
+	- Searched Companies House for Think Tank name, founder
+	- Searched Think Tank website using various Google dorks
+- Manually created list of Think Tank Compaies.  See v2_thinktanks_companies.csv.  
+
+	!!! WARNING: This data has not be verified !!!
+
+Established all appointments for all officers for all companies associated with Think Tanks
+
+- Used Companies House API to programatically search for data
+- For each Company in v2_thinktanks_companies.csv
+	- Got the Company for the Think Tank
+	- Ignored any Company that couldn't be found
+	- Ignored any Company that didn't have any SIC Codes
+	- Got all the Officers for the Company
+	- For each Officer associated with the Think Tank Company
+		- Ignored any Officer whose Role was to be ignored.  See below.
+		- Got all the Appointments for the Officer.  This included not only the Company associated with the Think Tank, but all others
+		- For each Appointment
+			- Got the Company for the Appointment
+			- Ignored any Appointment where the Company couldn't be found
+			- Ignore any Appointment where the Company doesn't have any SIC codes
+			- For each SIC Code associated with the Appointment Company
+				- Ignored any SIC Code that couldn't be found				
+				- Record all data associated with Think Tank, Company, Officer, Appointment, and SIC Code
+		
+- This approach duplicates data per Appointment where the Company has multiple SIC Codes
+- This is the master set of data.  All other data sets mentioned below is a subset, or aggregate of this data.
+- Stored data in csv file.  See all_appointments.csv		
+
+	Officer-Roles that were ignored:
+		CorporateNomineeDirector,
+	    CorporateNomineeSecretary,
+	    CorporateSecretary,
+	    NomineeDirector, 
+	    NomineeSecretary
+
+Defined date-ranges
+	- 01-01-2000 00:00:00 to 31-12-2004 23:59:59
+	- 01-01-2005 00:00:00 to 31-12-2009 23:59:59
+	- 01-01-2010 00:00:00 to 31-12-2014 23:59:59
+	- 01-01-2015 00:00:00 to 31-12-2019 23:59:59
+
+
+For each date-range
+
+	Define appointments for each date-range
+
+		- Filter all_appoinments.csv to only include (all conditions must be true)
+			- Think tanks that were created before the date-range end-date, eg before 31-12-2004
+			- Companies that were created on or before the date-range end-date
+			- Companies that haven't ceased OR, if they have, ceased after the date-range start-date
+			- Appointments that were created on or before date-range end-date
+			- Appointments that haven't been resigned from OR, if they have, resigned from after the date-range start-date
+		- See appointments_for_[Date Range].csv
+
+	Defined Counts of Sic Codes for appointments within date-range
+
+		- Grouped the appointments by PoliticalWing, SicCode, CompanySicCodeCategory, CompanySicCodeDescription
+		- Count the appointments grouped-by the above
+		- Stored data in csv file. See sic_codes_for_[Date Range].csv
+
+	Defined Count of Sic Code Categories for appointments within date-range
+
+		- Grouped the appointments by PoliticalWing, CompanySicCodeCategory
+		- Count the appointments grouped-by the above
+		- Stored data in csv file. See sic_code_categories_for_[Date Range].csv
