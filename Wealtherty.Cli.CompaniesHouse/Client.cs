@@ -14,21 +14,11 @@ public class Client
 {
     private const int PageSize = 50;
     private static readonly SemaphoreSlim Semaphore = new(1,1);
+
     private static readonly AsyncRetryPolicy Retry = Policy
         .Handle<HttpRequestException>(x => !x.Message.Contains("404"))
-        .WaitAndRetryAsync(new[]
-        {
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1),
-            TimeSpan.FromMinutes(1)
-        }, (exception, span) => Log.Warning(exception, "Error calling Companies House - Sleeping for: {@Span}", span));
+        .WaitAndRetryAsync(Enumerable.Range(0, 30).Select(_ => TimeSpan.FromMinutes(1)),
+            (exception, span) => Log.Debug(exception, "Error calling Companies House - Sleeping for: {@Span}", span));
 
     private readonly ICompaniesHouseClient _companiesHouseClient;
 
