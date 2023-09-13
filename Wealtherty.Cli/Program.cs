@@ -11,7 +11,7 @@ namespace Wealtherty.Cli;
 public static class Program
 {
     private static int Main(string[] args) {
-        return Parser.Default.ParseArguments<GetCompanies, GetCompany, SearchProjects, GetCharity, ConnectCharitiesAndCompanies, ImportThinkTanks, CreateOfficers>(args)
+        return Parser.Default.ParseArguments<GetCompanies, GetCompany, SearchProjects, GetCharity, ConnectCharitiesAndCompanies, ImportThinkTanks, CreateOfficers, Spike>(args)
             .MapResult(
                 (GetCompanies command) => Execute(command),
                 (GetCompany command) => Execute(command),
@@ -20,6 +20,7 @@ public static class Program
                 (ConnectCharitiesAndCompanies command) => Execute(command),
                 (ImportThinkTanks command) => Execute(command),
                 (CreateOfficers command) => Execute(command),
+                (Spike command) => Execute(command),
                 _ => 1);
     }
 
