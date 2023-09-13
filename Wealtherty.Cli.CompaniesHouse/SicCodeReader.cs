@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Reflection;
 using CsvHelper;
-using Serilog;
 using Wealtherty.Cli.CompaniesHouse.Graph.Model;
 
 namespace Wealtherty.Cli.CompaniesHouse
@@ -17,20 +16,7 @@ namespace Wealtherty.Cli.CompaniesHouse
 
         public SicCode Read(string code)
         {
-            var sicCode = _sicCodes.SingleOrDefault(x => x.Code.Equals(code));
-
-            if (sicCode != null)
-            {
-                return sicCode;
-            }
-            
-            Log.Warning("SIC Code not found - Code: {Code}", code);
-            return new SicCode
-            {
-                Code = code,
-                Category = "UNKNOWN",
-                Description = "UNKNOWN"
-            };
+            return _sicCodes.SingleOrDefault(x => x.Code.Equals(code));
         }
         
         private static SicCode[] ReadSicCodes()
