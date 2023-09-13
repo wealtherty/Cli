@@ -1,0 +1,506 @@
+DateTime,Level,Message
+2023-09-13 16:37:22.798 +01:00,[INF],Executing {"LogLevel":"Information","$type":"Spike"}
+2023-09-13 16:37:24.594 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Adam Smith Institute, CompanyNumber: OC447508
+2023-09-13 16:37:30.844 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Right", ThinkTank: Adam Smith Institute, CompanyNumber: 02732176, OfficerName: WATERLOW SECRETARIES LIMITED, OfficerRole: "CorporateNomineeSecretary"
+2023-09-13 16:37:39.420 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Right", ThinkTank: Adam Smith Institute, CompanyNumber: 02732176, OfficerName: WATERLOW NOMINEES LIMITED, OfficerRole: "CorporateNomineeDirector"
+2023-09-13 16:37:41.943 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Right", ThinkTank: Adam Smith Institute, CompanyNumber: 05648068, OfficerName: SWIFT INCORPORATIONS LIMITED, OfficerRole: "CorporateNomineeSecretary"
+2023-09-13 16:37:47.619 +01:00,[WRN],Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Bow Group, CompanyNumber: 07810169
+2023-09-13 16:37:48.997 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02046601, SicCode: 7222
+2023-09-13 16:37:49.036 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03691872, SicCode: 7499
+2023-09-13 16:42:55.950 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 08496562
+2023-09-13 16:42:56.006 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 08496554
+2023-09-13 16:42:56.725 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06148319, SicCode: 7450
+2023-09-13 16:42:56.771 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06835861, SicCode: 7011
+2023-09-13 16:42:56.923 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06773378, SicCode: 9999
+2023-09-13 16:42:56.974 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06772170, SicCode: 9999
+2023-09-13 16:43:01.254 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: SC153320, SicCode: 6523
+2023-09-13 16:43:02.548 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC361535
+2023-09-13 16:43:02.608 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC348071
+2023-09-13 16:43:02.741 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06776679
+2023-09-13 16:43:02.790 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC322520
+2023-09-13 16:43:02.836 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC319299
+2023-09-13 16:43:03.410 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC328391
+2023-09-13 16:43:03.562 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC316970
+2023-09-13 16:43:03.638 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC377473
+2023-09-13 16:43:03.681 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC319479
+2023-09-13 16:43:03.770 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC349225
+2023-09-13 16:43:03.985 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC301618
+2023-09-13 16:43:04.094 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC318664
+2023-09-13 16:43:04.417 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06242135, SicCode: 7415
+2023-09-13 16:43:04.460 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06242133, SicCode: 7415
+2023-09-13 16:43:04.601 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 05168384, SicCode: 7499
+2023-09-13 16:43:04.892 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 04355998, SicCode: 7415
+2023-09-13 16:43:05.069 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01660788, SicCode: 7415
+2023-09-13 16:43:05.702 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC418006
+2023-09-13 16:43:05.752 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC320316
+2023-09-13 16:43:05.799 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: SC271389, SicCode: 7011
+2023-09-13 16:43:05.932 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC316197
+2023-09-13 16:43:06.218 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03452002, SicCode: 7487
+2023-09-13 16:43:06.283 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03744679, SicCode: 7020
+2023-09-13 16:43:06.434 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02476647, SicCode: 7020
+2023-09-13 16:43:06.439 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02476647, SicCode: 7415
+2023-09-13 16:43:06.554 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02247762, SicCode: 7415
+2023-09-13 16:43:06.599 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03601127, SicCode: 7499
+2023-09-13 16:43:06.636 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03601121, SicCode: 7499
+2023-09-13 16:43:06.855 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02955524, SicCode: 9999
+2023-09-13 16:43:07.360 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 09578020
+2023-09-13 16:43:07.526 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC388997
+2023-09-13 16:43:07.646 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC350974
+2023-09-13 16:43:07.835 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC322013
+2023-09-13 16:43:07.880 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC305610
+2023-09-13 16:43:08.347 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: FC024187
+2023-09-13 16:43:08.885 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC313497
+2023-09-13 16:43:09.025 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: FC019077
+2023-09-13 16:43:09.116 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02633167, SicCode: 2213
+2023-09-13 16:43:09.160 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02587209, SicCode: 5227
+2023-09-13 16:43:09.199 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02587209, SicCode: 5227
+2023-09-13 16:43:09.379 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01763101, SicCode: 7499
+2023-09-13 16:43:09.560 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 05172187, SicCode: 6603
+2023-09-13 16:43:09.619 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 05167938, SicCode: 7415
+2023-09-13 16:43:10.420 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02601422, SicCode: 6523
+2023-09-13 16:43:11.918 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC380478
+2023-09-13 16:43:12.753 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02621255, SicCode: 7415
+2023-09-13 16:43:12.795 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02629934, SicCode: 7415
+2023-09-13 16:43:12.838 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03877601, SicCode: 7415
+2023-09-13 16:43:12.887 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 04173300, SicCode: 7415
+2023-09-13 16:43:13.794 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC434410
+2023-09-13 16:43:14.010 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 05888516, SicCode: 7320
+2023-09-13 16:43:14.288 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 09925238
+2023-09-13 16:43:14.415 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 08387653
+2023-09-13 16:43:14.473 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 07849870
+2023-09-13 16:43:14.580 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03736792, SicCode: 8010
+2023-09-13 16:43:14.586 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03736792, SicCode: 8021
+2023-09-13 16:43:14.594 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03736792, SicCode: 8030
+2023-09-13 16:43:15.170 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03736792, SicCode: 8010
+2023-09-13 16:43:15.175 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03736792, SicCode: 8021
+2023-09-13 16:43:15.187 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03736792, SicCode: 8030
+2023-09-13 16:43:15.388 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03679822, SicCode: 9999
+2023-09-13 16:43:15.439 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 03165108, SicCode: 1450
+2023-09-13 16:43:15.596 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01993422, SicCode: 7415
+2023-09-13 16:43:15.635 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01903902, SicCode: 7415
+2023-09-13 16:43:17.362 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: NF003036
+2023-09-13 16:43:18.067 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 00076230, SicCode: 7415
+2023-09-13 16:43:18.329 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01988676, SicCode: 7499
+2023-09-13 16:43:18.382 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 00318226, SicCode: 7415
+2023-09-13 16:43:18.431 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 00291724, SicCode: 7499
+2023-09-13 16:43:18.470 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 00234336, SicCode: 7499
+2023-09-13 16:43:18.554 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01065868, SicCode: 7499
+2023-09-13 16:43:19.659 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC360975
+2023-09-13 16:43:19.710 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC322843
+2023-09-13 16:43:19.752 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC309270
+2023-09-13 16:43:19.976 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC313497
+2023-09-13 16:43:20.038 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC313496
+2023-09-13 16:43:21.994 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 06914456
+2023-09-13 16:43:22.393 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01058352, SicCode: 7020
+2023-09-13 16:43:22.439 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02862134, SicCode: 7020
+2023-09-13 16:43:22.487 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02205754, SicCode: 7020
+2023-09-13 16:43:22.529 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 05837061, SicCode: 7011
+2023-09-13 16:43:22.576 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02004849, SicCode: 7032
+2023-09-13 16:48:25.416 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: SC054479, SicCode: 7499
+2023-09-13 16:48:27.029 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01204868, SicCode: 7511
+2023-09-13 16:48:27.743 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC436423
+2023-09-13 16:48:28.167 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: OC309409
+2023-09-13 16:48:28.297 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02328838, SicCode: 6523
+2023-09-13 16:48:28.864 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02698037, SicCode: 8514
+2023-09-13 16:48:28.908 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02386635, SicCode: 8010
+2023-09-13 16:48:29.032 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02875724, SicCode: 9305
+2023-09-13 16:48:29.257 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01124015, SicCode: 7499
+2023-09-13 16:48:29.341 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 02804863, SicCode: 7260
+2023-09-13 16:48:29.385 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: 01987358, SicCode: 7415
+2023-09-13 16:48:29.507 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Centre for Policy Studies, CompanyNumber: SC082734, SicCode: 6712
+2023-09-13 16:48:32.202 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Compass, CompanyNumber: 06924570
+2023-09-13 16:48:32.242 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Compass, CompanyNumber: 06924570
+2023-09-13 16:48:32.586 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Compass, CompanyNumber: 07328856, SicCode: 9132
+2023-09-13 16:48:32.631 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Compass, CompanyNumber: 06981529, SicCode: 9132
+2023-09-13 16:48:32.766 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Compass, CompanyNumber: OC385688
+2023-09-13 16:48:35.231 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 09597934
+2023-09-13 16:48:38.476 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02977740, OfficerName: APEX COMPANY SERVICES LIMITED, OfficerRole: "CorporateNomineeSecretary"
+2023-09-13 16:48:38.481 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02977740, OfficerName: BANCROFT REGISTRARS LIMITED, OfficerRole: "CorporateSecretary"
+2023-09-13 16:48:39.458 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04616021, SicCode: 7499
+2023-09-13 16:48:39.502 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04134408, SicCode: 7487
+2023-09-13 16:48:39.552 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04072428, SicCode: 7487
+2023-09-13 16:48:39.716 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02435552, SicCode: 7499
+2023-09-13 16:48:39.752 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02435541, SicCode: 7499
+2023-09-13 16:48:39.798 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02435558, SicCode: 7499
+2023-09-13 16:48:39.843 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02435546, SicCode: 7499
+2023-09-13 16:48:39.933 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02425768, SicCode: 7499
+2023-09-13 16:48:40.719 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 01303278, SicCode: 7499
+2023-09-13 16:48:40.763 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02378928, SicCode: 7499
+2023-09-13 16:48:40.807 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02659796, SicCode: 7499
+2023-09-13 16:48:40.849 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03029661, SicCode: 9999
+2023-09-13 16:48:40.891 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03454861, SicCode: 7487
+2023-09-13 16:48:40.946 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03639578, SicCode: 9999
+2023-09-13 16:48:40.992 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03010441, SicCode: 7499
+2023-09-13 16:48:41.039 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02645630, SicCode: 7499
+2023-09-13 16:48:41.085 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02833211, SicCode: 9305
+2023-09-13 16:48:41.141 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 01618859, SicCode: 7499
+2023-09-13 16:48:41.191 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02588995, SicCode: 7220
+2023-09-13 16:48:41.229 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 01430405, SicCode: 7487
+2023-09-13 16:48:41.277 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02566351, SicCode: 7499
+2023-09-13 16:48:41.318 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03005305, SicCode: 7499
+2023-09-13 16:48:41.361 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03454868, SicCode: 7499
+2023-09-13 16:48:41.421 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02963716, SicCode: 7499
+2023-09-13 16:48:41.474 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 01301031, SicCode: 7499
+2023-09-13 16:48:41.518 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03514510, SicCode: 7499
+2023-09-13 16:48:41.562 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00998200, SicCode: 7499
+2023-09-13 16:48:42.896 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 05785456, SicCode: 9133
+2023-09-13 16:48:43.173 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04146193, SicCode: 7499
+2023-09-13 16:48:43.583 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 05750958, SicCode: 7487
+2023-09-13 16:48:47.894 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 07059356
+2023-09-13 16:48:47.935 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 06812146, SicCode: 9999
+2023-09-13 16:48:49.145 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 06462332, SicCode: 5552
+2023-09-13 16:48:49.185 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 05967599, SicCode: 6120
+2023-09-13 16:48:49.399 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02775655, SicCode: 9999
+2023-09-13 16:48:49.696 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC419978
+2023-09-13 16:48:49.746 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC407165
+2023-09-13 16:48:50.200 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02645630, SicCode: 7499
+2023-09-13 16:48:50.799 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03904010, SicCode: 8030
+2023-09-13 16:48:51.681 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00715537, SicCode: 9252
+2023-09-13 16:48:51.810 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 05155002, SicCode: 8042
+2023-09-13 16:48:52.123 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03089538, SicCode: 7487
+2023-09-13 16:48:52.963 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 01523652, SicCode: 7415
+2023-09-13 16:48:53.189 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00161545, SicCode: 5151
+2023-09-13 16:48:53.281 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00161545, SicCode: 5151
+2023-09-13 16:48:54.243 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC341226
+2023-09-13 16:48:55.278 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306586
+2023-09-13 16:48:55.323 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306584
+2023-09-13 16:48:55.373 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306587
+2023-09-13 16:48:55.434 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306588
+2023-09-13 16:48:55.483 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306585
+2023-09-13 16:48:55.524 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306582
+2023-09-13 16:48:55.570 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC306583
+2023-09-13 16:48:55.619 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC305693
+2023-09-13 16:53:59.155 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 06059866, SicCode: 6411
+2023-09-13 16:53:59.971 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC324045
+2023-09-13 16:54:00.017 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: OC301540
+2023-09-13 16:54:01.624 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00202561, SicCode: 2211
+2023-09-13 16:54:04.548 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02667039, OfficerName: BANCROFT REGISTRARS LIMITED, OfficerRole: "CorporateSecretary"
+2023-09-13 16:54:04.554 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 02667039, OfficerName: SWIFT INCORPORATIONS LIMITED, OfficerRole: "CorporateNomineeSecretary"
+2023-09-13 16:54:10.015 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 01523652, SicCode: 7415
+2023-09-13 16:54:10.264 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00161545, SicCode: 5151
+2023-09-13 16:54:10.377 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 00161545, SicCode: 5151
+2023-09-13 16:54:11.484 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04568685, SicCode: 8010
+2023-09-13 16:54:11.488 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04568685, SicCode: 8021
+2023-09-13 16:54:11.499 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04568685, SicCode: 8030
+2023-09-13 16:54:11.503 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 04568685, SicCode: 8042
+2023-09-13 16:54:11.742 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Demos, CompanyNumber: 03283014, SicCode: 7420
+2023-09-13 16:54:15.900 +01:00,[WRN],Ignoring: ThinkTank-Company doesn't exist - PoliticalWing: "Left", ThinkTank: Fabian Society, CompanyNumber: 
+2023-09-13 16:54:17.527 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03973654, SicCode: 7440
+2023-09-13 16:54:17.581 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03973654, SicCode: 7440
+2023-09-13 16:54:17.864 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 07179395, SicCode: 7499
+2023-09-13 16:54:17.963 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05544449, SicCode: 9212
+2023-09-13 16:54:19.108 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04274063, SicCode: 7220
+2023-09-13 16:54:19.766 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02293506, SicCode: 5248
+2023-09-13 16:54:20.464 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 09132716
+2023-09-13 16:54:20.497 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 07712652
+2023-09-13 16:54:20.537 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 07712698
+2023-09-13 16:54:20.758 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC332842
+2023-09-13 16:54:20.872 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC312113
+2023-09-13 16:54:20.926 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC317307
+2023-09-13 16:54:20.973 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC317298
+2023-09-13 16:54:21.061 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC032425
+2023-09-13 16:54:21.440 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027202
+2023-09-13 16:54:21.492 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027201
+2023-09-13 16:54:21.530 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027929
+2023-09-13 16:54:21.575 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027206
+2023-09-13 16:54:21.628 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027204
+2023-09-13 16:54:21.679 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027928
+2023-09-13 16:54:21.723 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027205
+2023-09-13 16:54:21.764 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027203
+2023-09-13 16:54:21.799 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027207
+2023-09-13 16:54:21.845 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC030452
+2023-09-13 16:54:21.886 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC027927
+2023-09-13 16:54:23.023 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC030452
+2023-09-13 16:54:23.121 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05446631, SicCode: 5530
+2023-09-13 16:54:25.838 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC024699
+2023-09-13 16:54:25.887 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04590736, SicCode: 7260
+2023-09-13 16:54:26.240 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: SC067589, SicCode: 7499
+2023-09-13 16:54:26.458 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: SC079672, SicCode: 7499
+2023-09-13 16:54:26.786 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01948433, SicCode: 7499
+2023-09-13 16:54:27.287 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01124015, SicCode: 7499
+2023-09-13 16:54:27.333 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03326152, SicCode: 8514
+2023-09-13 16:54:27.413 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01661703, SicCode: 7499
+2023-09-13 16:54:27.461 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02321862, SicCode: 7499
+2023-09-13 16:54:27.497 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: SC093713, SicCode: 7499
+2023-09-13 16:54:28.343 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 06347657, SicCode: 8042
+2023-09-13 16:54:31.849 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05543603, SicCode: 7415
+2023-09-13 16:54:31.897 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05875288, SicCode: 7415
+2023-09-13 16:54:31.941 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05875307, SicCode: 7415
+2023-09-13 16:54:31.992 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05544464, SicCode: 7415
+2023-09-13 16:54:32.284 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04279589, SicCode: 9211
+2023-09-13 16:54:32.288 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04279589, SicCode: 9220
+2023-09-13 16:54:34.043 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03843600, SicCode: 9999
+2023-09-13 16:59:40.827 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04600861, SicCode: 9133
+2023-09-13 16:59:41.387 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01204868, SicCode: 7511
+2023-09-13 16:59:41.939 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03188699, SicCode: 9800
+2023-09-13 16:59:42.973 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03038388, SicCode: 9999
+2023-09-13 16:59:43.163 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03236549, SicCode: 7499
+2023-09-13 16:59:43.456 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 06047467, SicCode: 7320
+2023-09-13 16:59:43.734 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01216573, SicCode: 9231
+2023-09-13 16:59:44.058 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC385173
+2023-09-13 16:59:44.272 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05067993, SicCode: 8030
+2023-09-13 16:59:44.340 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05067993, SicCode: 8030
+2023-09-13 16:59:45.191 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306588
+2023-09-13 16:59:45.263 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306582
+2023-09-13 16:59:45.314 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306587
+2023-09-13 16:59:45.366 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306585
+2023-09-13 16:59:45.406 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306586
+2023-09-13 16:59:45.463 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306584
+2023-09-13 16:59:45.518 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC306583
+2023-09-13 16:59:45.572 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC305693
+2023-09-13 16:59:46.547 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04274063, SicCode: 7220
+2023-09-13 16:59:47.184 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02293506, SicCode: 5248
+2023-09-13 16:59:48.185 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: SC131524, SicCode: 7415
+2023-09-13 16:59:49.026 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01552114, SicCode: 7499
+2023-09-13 16:59:50.541 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: SC066352, SicCode: 7499
+2023-09-13 16:59:51.633 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03733756, SicCode: 7487
+2023-09-13 16:59:51.638 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03733756, SicCode: 9305
+2023-09-13 16:59:52.673 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02054109, SicCode: 6523
+2023-09-13 16:59:53.734 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 09453045
+2023-09-13 16:59:54.873 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: FC019077
+2023-09-13 16:59:54.920 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00977898, SicCode: 7415
+2023-09-13 16:59:55.419 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02998388, SicCode: 9999
+2023-09-13 16:59:56.576 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 06364891, SicCode: 9131
+2023-09-13 16:59:56.661 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 03529196, SicCode: 9305
+2023-09-13 16:59:59.669 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05327251, SicCode: 5030
+2023-09-13 16:59:59.677 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05327251, SicCode: 5188
+2023-09-13 16:59:59.718 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05327251, SicCode: 5030
+2023-09-13 16:59:59.723 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05327251, SicCode: 5188
+2023-09-13 16:59:59.819 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04041367, OfficerName: CHETTLEBURGH INTERNATIONAL LIMITED, OfficerRole: "CorporateNomineeSecretary"
+2023-09-13 17:00:01.617 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04274063, SicCode: 7220
+2023-09-13 17:00:02.390 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02293506, SicCode: 5248
+2023-09-13 17:00:03.122 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 04274063, SicCode: 7220
+2023-09-13 17:00:03.835 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02293506, SicCode: 5248
+2023-09-13 17:00:05.834 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01587570, SicCode: 7415
+2023-09-13 17:00:06.610 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02169055, SicCode: 2211
+2023-09-13 17:00:06.726 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01264921, SicCode: 7499
+2023-09-13 17:00:06.767 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00543867, SicCode: 2211
+2023-09-13 17:00:06.814 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00491550, SicCode: 7499
+2023-09-13 17:00:06.858 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02340839, SicCode: 7499
+2023-09-13 17:00:06.947 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00156543, SicCode: 7415
+2023-09-13 17:00:06.994 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00932947, SicCode: 7011
+2023-09-13 17:00:07.035 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 01101779, SicCode: 7011
+2023-09-13 17:00:07.080 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00180780, SicCode: 7011
+2023-09-13 17:00:07.127 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 00121550, SicCode: 7011
+2023-09-13 17:00:07.222 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 02042233, SicCode: 7487
+2023-09-13 17:00:08.676 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: OC316276
+2023-09-13 17:00:09.485 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 07179395, SicCode: 7499
+2023-09-13 17:00:09.642 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Institute for Public Policy Research, CompanyNumber: 05544449, SicCode: 9212
+2023-09-13 17:05:12.566 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 02133976, SicCode: 6523
+2023-09-13 17:05:13.121 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 09427214
+2023-09-13 17:05:13.206 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 07872151
+2023-09-13 17:05:13.293 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: OC367581
+2023-09-13 17:05:13.347 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 07705653
+2023-09-13 17:05:13.461 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 06858196
+2023-09-13 17:05:13.613 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04458722, SicCode: 6712
+2023-09-13 17:05:14.542 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: OC327571
+2023-09-13 17:05:14.587 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: OC356559
+2023-09-13 17:05:17.411 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 05508829, SicCode: 7240
+2023-09-13 17:05:17.415 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 05508829, SicCode: 9133
+2023-09-13 17:05:17.456 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04804234, SicCode: 7240
+2023-09-13 17:05:17.460 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04804234, SicCode: 9133
+2023-09-13 17:05:17.499 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04943605, SicCode: 9999
+2023-09-13 17:05:17.541 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04803636, SicCode: 7240
+2023-09-13 17:05:17.545 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04803636, SicCode: 9133
+2023-09-13 17:05:17.582 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04694751, SicCode: 7499
+2023-09-13 17:05:17.627 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 04250747, SicCode: 9999
+2023-09-13 17:05:18.979 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 01141250, SicCode: 4521
+2023-09-13 17:05:19.541 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 00639472, SicCode: 7415
+2023-09-13 17:05:19.656 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 03221076, SicCode: 9111
+2023-09-13 17:05:19.794 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 02588956, SicCode: 7011
+2023-09-13 17:05:20.090 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 05806781, SicCode: 5242
+2023-09-13 17:05:20.326 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 05038069, SicCode: 9234
+2023-09-13 17:05:20.736 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: SC073280, SicCode: 6523
+2023-09-13 17:05:20.744 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: SC073280, SicCode: 7487
+2023-09-13 17:05:20.982 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: SC000689, SicCode: 7415
+2023-09-13 17:05:23.916 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 02913130, SicCode: 7415
+2023-09-13 17:05:24.093 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 00236895, SicCode: 6523
+2023-09-13 17:05:24.130 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 00588263, SicCode: 8010
+2023-09-13 17:05:24.332 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 01608047, SicCode: 7499
+2023-09-13 17:05:24.502 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 00889466, SicCode: 6523
+2023-09-13 17:05:24.753 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 02067973, SicCode: 7499
+2023-09-13 17:05:24.945 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 00831433, SicCode: 7499
+2023-09-13 17:05:25.464 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 00015740, SicCode: 6523
+2023-09-13 17:05:26.360 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 03482963, SicCode: 9305
+2023-09-13 17:05:26.599 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: 01499601, SicCode: 8532
+2023-09-13 17:05:26.936 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Institute of Economic Affairs, CompanyNumber: FC026987
+2023-09-13 17:05:27.792 +01:00,[WRN],Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: FC028686
+2023-09-13 17:05:28.201 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 07025053, SicCode: 7487
+2023-09-13 17:05:28.243 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 00450633, SicCode: 5132
+2023-09-13 17:05:28.247 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 00450633, SicCode: 5223
+2023-09-13 17:05:28.295 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: OC323980
+2023-09-13 17:05:28.632 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 00516501, SicCode: 5138
+2023-09-13 17:05:28.915 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 03624754, SicCode: 5138
+2023-09-13 17:05:28.950 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 03888176, SicCode: 0501
+2023-09-13 17:05:30.308 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 01928270, SicCode: 7415
+2023-09-13 17:05:31.208 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 07266032, SicCode: 7414
+2023-09-13 17:05:31.562 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: OC323570
+2023-09-13 17:05:33.508 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Legatum Institute, CompanyNumber: 05835408, SicCode: 9305
+2023-09-13 17:05:34.078 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC347343
+2023-09-13 17:05:34.248 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 06770711, SicCode: 7487
+2023-09-13 17:05:34.293 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 06804309
+2023-09-13 17:05:34.383 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02355925, SicCode: 5136
+2023-09-13 17:05:34.387 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02355925, SicCode: 5190
+2023-09-13 17:05:34.996 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 09351044
+2023-09-13 17:05:35.512 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC385173
+2023-09-13 17:05:35.892 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04851932, SicCode: 7011
+2023-09-13 17:05:36.938 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC346009
+2023-09-13 17:05:37.043 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC344385
+2023-09-13 17:05:37.190 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02302737, SicCode: 7499
+2023-09-13 17:05:38.048 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 09530058
+2023-09-13 17:05:38.146 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02193892, SicCode: 4521
+2023-09-13 17:05:38.645 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC390652
+2023-09-13 17:05:38.739 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC321654
+2023-09-13 17:05:38.794 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC316276
+2023-09-13 17:05:38.846 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC309528
+2023-09-13 17:05:39.291 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04723807, SicCode: 8010
+2023-09-13 17:05:39.299 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04723807, SicCode: 8021
+2023-09-13 17:05:39.309 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04723807, SicCode: 8022
+2023-09-13 17:05:39.339 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04723807, SicCode: 8030
+2023-09-13 17:05:39.565 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 01865803, SicCode: 6523
+2023-09-13 17:05:39.619 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 01040031, SicCode: 7499
+2023-09-13 17:05:40.288 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC376786
+2023-09-13 17:05:40.978 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 09427214
+2023-09-13 17:05:41.065 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 07872151
+2023-09-13 17:05:41.164 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC367581
+2023-09-13 17:05:41.212 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 07705653
+2023-09-13 17:05:41.296 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 06858196
+2023-09-13 17:05:41.437 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04458722, SicCode: 6712
+2023-09-13 17:10:43.230 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC327571
+2023-09-13 17:10:43.275 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC356559
+2023-09-13 17:10:43.855 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04297905, OfficerName: SWIFT INCORPORATIONS LIMITED, OfficerRole: "CorporateNomineeSecretary"
+2023-09-13 17:10:44.695 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC367581
+2023-09-13 17:10:44.799 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC412434
+2023-09-13 17:10:44.937 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 08025992
+2023-09-13 17:10:46.791 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 06182131, SicCode: 7415
+2023-09-13 17:10:46.928 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC367581
+2023-09-13 17:10:47.118 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC332883
+2023-09-13 17:10:48.520 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC311121
+2023-09-13 17:10:48.847 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 03642465, SicCode: 7110
+2023-09-13 17:10:49.538 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC344499
+2023-09-13 17:10:49.593 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04458722, SicCode: 6712
+2023-09-13 17:10:50.327 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 01600658, SicCode: 7487
+2023-09-13 17:10:50.421 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02132352, SicCode: 7484
+2023-09-13 17:10:50.626 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02302737, SicCode: 7499
+2023-09-13 17:10:52.264 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 01928270, SicCode: 7415
+2023-09-13 17:10:52.388 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 07704346
+2023-09-13 17:10:53.427 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 05897923, SicCode: 7487
+2023-09-13 17:10:53.878 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 09427214
+2023-09-13 17:10:53.965 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 07872151
+2023-09-13 17:10:54.044 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC367581
+2023-09-13 17:10:54.081 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 07705653
+2023-09-13 17:10:54.165 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 06858196
+2023-09-13 17:10:54.321 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04458722, SicCode: 6712
+2023-09-13 17:10:55.301 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC327571
+2023-09-13 17:10:55.365 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC356559
+2023-09-13 17:10:58.785 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC414938
+2023-09-13 17:10:58.939 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC397216
+2023-09-13 17:10:58.987 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC395772
+2023-09-13 17:10:59.263 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC367240
+2023-09-13 17:10:59.318 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC362626
+2023-09-13 17:10:59.355 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC362403
+2023-09-13 17:10:59.408 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC358674
+2023-09-13 17:10:59.470 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC358427
+2023-09-13 17:10:59.820 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC325611
+2023-09-13 17:10:59.865 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC325231
+2023-09-13 17:10:59.906 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 05190924, SicCode: 7012
+2023-09-13 17:10:59.956 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC318400
+2023-09-13 17:10:59.990 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC316692
+2023-09-13 17:11:00.030 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC316192
+2023-09-13 17:11:00.079 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC314150
+2023-09-13 17:11:00.126 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC309032
+2023-09-13 17:11:01.002 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04494134, SicCode: 7415
+2023-09-13 17:11:01.173 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04538588, SicCode: 6420
+2023-09-13 17:11:01.221 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 05924380, SicCode: 6420
+2023-09-13 17:11:01.316 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 04505830, SicCode: 7487
+2023-09-13 17:11:01.421 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 01170753, SicCode: 6523
+2023-09-13 17:11:01.425 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 01170753, SicCode: 6603
+2023-09-13 17:11:01.877 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02844976, SicCode: 6523
+2023-09-13 17:11:04.582 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 09646159
+2023-09-13 17:11:04.850 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC307696
+2023-09-13 17:11:04.896 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC313276
+2023-09-13 17:11:04.957 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC310366
+2023-09-13 17:11:05.081 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC312499
+2023-09-13 17:11:05.128 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC308204
+2023-09-13 17:11:05.221 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 03217043, SicCode: 7487
+2023-09-13 17:11:05.299 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02402503, SicCode: 7415
+2023-09-13 17:11:06.189 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC348992
+2023-09-13 17:11:06.536 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02756463, SicCode: 5243
+2023-09-13 17:11:06.965 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 07500119
+2023-09-13 17:11:07.928 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC418006
+2023-09-13 17:11:07.972 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC320316
+2023-09-13 17:11:08.026 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: SC271389, SicCode: 7011
+2023-09-13 17:11:08.194 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC316197
+2023-09-13 17:11:08.524 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 03452002, SicCode: 7487
+2023-09-13 17:11:08.565 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 03744679, SicCode: 7020
+2023-09-13 17:11:08.775 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02476647, SicCode: 7020
+2023-09-13 17:11:08.779 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02476647, SicCode: 7415
+2023-09-13 17:11:08.956 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02247762, SicCode: 7415
+2023-09-13 17:11:09.000 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 03601127, SicCode: 7499
+2023-09-13 17:11:09.130 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 03601121, SicCode: 7499
+2023-09-13 17:11:09.374 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02955524, SicCode: 9999
+2023-09-13 17:11:09.727 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC326579
+2023-09-13 17:11:09.796 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 06592472, SicCode: 7487
+2023-09-13 17:11:09.898 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC319725
+2023-09-13 17:11:10.203 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC316753
+2023-09-13 17:11:11.053 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: FC030254
+2023-09-13 17:11:11.736 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: OC330831
+2023-09-13 17:11:11.949 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: FC025881
+2023-09-13 17:11:12.032 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 05400146, SicCode: 7514
+2023-09-13 17:11:12.672 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Policy Exchange, CompanyNumber: 02045972, SicCode: 9252
+2023-09-13 17:11:16.983 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Left", ThinkTank: Progress, CompanyNumber: 01338363, SicCode: 7011
+2023-09-13 17:11:17.031 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Left", ThinkTank: Progress, CompanyNumber: FC031758
+2023-09-13 17:16:19.870 +01:00,[WRN],Ignoring: Company doesn't exist - PoliticalWing: "Left", ThinkTank: Progress, CompanyNumber: 00474073
+2023-09-13 17:16:20.645 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC340673
+2023-09-13 17:16:21.207 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC315704
+2023-09-13 17:16:21.748 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 04066385, SicCode: 6523
+2023-09-13 17:16:22.164 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 06799244, SicCode: 7414
+2023-09-13 17:16:22.346 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 04334133, SicCode: 7499
+2023-09-13 17:16:22.444 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 04334133, SicCode: 7499
+2023-09-13 17:16:22.817 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC340919
+2023-09-13 17:16:23.477 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 03088588, SicCode: 5530
+2023-09-13 17:16:23.480 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 03088588, SicCode: 5540
+2023-09-13 17:16:23.655 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 02018906, SicCode: 2852
+2023-09-13 17:16:23.895 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC436423
+2023-09-13 17:16:24.183 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC324768
+2023-09-13 17:16:24.258 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC320522
+2023-09-13 17:16:24.306 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC318823
+2023-09-13 17:16:24.347 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 04502457, SicCode: 7440
+2023-09-13 17:16:24.352 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 04502457, SicCode: 7487
+2023-09-13 17:16:24.395 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC344743
+2023-09-13 17:16:24.442 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC341164
+2023-09-13 17:16:24.483 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 08153667
+2023-09-13 17:16:24.591 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC314069
+2023-09-13 17:16:24.900 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: OC315704
+2023-09-13 17:16:25.474 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: Reform, CompanyNumber: 04066385, SicCode: 6523
+2023-09-13 17:16:27.580 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 04387679, SicCode: 7487
+2023-09-13 17:16:27.962 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC375268
+2023-09-13 17:16:28.648 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 01472422, SicCode: 7499
+2023-09-13 17:16:28.870 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 03640873, SicCode: 7415
+2023-09-13 17:16:28.915 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 03600463, SicCode: 7499
+2023-09-13 17:16:28.963 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 02765265, SicCode: 7415
+2023-09-13 17:16:29.013 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 02765265, SicCode: 7415
+2023-09-13 17:16:31.071 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 05835408, SicCode: 9305
+2023-09-13 17:16:31.150 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 05137036, OfficerName: WARWICK CONSULTANCY SERVICES LIMITED, OfficerRole: "CorporateSecretary"
+2023-09-13 17:16:31.429 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 09053609
+2023-09-13 17:16:32.242 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC302410
+2023-09-13 17:16:32.866 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 04038199, SicCode: 2211
+2023-09-13 17:16:33.080 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 09053609
+2023-09-13 17:16:33.204 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC343479
+2023-09-13 17:16:33.465 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC342536
+2023-09-13 17:16:33.879 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC363624
+2023-09-13 17:16:34.675 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 05897923, SicCode: 7487
+2023-09-13 17:16:34.977 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC402587
+2023-09-13 17:16:35.070 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC375031
+2023-09-13 17:16:35.192 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC344873
+2023-09-13 17:16:35.233 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC310366
+2023-09-13 17:16:35.275 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC312499
+2023-09-13 17:16:35.320 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC309409
+2023-09-13 17:16:35.365 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 04964769, SicCode: 7499
+2023-09-13 17:16:36.079 +01:00,[WRN],Ignoring: Company doesn't have any SIC Codes - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: OC320699
+2023-09-13 17:16:37.460 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 02328838, SicCode: 6523
+2023-09-13 17:16:37.505 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 00712952, SicCode: 7499
+2023-09-13 17:16:37.632 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 03822525, SicCode: 6412
+2023-09-13 17:16:38.362 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 05835408, SicCode: 9305
+2023-09-13 17:16:40.515 +01:00,[WRN],Ignoring: Officer-Role is excluded - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 06839220, OfficerName: WARWICK CONSULTANCY SERVICES LIMITED, OfficerRole: "CorporateSecretary"
+2023-09-13 17:16:41.704 +01:00,[WRN],Ignoring: SIC Code not recognised - PoliticalWing: "Right", ThinkTank: The Centre for Social Justice, CompanyNumber: 05835408, SicCode: 9305
