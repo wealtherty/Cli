@@ -8,7 +8,7 @@ public class OutputWriter
     private readonly string _dir;
     public OutputWriter()
     {
-        _dir = $"output\\{DateTime.Now.ToString("yyyyMMdd_hhmmss")}\\";
+        _dir = $"output\\{DateTime.Now.ToString("yyyyMMdd_HHmmss")}\\";
     }
     
     public async Task WriteToCsvFileAsync<T>(IEnumerable<T> rows, string path, bool useOutputDirectory = true)
