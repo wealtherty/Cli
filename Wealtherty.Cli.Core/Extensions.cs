@@ -5,6 +5,7 @@ using Neo4j.Driver;
 using Newtonsoft.Json;
 using Serilog;
 using Wealtherty.Cli.Core.GraphDb;
+using Wealtherty.Cli.Core.Model;
 
 namespace Wealtherty.Cli.Core
 {
@@ -22,7 +23,8 @@ namespace Wealtherty.Cli.Core
                 })
                 .AddSingleton(provider => provider.GetService<IDriver>().AsyncSession())
                 .AddSingleton<InputReader>()
-                .AddSingleton<OutputWriter>();
+                .AddSingleton<OutputWriter>()
+                .AddSingleton<DateRangeProvider>();
         }
         
         public static string ToJson(this object self)

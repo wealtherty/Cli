@@ -12,30 +12,25 @@ public class AnalyseThinkTanksAppointments : Command
     {
         var inputReader = serviceProvider.GetRequiredService<InputReader>();
         var outputWriter = serviceProvider.GetRequiredService<OutputWriter>();
+        var dateRangesProvider = serviceProvider.GetRequiredService<DateRangeProvider>();
         
         var allAppointments = inputReader.ReadCsv<ThinkTankAppointment>("all_appointments.csv");
 
-        var years = new[] { 2000, 2005, 2010, 2015 };
+        var years = new[] { 2000, 2005, 2010, 2015, 2020 };
 
-        var dates = years.Select(year => new KeyValuePair<string, DateRange>($"{year}_to_{year + 5}",
-                new DateRange
-                {
-                    From = new DateTime(year, 1, 1),
-                    To = new DateTime(year, 1, 1).AddYears(5).AddMilliseconds(-1)
-                }))
-            .ToDictionary(x => x.Key, x => x.Value);
+        var dateRanges = dateRangesProvider.GetDateRangesForYears(years);
 
-        foreach (var date in dates)
+        foreach (var dateRange in dateRanges)
         {
             var appointmentsForDateRange = allAppointments
-                .Where(x => x.ThinkTankFoundedOn <= date.Value.To)
-                .Where(x => x.CompanyDateOfCreation.HasValue && x.CompanyDateOfCreation <= date.Value.To)
-                .Where(x => !x.CompanyDateOfCessation.HasValue || (x.CompanyDateOfCessation.HasValue && x.CompanyDateOfCessation >= date.Value.From))
-                .Where(x => x.OfficerAppointedOn.HasValue && x.OfficerAppointedOn <= date.Value.To)
-                .Where(x => !x.OfficerResignedOn.HasValue || (x.OfficerResignedOn.HasValue && x.OfficerResignedOn >= date.Value.From))
+                .Where(x => x.ThinkTankFoundedOn <= dateRange.To)
+                .Where(x => x.CompanyDateOfCreation.HasValue && x.CompanyDateOfCreation <= dateRange.To)
+                .Where(x => !x.CompanyDateOfCessation.HasValue || (x.CompanyDateOfCessation.HasValue && x.CompanyDateOfCessation >= dateRange.From))
+                .Where(x => x.OfficerAppointedOn.HasValue && x.OfficerAppointedOn <= dateRange.To)
+                .Where(x => !x.OfficerResignedOn.HasValue || (x.OfficerResignedOn.HasValue && x.OfficerResignedOn >= dateRange.From))
                 .ToArray();
             
-            await outputWriter.WriteToCsvFileAsync(appointmentsForDateRange, $"appointments_for_{date.Key}.csv");
+            await outputWriter.WriteToCsvFileAsync(appointmentsForDateRange, $"appointments for {dateRange.Description}.csv");
 
             var sicCodesForDateRange = appointmentsForDateRange.GroupBy(x => new
                 {
@@ -56,7 +51,7 @@ public class AnalyseThinkTanksAppointments : Command
                 .ThenByDescending(x => x.Count)
                 .ToArray();
             
-            await outputWriter.WriteToCsvFileAsync(sicCodesForDateRange, $"sic_codes_for_{date.Key}.csv");
+            await outputWriter.WriteToCsvFileAsync(sicCodesForDateRange, $"sic codes for {dateRange.Description}.csv");
 
             var sicCodeCategoriesForDateRange = appointmentsForDateRange.GroupBy(x => new
                 {
@@ -73,7 +68,7 @@ public class AnalyseThinkTanksAppointments : Command
                 .ThenByDescending(x => x.Count)
                 .ToArray();
             
-            await outputWriter.WriteToCsvFileAsync(sicCodeCategoriesForDateRange, $"sic_code_categories_for_{date.Key}.csv");
+            await outputWriter.WriteToCsvFileAsync(sicCodeCategoriesForDateRange, $"sic code categories for {dateRange.Description}.csv");
         }
     }
 }
