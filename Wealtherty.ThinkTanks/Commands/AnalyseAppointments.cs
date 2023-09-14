@@ -4,10 +4,10 @@ using Wealtherty.Cli.Core;
 using Wealtherty.ThinkTanks.Model.Csv;
 using Wealtherty.ThinkTanks.Resources;
 
-namespace Wealtherty.Cli.Bridge.Commands;
+namespace Wealtherty.ThinkTanks.Commands;
 
-[Verb("br:analyse-thinktanks-appointments")]
-public class AnalyseThinkTanksAppointments : Command
+[Verb("tt:analyse-appointments")]
+public class AnalyseAppointments : Command
 {
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
