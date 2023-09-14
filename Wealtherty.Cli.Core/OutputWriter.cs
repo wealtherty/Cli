@@ -11,12 +11,15 @@ public class OutputWriter
         _dir = $"output\\{DateTime.Now.ToString("yyyyMMdd_hhmmss")}\\";
     }
     
-    public async Task WriteToCsvFileAsync<T>(IEnumerable<T> rows, string path)
+    public async Task WriteToCsvFileAsync<T>(IEnumerable<T> rows, string path, bool useOutputDirectory = true)
     {
-        var fullPath = Path.Join(_dir, path).Replace(' ', '_');
+        if (useOutputDirectory)
+        {
+            Directory.CreateDirectory(_dir);    
+        }
 
-        Directory.CreateDirectory(_dir);
-        
+        var fullPath = (useOutputDirectory ? Path.Join(_dir, path) : path).Replace(' ', '_');
+
         await using var writer = new StreamWriter(fullPath);
         await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
         await csv.WriteRecordsAsync(rows);
