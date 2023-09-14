@@ -24,5 +24,6 @@
 **Notes**
 - While the Fabian Society is included in the list of Think Tanks, it is exlucded from the list of Companies because, as an [unincorporated membership](https://fabians.org.uk/about-us/accountability/), it isn't registered at Companies House.
 - Companies without any SIC Codes were ignored.
-- Officers who are third-party service providers, typically Nominee Directors and Secretaries were ignored.
+- Officers who are third-party service providers, typically Nominee Directors and Secretaries, were ignored.
 - Unrecognised SIC Codes were ignored, eg 7260, 7499 and 8514.  We can only assume that these codes were once valid but company records weren't updated when they become invalid.
+- Companies that are now dormant are moved to SIC Code 99999.  Unfortunately, we're unable to determine what their original values were.
