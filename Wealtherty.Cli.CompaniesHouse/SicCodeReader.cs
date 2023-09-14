@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Reflection;
 using CsvHelper;
-using Wealtherty.Cli.CompaniesHouse.Model.Graph;
+using Wealtherty.Cli.CompaniesHouse.Model.Csv;
 
 namespace Wealtherty.Cli.CompaniesHouse
 {

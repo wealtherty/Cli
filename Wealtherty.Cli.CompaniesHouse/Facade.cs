@@ -76,7 +76,17 @@ public class Facade
         var companyProfile = getAppointmentCompanyResponse.Data;
 
         var companyProfileNode = new Company(companyProfile);
-        companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyProfileNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
+        companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code =>
+        {
+            var sicCode = _sicCodeReader.Read(code);
+            var sicCodeNode = new SicCode
+            {
+                Code = sicCode.Code,
+                Category = sicCode.Category,
+                Description = sicCode.Description
+            };
+            return new Relationship<Company, SicCode>(companyProfileNode, sicCodeNode, "NATURE_OF_BUSINESS");
+        }));
 
         var officers = await _client.GetOfficersAsync(safeCompanyNumber, cancellationToken);
 
@@ -149,7 +159,18 @@ public class Facade
                 var companyProfile = getAppointmentCompanyResponse.Data;
                 
                 var companyProfileNode = new Company(companyProfile);
-                companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code => new Relationship<Company, SicCode>(companyProfileNode, _sicCodeReader.Read(code), "NATURE_OF_BUSINESS")));
+                companyProfileNode.AddRelations(companyProfile.SicCodes.OrEmpty().Select(code =>
+                {
+                    var sicCode = _sicCodeReader.Read(code);
+                    var sicCodeNode = new SicCode
+                    {
+                        Code = sicCode.Code,
+                        Category = sicCode.Category,
+                        Description = sicCode.Description
+                    };
+
+                    return new Relationship<Company, SicCode>(companyProfileNode, sicCodeNode, "NATURE_OF_BUSINESS");
+                }));
                 companyProfileNode.AddRelation(new Appointment(companyProfileNode, officerNode, appointment));
 
                 if (companyProfileNode.Number.Equals(safeCompanyNumber))
