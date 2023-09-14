@@ -1,10 +1,10 @@
 ﻿using CompaniesHouse.Response.Officers;
 using Neo4j.Driver;
 using Serilog;
-using Wealtherty.Cli.CompaniesHouse.Graph.Model;
+using Wealtherty.Cli.CompaniesHouse.Model.Graph;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Core.GraphDb;
-using Officer = Wealtherty.Cli.CompaniesHouse.Graph.Model.Officer;
+using Officer = Wealtherty.Cli.CompaniesHouse.Model.Graph.Officer;
 
 namespace Wealtherty.Cli.CompaniesHouse;
 

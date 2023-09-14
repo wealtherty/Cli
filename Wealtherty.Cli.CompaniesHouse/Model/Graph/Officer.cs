@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Wealtherty.Cli.Core.GraphDb;
 
-namespace Wealtherty.Cli.CompaniesHouse.Graph.Model;
+namespace Wealtherty.Cli.CompaniesHouse.Model.Graph;
 
 public class Officer : Node
 {

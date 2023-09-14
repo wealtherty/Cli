@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
 using Wealtherty.Cli.CharityCommission.Graph.Model;
-using Wealtherty.Cli.CompaniesHouse.Graph.Model;
+using Wealtherty.Cli.CompaniesHouse.Model.Graph;
 using Wealtherty.Cli.Core;
 using Wealtherty.Cli.Core.GraphDb;
 

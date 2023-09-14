@@ -2,7 +2,7 @@
 using Wealtherty.Cli.Core.GraphDb;
 using Wealtherty.Cli.Core.GraphDb.Converters;
 
-namespace Wealtherty.Cli.CompaniesHouse.Graph.Model;
+namespace Wealtherty.Cli.CompaniesHouse.Model.Graph;
 
 public class Appointment : Relationship<Company, Officer>
 {

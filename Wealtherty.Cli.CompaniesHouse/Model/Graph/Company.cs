@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Wealtherty.Cli.Core.GraphDb;
 using Wealtherty.Cli.Core.GraphDb.Converters;
 
-namespace Wealtherty.Cli.CompaniesHouse.Graph.Model;
+namespace Wealtherty.Cli.CompaniesHouse.Model.Graph;
 
 public class Company : Node
 {
