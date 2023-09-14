@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Wealtherty.Cli.Bridge.Model.Csv;
 using Wealtherty.Cli.Core;
+using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
 
@@ -10,11 +11,11 @@ public class AnalyseThinkTanksAppointments : Command
 {
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
-        var inputReader = serviceProvider.GetRequiredService<InputReader>();
+        var resourceReader = serviceProvider.GetRequiredService<ResourceReader>();
         var outputWriter = serviceProvider.GetRequiredService<OutputWriter>();
         var dateRangesProvider = serviceProvider.GetRequiredService<DateRangeProvider>();
         
-        var allAppointments = inputReader.ReadCsv<ThinkTankAppointment>("all_appointments.csv");
+        var appointments = resourceReader.GetAppointments();
 
         var years = new[] { 2000, 2005, 2010, 2015, 2020 };
 
@@ -22,7 +23,7 @@ public class AnalyseThinkTanksAppointments : Command
 
         foreach (var dateRange in dateRanges)
         {
-            var appointmentsForDateRange = allAppointments
+            var appointmentsForDateRange = appointments
                 .Where(x => x.ThinkTankFoundedOn <= dateRange.To)
                 .Where(x => x.CompanyDateOfCreation.HasValue && x.CompanyDateOfCreation <= dateRange.To)
                 .Where(x => !x.CompanyDateOfCessation.HasValue || (x.CompanyDateOfCessation.HasValue && x.CompanyDateOfCessation >= dateRange.From))

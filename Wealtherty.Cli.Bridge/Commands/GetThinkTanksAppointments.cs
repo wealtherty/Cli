@@ -5,6 +5,7 @@ using Serilog;
 using Wealtherty.Cli.Bridge.Model.Csv;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
+using Wealtherty.ThinkTanks.Csv.Model;
 using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
@@ -29,13 +30,13 @@ public class GetThinkTanksAppointments : Command
         var outputWriter = serviceProvider.GetRequiredService<OutputWriter>();
         
         var thinkTanks = thinkTanksReader.GetThinkTanks();
-        var companies = thinkTanksReader.GetThinkTanksCompanies()
+        var companies = thinkTanksReader.GetCompanies()
             .Where(x => x.CompanyNumber != null)
             .ToArray();
         
         var allAppointments = new List<ThinkTankAppointment>();
 
-        foreach (var thinkTank in thinkTanks)
+        foreach (var thinkTank in thinkTanks.Take(1))
         {
             Log.Debug("ThinkTank: {@ThinkTank}", thinkTank);
             
@@ -43,7 +44,7 @@ public class GetThinkTanksAppointments : Command
                 .Where(x => x.OttId == thinkTank.OttId)
                 .ToArray();
 
-            foreach (var thinkTankCompany in thinkTankCompanies)
+            foreach (var thinkTankCompany in thinkTankCompanies.Take(1))
             {
                 var company = await companiesHouseClient.GetCompanyProfileAsync(thinkTankCompany.CompanyNumber);
                 if (company.Data == null)
@@ -137,6 +138,6 @@ public class GetThinkTanksAppointments : Command
             }
         }
 
-        await outputWriter.WriteToCsvFileAsync(allAppointments, "all_appointments.csv");
+        await outputWriter.WriteToCsvFileAsync(allAppointments, "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv");
     }
 }

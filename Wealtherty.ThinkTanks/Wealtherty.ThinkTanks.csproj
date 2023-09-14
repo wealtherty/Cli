@@ -13,6 +13,7 @@
     <ItemGroup>
       <EmbeddedResource Include="Resources\ThinkTanks.csv" />
       <EmbeddedResource Include="Resources\ThinkTanksCompanies.csv" />
+      <EmbeddedResource Include="Resources\Appointments.csv" />
     </ItemGroup>
 
 </Project>
