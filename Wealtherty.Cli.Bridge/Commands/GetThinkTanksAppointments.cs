@@ -1,7 +1,5 @@
-﻿using System.Globalization;
-using CommandLine;
+﻿using CommandLine;
 using CompaniesHouse.Response.Officers;
-using CsvHelper;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Wealtherty.Cli.Bridge.Model.Csv;
@@ -28,6 +26,7 @@ public class GetThinkTanksAppointments : Command
         var companiesHouseClient = serviceProvider.GetRequiredService<Client>();
         var sicCodeReader = serviceProvider.GetRequiredService<SicCodeReader>();
         var thinkTanksReader = serviceProvider.GetRequiredService<Reader>();
+        var outputWriter = serviceProvider.GetRequiredService<OutputWriter>();
         
         var thinkTanks = thinkTanksReader.GetThinkTanks();
         var companies = thinkTanksReader.GetThinkTanksCompanies()
@@ -138,13 +137,6 @@ public class GetThinkTanksAppointments : Command
             }
         }
 
-        await WriteToCsvFileAsync(allAppointments, "all_appointments.csv");
-    }
-
-    private static async Task WriteToCsvFileAsync<T>(IEnumerable<T> rows, string path)
-    {
-        await using var writer = new StreamWriter(path);
-        await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-        await csv.WriteRecordsAsync(rows);
+        await outputWriter.WriteToCsvFileAsync(allAppointments, "all_appointments.csv");
     }
 }
