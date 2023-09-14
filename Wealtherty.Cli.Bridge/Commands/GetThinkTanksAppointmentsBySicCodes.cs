@@ -12,8 +12,8 @@ using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
 
-[Verb("br:get-thinktanks-siccodes")]
-public class GetThinkTanksSicCodes : Command
+[Verb("br:get-thinktanks-appointments-by-siccodes")]
+public class GetThinkTanksAppointmentsBySicCodes : Command
 {
     
     private static readonly OfficerRole[] RolesToIgnore = {
