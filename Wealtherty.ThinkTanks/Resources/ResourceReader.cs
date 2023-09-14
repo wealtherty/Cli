@@ -24,9 +24,9 @@ public class ResourceReader
         return GetCsvResource<Company>("Companies");
     }
 
-    public ThinkTankAppointment[] GetAppointments()
+    public Appointment[] GetAppointments()
     {
-        return GetCsvResource<ThinkTankAppointment>("Appointments");
+        return GetCsvResource<Appointment>("Appointments");
     }
 
 

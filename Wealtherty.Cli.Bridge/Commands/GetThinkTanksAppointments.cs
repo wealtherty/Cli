@@ -33,7 +33,7 @@ public class GetThinkTanksAppointments : Command
             .Where(x => x.CompanyNumber != null)
             .ToArray();
         
-        var allAppointments = new List<ThinkTankAppointment>();
+        var allAppointments = new List<Appointment>();
 
         foreach (var thinkTank in thinkTanks.Take(1))
         {
@@ -108,7 +108,7 @@ public class GetThinkTanksAppointments : Command
                                 continue;
                             }
 
-                            var thinkTankAppointment = new ThinkTankAppointment
+                            var thinkTankAppointment = new Appointment
                             {
                                 ThinkTankPoliticalWing = thinkTank.PoliticalWing,
                                 ThinkTankName = thinkTank.Name,

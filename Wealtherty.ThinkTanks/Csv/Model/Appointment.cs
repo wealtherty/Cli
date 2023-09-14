@@ -3,7 +3,7 @@ using Wealtherty.ThinkTanks.Graph.Model;
 
 namespace Wealtherty.ThinkTanks.Csv.Model;
 
-public class ThinkTankAppointment
+public class Appointment
 {
     public PoliticalWing ThinkTankPoliticalWing { get; set; }
         
