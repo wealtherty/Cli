@@ -246,3 +246,4 @@ _Pvt_Extensions
 node_modules
 jspm_packages
 Wealtherty.Cli/Log.txt
+Wealtherty.Cli/output
