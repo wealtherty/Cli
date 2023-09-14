@@ -2,12 +2,11 @@
 using CommandLine;
 using CompaniesHouse.Response.Officers;
 using CsvHelper;
-using CsvHelper.Configuration.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using Wealtherty.Cli.Bridge.Model.Csv;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
-using Wealtherty.ThinkTanks.Graph.Model;
 using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
@@ -208,78 +207,5 @@ public class GetThinkTanksAppointmentsBySicCodes : Command
         await using var writer = new StreamWriter(path);
         await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
         await csv.WriteRecordsAsync(rows);
-    }
-    
-    public class DateRange
-    {
-        public DateTime From { get; set; }
-        
-        public DateTime To { get; set; }
-    }
-
-    public class PoliticalSicCodeCategory
-    {
-        public PoliticalWing PoliticalWing { get; set; }
-        
-        public string SicCodeCategory { get; set; }
-        
-        public int Count { get; set; }
-    }
-
-    public class PoliticalSicCodeDescription
-    {
-        public PoliticalWing PoliticalWing { get; set; }
-        
-        public string SicCode { get; set; }
-        
-        public string SicCodeCategory { get; set; }
-        
-        public string SicCodeDescription { get; set; }
-        
-        public int Count { get; set; }
-        
-    }
-
-    public class ThinkTankAppointment
-    {
-        public PoliticalWing ThinkTankPoliticalWing { get; set; }
-        
-        public string ThinkTankName { get; set; }
-        
-        [Format("dd/MM/yyyy")]
-        public DateTime ThinkTankFoundedOn { get; set; }
-        
-        
-        public string OfficerId { get; set; }
-        
-        public string OfficerName { get; set; }
-        
-        public string OfficerRole { get; set; }
-        
-        [Format("dd/MM/yyyy")]
-        public DateTime? OfficerAppointedOn { get; set; }
-        
-        [Format("dd/MM/yyyy")]
-        public DateTime? OfficerResignedOn { get; set; }
-
-        
-        public string CompanyNumber { get; set; }
-        
-        public string CompanyName { get; set; }
-        
-        [Format("dd/MM/yyyy")]
-        public DateTime? CompanyDateOfCreation { get; set; }
-        
-        [Format("dd/MM/yyyy")]
-        public DateTime? CompanyDateOfCessation { get; set; }
-        
-        public string CompanySicCode { get; set; }
-        
-        
-        public string CompanySicCodeCategory { get; set; }
-        
-        public string CompanySicCodeDescription { get; set; }
-        
-        
     }
 }
