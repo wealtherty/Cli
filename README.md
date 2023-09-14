@@ -14,4 +14,4 @@
 - See [ThinkTanks](Wealtherty.ThinkTanks/Resources/ThinkTanks.csv)
 
 **Notes**
-- While Fabians is included in the list of Think Tanks, it is exlucded from the list of Companies.  This is because it is an [unincorporated membership](https://fabians.org.uk/about-us/accountability/), therefore it isn't registered at Companies House.
+- While the Fabian Society is included in the list of Think Tanks, it is exlucded from the list of Companies because, as an [unincorporated membership](https://fabians.org.uk/about-us/accountability/), it isn't registered at Companies House.
