@@ -15,7 +15,7 @@ public class ImportThinkTanks : Command
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
         var session = serviceProvider.GetRequiredService<IAsyncSession>();
-        var reader = serviceProvider.GetRequiredService<Reader>();
+        var reader = serviceProvider.GetRequiredService<ResourceReader>();
         
         if (DeleteAll)
         {

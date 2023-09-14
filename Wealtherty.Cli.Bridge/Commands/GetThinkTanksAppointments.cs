@@ -25,7 +25,7 @@ public class GetThinkTanksAppointments : Command
     {
         var companiesHouseClient = serviceProvider.GetRequiredService<Client>();
         var sicCodeReader = serviceProvider.GetRequiredService<SicCodeReader>();
-        var thinkTanksReader = serviceProvider.GetRequiredService<Reader>();
+        var thinkTanksReader = serviceProvider.GetRequiredService<ResourceReader>();
         var outputWriter = serviceProvider.GetRequiredService<OutputWriter>();
         
         var thinkTanks = thinkTanksReader.GetThinkTanks();

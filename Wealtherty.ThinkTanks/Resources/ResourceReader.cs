@@ -5,11 +5,11 @@ using Wealtherty.ThinkTanks.Csv.Model;
 
 namespace Wealtherty.ThinkTanks.Resources;
 
-public class Reader
+public class ResourceReader
 {
     private readonly Assembly _assembly;
 
-    public Reader()
+    public ResourceReader()
     {
         _assembly = GetType().Assembly;
     }

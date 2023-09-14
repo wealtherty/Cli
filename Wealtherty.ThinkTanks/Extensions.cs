@@ -8,6 +8,6 @@ public static class Extensions
 {
     public static IServiceCollection AddThinkTanks(this IServiceCollection self, IConfigurationRoot configuration)
     {
-        return self.AddSingleton<Reader>();
+        return self.AddSingleton<ResourceReader>();
     }
 }
