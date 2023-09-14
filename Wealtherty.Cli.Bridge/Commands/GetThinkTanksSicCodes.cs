@@ -7,14 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
-using Wealtherty.ThinkTanks.Csv.Model;
 using Wealtherty.ThinkTanks.Graph.Model;
-using ThinkTank = Wealtherty.ThinkTanks.Csv.Model.ThinkTank;
+using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
 
-[Verb("spike")]
-public class Spike : Command
+[Verb("br:get-thinktanks-siccodes")]
+public class GetThinkTanksSicCodes : Command
 {
     
     private static readonly OfficerRole[] RolesToIgnore = {
@@ -29,9 +28,12 @@ public class Spike : Command
     {
         var companiesHouseClient = serviceProvider.GetRequiredService<Client>();
         var sicCodeReader = serviceProvider.GetRequiredService<SicCodeReader>();
+        var thinkTanksReader = serviceProvider.GetRequiredService<Reader>();
         
-        var thinkTanks = ReadCsvFile<ThinkTank>("v2_thinktanks.csv");
-        var companies = ReadCsvFile<ThinkTankCompany>("v2_thinktanks_companies.csv");
+        var thinkTanks = thinkTanksReader.GetThinkTanks();
+        var companies = thinkTanksReader.GetThinkTanksCompanies()
+            .Where(x => x.CompanyNumber != null)
+            .ToArray();
         
         var allAppointments = new List<ThinkTankAppointment>();
 
@@ -40,8 +42,7 @@ public class Spike : Command
             Log.Debug("ThinkTank: {@ThinkTank}", thinkTank);
             
             var thinkTankCompanies = companies
-                .Where(x => x.OttId == thinkTank.OttId && x.CompanyNumber != null)
-                .OrEmpty()
+                .Where(x => x.OttId == thinkTank.OttId)
                 .ToArray();
 
             foreach (var thinkTankCompany in thinkTankCompanies)
@@ -145,19 +146,19 @@ public class Spike : Command
         var dates = years.Select(year => new KeyValuePair<string, DateRange>($"{year}_to_{year + 5}",
                 new DateRange
                 {
-                    FromDate = new DateTime(year, 1, 1),
-                    ToDate = new DateTime(year, 1, 1).AddYears(5).AddMilliseconds(-1)
+                    From = new DateTime(year, 1, 1),
+                    To = new DateTime(year, 1, 1).AddYears(5).AddMilliseconds(-1)
                 }))
             .ToDictionary(x => x.Key, x => x.Value);
 
         foreach (var date in dates)
         {
             var appointmentsForDateRange = allAppointments
-                .Where(x => x.ThinkTankFoundedOn <= date.Value.ToDate)
-                .Where(x => x.CompanyDateOfCreation.HasValue && x.CompanyDateOfCreation <= date.Value.ToDate)
-                .Where(x => !x.CompanyDateOfCessation.HasValue || (x.CompanyDateOfCessation.HasValue && x.CompanyDateOfCessation >= date.Value.FromDate))
-                .Where(x => x.OfficerAppointedOn.HasValue && x.OfficerAppointedOn <= date.Value.ToDate)
-                .Where(x => !x.OfficerResignedOn.HasValue || (x.OfficerResignedOn.HasValue && x.OfficerResignedOn >= date.Value.FromDate))
+                .Where(x => x.ThinkTankFoundedOn <= date.Value.To)
+                .Where(x => x.CompanyDateOfCreation.HasValue && x.CompanyDateOfCreation <= date.Value.To)
+                .Where(x => !x.CompanyDateOfCessation.HasValue || (x.CompanyDateOfCessation.HasValue && x.CompanyDateOfCessation >= date.Value.From))
+                .Where(x => x.OfficerAppointedOn.HasValue && x.OfficerAppointedOn <= date.Value.To)
+                .Where(x => !x.OfficerResignedOn.HasValue || (x.OfficerResignedOn.HasValue && x.OfficerResignedOn >= date.Value.From))
                 .ToArray();
             
             await WriteToCsvFileAsync(appointmentsForDateRange, $"appointments_for_{date.Key}.csv");
@@ -208,22 +209,12 @@ public class Spike : Command
         await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
         await csv.WriteRecordsAsync(rows);
     }
-
-    private static IEnumerable<T> ReadCsvFile<T>(string path)
-    {
-        using var reader = new StreamReader(path);
-        using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-
-        return csv.GetRecords<T>()
-            .ToArray();
-
-    }
-
+    
     public class DateRange
     {
-        public DateTime FromDate { get; set; }
+        public DateTime From { get; set; }
         
-        public DateTime ToDate { get; set; }
+        public DateTime To { get; set; }
     }
 
     public class PoliticalSicCodeCategory
