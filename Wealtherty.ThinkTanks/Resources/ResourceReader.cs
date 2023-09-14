@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Reflection;
 using CsvHelper;
-using Wealtherty.ThinkTanks.Csv.Model;
+using Wealtherty.ThinkTanks.Model.Csv;
 
 namespace Wealtherty.ThinkTanks.Resources;
 

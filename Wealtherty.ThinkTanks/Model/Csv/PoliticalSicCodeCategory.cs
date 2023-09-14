@@ -1,6 +1,6 @@
-﻿using Wealtherty.ThinkTanks.Graph.Model;
+﻿using Wealtherty.ThinkTanks.Model.Graph;
 
-namespace Wealtherty.ThinkTanks.Csv.Model;
+namespace Wealtherty.ThinkTanks.Model.Csv;
 
 public class PoliticalSicCodeCategory
 {

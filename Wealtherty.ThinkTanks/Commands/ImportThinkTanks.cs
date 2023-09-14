@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
 using Wealtherty.Cli.Core;
+using Wealtherty.ThinkTanks.Model.Graph;
 using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.ThinkTanks.Commands;
@@ -26,7 +27,7 @@ public class ImportThinkTanks : Command
         
         foreach (var thinkTank in thinkTanks)
         {
-            var thinkTankNode = new Graph.Model.ThinkTank
+            var thinkTankNode = new ThinkTank
             {
                 OttId = thinkTank.OttId,
                 Name = thinkTank.Name,

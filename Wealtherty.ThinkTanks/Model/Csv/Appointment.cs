@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration.Attributes;
-using Wealtherty.ThinkTanks.Graph.Model;
+using Wealtherty.ThinkTanks.Model.Graph;
 
-namespace Wealtherty.ThinkTanks.Csv.Model;
+namespace Wealtherty.ThinkTanks.Model.Csv;
 
 public class Appointment
 {
