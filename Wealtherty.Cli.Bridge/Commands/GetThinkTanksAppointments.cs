@@ -35,7 +35,7 @@ public class GetThinkTanksAppointments : Command
         
         var appointments = new List<Appointment>();
 
-        foreach (var company in companies.Take(2))
+        foreach (var company in companies)
         {
             Log.Debug("Company: {@Company}", company);
             
