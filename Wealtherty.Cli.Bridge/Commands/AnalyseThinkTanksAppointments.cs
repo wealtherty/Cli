@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Wealtherty.Cli.Bridge.Model.Csv;
 using Wealtherty.Cli.Core;
+using Wealtherty.ThinkTanks.Csv.Model;
 using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
