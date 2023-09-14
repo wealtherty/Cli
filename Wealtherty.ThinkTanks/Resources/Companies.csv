@@ -1,23 +1,23 @@
-OttId,ThinkTank,Website,CompanyNumber,Notes
-EU-1351,Adam Smith Institute,http://www.adamsmith.org/,01553005,"Search Companies House for founder, Eamonn Butler"
-EU-1351,Adam Smith Institute,http://www.adamsmith.org/,02732176,"Search Companies House for founder, Eamonn Butler"
-EU-1351,Adam Smith Institute,http://www.adamsmith.org/,05648068,"Search Companies House for founder, Eamonn Butler"
-EU-1853,Bow Group,http://www.bowgroup.org/,07810169,"Search Companies House for chair, Ben Harris-Quinney"
-EU-1853,Bow Group,http://www.bowgroup.org/,08440197,"Search Companies House for chair, Ben Harris-Quinney"
-EU-1853,Bow Group,http://www.bowgroup.org/,08114075,"Search Companies House for chair, Ben Harris-Quinney"
-EU-1682,Centre for Policy Studies,https://cps.org.uk/,01174651,"Search Companies House for ""Centre for Policy Studies"".Confirmed using site search"
-EU-1256,Compass,www.compassonline.org.uk,05391145,See https://www.compassonline.org.uk/about/governancefinance/
-EU-1414,Demos,http://www.demos.co.uk,02977740,See https://demos.co.uk/privacy-policy/
-EU-1414,Demos,http://www.demos.co.uk,02667039,See https://demos.co.uk/wp-content/uploads/2015/03/Demos-Projects-Ltd-2016-accounts-Audited-and-Signed.pdf
-EU-1390,Fabian Society,https://fabians.org.uk,,Unable to find anything
-EU-1488,Institute for Public Policy Research,http://www.ippr.org,02292601,"Search Companies House for ""Institute for Public Policy Research"".Confirmed using site search"
-EU-1488,Institute for Public Policy Research,http://www.ippr.org,04041367,"Search Companies House Officers for ""Institute for Public Policy Research"".Director is Chair of Trustees, Kirsty Mcneill"
-EU-1496,Institute of Economic Affairs,http://www.iea.org.uk,00755502,"Search Companies House for ""Institute of Economic Affairs"".Confirmed using site search but without leading zeros"
-EU-1875,Legatum Institute,www.li.com,14543238,"Search Companies House for ""Legatum Institute"".Confirmed using site search"
-EU-1875,Legatum Institute,www.li.com,FC028686,"Search Companies House for ""Legatum Institute"".Matched on director, Alan James MCCORMICK"
-EU-1875,Legatum Institute,www.li.com,07430903,"Search Companies House for ""Legatum Institute"".Matched on director, Alan James MCCORMICK"
-EU-1217,Policy Exchange,http://www.policyexchange.org.uk/,04297905,"Search Companies House for ""Policy Exchange"".Confirmed using site search but without leading zero"
-EU-1193,Progressive Britain,https://www.progressivebritain.org/,03109611,Searched Companies House.  Compared Directors listed on website 
-EU-1162,Reform,https://reform.uk/,05064109,Listed on website
-EU-1842,The Centre for Social Justice,https://www.centreforsocialjustice.org.uk/,05137036,"Search Companies House for ""Centre for Social Justice"".Confirmed using site search"
-EU-1842,The Centre for Social Justice,https://www.centreforsocialjustice.org.uk/,06839220,"Search Companies House for ""Centre for Social Justice"""
+OttId,CompanyNumber,ThinkTank,Website,Notes
+EU-1351,01553005,Adam Smith Institute,http://www.adamsmith.org/,"Search Companies House for founder, Eamonn Butler"
+EU-1351,02732176,Adam Smith Institute,http://www.adamsmith.org/,"Search Companies House for founder, Eamonn Butler"
+EU-1351,05648068,Adam Smith Institute,http://www.adamsmith.org/,"Search Companies House for founder, Eamonn Butler"
+EU-1853,07810169,Bow Group,http://www.bowgroup.org/,"Search Companies House for chair, Ben Harris-Quinney"
+EU-1853,08440197,Bow Group,http://www.bowgroup.org/,"Search Companies House for chair, Ben Harris-Quinney"
+EU-1853,08114075,Bow Group,http://www.bowgroup.org/,"Search Companies House for chair, Ben Harris-Quinney"
+EU-1682,01174651,Centre for Policy Studies,https://cps.org.uk/,"Search Companies House for ""Centre for Policy Studies"".Confirmed using site search"
+EU-1256,05391145,Compass,www.compassonline.org.uk,See https://www.compassonline.org.uk/about/governancefinance/
+EU-1414,02977740,Demos,http://www.demos.co.uk,See https://demos.co.uk/privacy-policy/
+EU-1414,02667039,Demos,http://www.demos.co.uk,See https://demos.co.uk/wp-content/uploads/2015/03/Demos-Projects-Ltd-2016-accounts-Audited-and-Signed.pdf
+EU-1390,,Fabian Society,https://fabians.org.uk,Unable to find anything
+EU-1488,02292601,Institute for Public Policy Research,http://www.ippr.org,"Search Companies House for ""Institute for Public Policy Research"".Confirmed using site search"
+EU-1488,04041367,Institute for Public Policy Research,http://www.ippr.org,"Search Companies House Officers for ""Institute for Public Policy Research"".Director is Chair of Trustees, Kirsty Mcneill"
+EU-1496,00755502,Institute of Economic Affairs,http://www.iea.org.uk,"Search Companies House for ""Institute of Economic Affairs"".Confirmed using site search but without leading zeros"
+EU-1875,14543238,Legatum Institute,www.li.com,"Search Companies House for ""Legatum Institute"".Confirmed using site search"
+EU-1875,FC028686,Legatum Institute,www.li.com,"Search Companies House for ""Legatum Institute"".Matched on director, Alan James MCCORMICK"
+EU-1875,07430903,Legatum Institute,www.li.com,"Search Companies House for ""Legatum Institute"".Matched on director, Alan James MCCORMICK"
+EU-1217,04297905,Policy Exchange,http://www.policyexchange.org.uk/,"Search Companies House for ""Policy Exchange"".Confirmed using site search but without leading zero"
+EU-1193,03109611,Progressive Britain,https://www.progressivebritain.org/,Searched Companies House.  Compared Directors listed on website
+EU-1162,05064109,Reform,https://reform.uk/,Listed on website
+EU-1842,05137036,The Centre for Social Justice,https://www.centreforsocialjustice.org.uk/,"Search Companies House for ""Centre for Social Justice"".Confirmed using site search"
+EU-1842,06839220,The Centre for Social Justice,https://www.centreforsocialjustice.org.uk/,"Search Companies House for ""Centre for Social Justice"""
