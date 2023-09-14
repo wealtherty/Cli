@@ -5,6 +5,9 @@ namespace Wealtherty.ThinkTanks.Model.Csv;
 
 public class Appointment
 {
+
+    public string ThinkTankId { get; set; }
+    
     public PoliticalWing ThinkTankPoliticalWing { get; set; }
         
     public string ThinkTankName { get; set; }
@@ -42,6 +45,4 @@ public class Appointment
     public string CompanySicCodeCategory { get; set; }
         
     public string CompanySicCodeDescription { get; set; }
-        
-        
 }

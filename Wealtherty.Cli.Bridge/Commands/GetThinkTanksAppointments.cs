@@ -32,8 +32,8 @@ public class GetThinkTanksAppointments : Command
         var companies = thinkTanksReader.GetCompanies()
             .Where(x => x.CompanyNumber != null)
             .ToArray();
-        
-        var appointments = new List<Appointment>();
+
+        var appointments = new Dictionary<string, Appointment>();
 
         foreach (var company in companies)
         {
@@ -106,10 +106,11 @@ public class GetThinkTanksAppointments : Command
                                 thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber, code);
                             continue;
                         }
-
+                        
                         var appointment = new Appointment
                         {
                             ThinkTankPoliticalWing = thinkTank.PoliticalWing,
+                            ThinkTankId = thinkTank.OttId,
                             ThinkTankName = thinkTank.Name,
                             ThinkTankFoundedOn = thinkTank.FoundedOn,
 
@@ -124,16 +125,29 @@ public class GetThinkTanksAppointments : Command
                             OfficerId = officer.Links.Officer.OfficerId,
                             OfficerName = officer.GetFormattedName(),
                             OfficerRole = officerAppointment.OfficerRole.ToString(),
-                            OfficerAppointedOn = officerAppointment.AppointedOn,
-                            OfficerResignedOn = officerAppointment.ResignedOn
-                        };
 
-                        appointments.Add(appointment);
+                            OfficerAppointedOn = officerAppointment.AppointedOn,
+                            OfficerResignedOn = officerAppointment.ResignedOn,
+                        };
+                        
+                        var appointedOnKey = appointment.OfficerAppointedOn.HasValue ? appointment.OfficerAppointedOn.Value.ToString("d") : "Unknown";
+                        var resignedOnKey = appointment.OfficerResignedOn.HasValue ? appointment.OfficerResignedOn.Value.ToString("d") : "Unknown";
+                        var key = $"{appointment.ThinkTankId}_{appointment.CompanyNumber}_{appointment.CompanySicCode}_{appointment.OfficerId}_{appointedOnKey}_{resignedOnKey}";
+
+                        if (appointments.ContainsKey(key))
+                        {
+                            var origintal = appointments[key];
+                            
+                            Log.Warning("Ignoring: Duplicate - Original: {@Original}, Duplicate: {@Duplicate}", origintal, appointment);
+                            continue;
+                        }
+                        
+                        appointments.Add(key, appointment);
                     }
                 }
             }
         }
         
-        await outputWriter.WriteToCsvFileAsync(appointments, "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv", useOutputDirectory: false);
+        await outputWriter.WriteToCsvFileAsync(appointments.Values.ToArray(), "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv", useOutputDirectory: false);
     }
 }
