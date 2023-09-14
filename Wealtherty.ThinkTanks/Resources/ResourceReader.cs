@@ -19,9 +19,9 @@ public class ResourceReader
         return GetCsvResource<ThinkTank>("ThinkTanks");
     }
     
-    public ThinkTankCompany[] GetCompanies()
+    public Company[] GetCompanies()
     {
-        return GetCsvResource<ThinkTankCompany>("ThinkTanksCompanies");
+        return GetCsvResource<Company>("Companies");
     }
 
     public ThinkTankAppointment[] GetAppointments()

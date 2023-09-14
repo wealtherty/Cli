@@ -1,6 +1,6 @@
 ﻿namespace Wealtherty.ThinkTanks.Csv.Model;
 
-public class ThinkTankCompany
+public class Company
 {
     public string OttId { get; set; }
     

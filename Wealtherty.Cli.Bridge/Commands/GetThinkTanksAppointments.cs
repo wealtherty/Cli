@@ -2,7 +2,6 @@
 using CompaniesHouse.Response.Officers;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using Wealtherty.Cli.Bridge.Model.Csv;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
 using Wealtherty.ThinkTanks.Csv.Model;
