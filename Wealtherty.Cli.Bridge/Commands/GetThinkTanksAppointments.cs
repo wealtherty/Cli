@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Wealtherty.Cli.CompaniesHouse;
 using Wealtherty.Cli.Core;
-using Wealtherty.ThinkTanks.Csv.Model;
+using Wealtherty.ThinkTanks.Model.Csv;
 using Wealtherty.ThinkTanks.Resources;
 
 namespace Wealtherty.Cli.Bridge.Commands;
