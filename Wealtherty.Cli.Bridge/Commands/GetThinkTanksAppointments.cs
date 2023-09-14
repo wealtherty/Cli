@@ -134,6 +134,6 @@ public class GetThinkTanksAppointments : Command
             }
         }
         
-        await outputWriter.WriteToCsvFileAsync(appointments, "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv");
+        await outputWriter.WriteToCsvFileAsync(appointments, "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv", useOutputDirectory: false);
     }
 }
