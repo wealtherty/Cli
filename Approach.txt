@@ -1,4 +1,4 @@
-Approach
+Sic Code Analysis Approach
 
 Defined SIC Code data
 
