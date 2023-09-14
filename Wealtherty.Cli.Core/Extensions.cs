@@ -21,7 +21,8 @@ namespace Wealtherty.Cli.Core
                     return GraphDatabase.Driver(settings.Uri, AuthTokens.Basic(settings.Username, settings.Password));
                 })
                 .AddSingleton(provider => provider.GetService<IDriver>().AsyncSession())
-                .AddSingleton<InputReader>();
+                .AddSingleton<InputReader>()
+                .AddSingleton<OutputWriter>();
         }
         
         public static string ToJson(this object self)

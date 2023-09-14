@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-using CommandLine;
-using CsvHelper;
+﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
 using Wealtherty.Cli.Bridge.Model.Csv;
 using Wealtherty.Cli.Core;
@@ -13,6 +11,7 @@ public class AnalyseThinkTanksAppointments : Command
     protected override async Task ExecuteImplAsync(IServiceProvider serviceProvider)
     {
         var inputReader = serviceProvider.GetRequiredService<InputReader>();
+        var outputWriter = serviceProvider.GetRequiredService<OutputWriter>();
         
         var allAppointments = inputReader.ReadCsv<ThinkTankAppointment>("all_appointments.csv");
 
@@ -36,7 +35,7 @@ public class AnalyseThinkTanksAppointments : Command
                 .Where(x => !x.OfficerResignedOn.HasValue || (x.OfficerResignedOn.HasValue && x.OfficerResignedOn >= date.Value.From))
                 .ToArray();
             
-            await WriteToCsvFileAsync(appointmentsForDateRange, $"appointments_for_{date.Key}.csv");
+            await outputWriter.WriteToCsvFileAsync(appointmentsForDateRange, $"appointments_for_{date.Key}.csv");
 
             var sicCodesForDateRange = appointmentsForDateRange.GroupBy(x => new
                 {
@@ -57,7 +56,7 @@ public class AnalyseThinkTanksAppointments : Command
                 .ThenByDescending(x => x.Count)
                 .ToArray();
             
-            await WriteToCsvFileAsync(sicCodesForDateRange, $"sic_codes_for_{date.Key}.csv");
+            await outputWriter.WriteToCsvFileAsync(sicCodesForDateRange, $"sic_codes_for_{date.Key}.csv");
 
             var sicCodeCategoriesForDateRange = appointmentsForDateRange.GroupBy(x => new
                 {
@@ -74,14 +73,7 @@ public class AnalyseThinkTanksAppointments : Command
                 .ThenByDescending(x => x.Count)
                 .ToArray();
             
-            await WriteToCsvFileAsync(sicCodeCategoriesForDateRange, $"sic_code_categories_for_{date.Key}.csv");
+            await outputWriter.WriteToCsvFileAsync(sicCodeCategoriesForDateRange, $"sic_code_categories_for_{date.Key}.csv");
         }
-    }
-
-    private static async Task WriteToCsvFileAsync<T>(IEnumerable<T> rows, string path)
-    {
-        await using var writer = new StreamWriter(path);
-        await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-        await csv.WriteRecordsAsync(rows);
     }
 }
