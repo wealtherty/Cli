@@ -55,8 +55,8 @@ public class GetThinkTanksAppointments : Command
             if (companyProfile.Data.SicCodes == null)
             {
                 Log.Warning(
-                    "Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}",
-                    thinkTank.PoliticalWing, thinkTank.Name, companyProfile.Data.CompanyNumber);
+                    "Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, CompanyType: {CompanyType}",
+                    thinkTank.PoliticalWing, thinkTank.Name, companyProfile.Data.CompanyNumber, companyProfile.Data.Type);
                 continue;
             }
 
@@ -156,7 +156,7 @@ public class GetThinkTanksAppointments : Command
                         
                         var appointedOnKey = appointment.OfficerAppointedOn.HasValue ? appointment.OfficerAppointedOn.Value.ToString("d") : "Unknown";
                         var resignedOnKey = appointment.OfficerResignedOn.HasValue ? appointment.OfficerResignedOn.Value.ToString("d") : "Unknown";
-                        var key = $"{appointment.ThinkTankId}_{appointment.CompanyNumber}_{appointment.CompanySicCode}_{appointment.OfficerId}_{appointedOnKey}_{appointment.OfficerRole}_{resignedOnKey}";
+                        var key = $"{appointment.ThinkTankId}_{appointment.CompanyNumber}_{appointment.CompanySicCode}_{appointment.OfficerId}_{appointment.OfficerRole}_{appointedOnKey}_{resignedOnKey}";
 
                         if (appointments.ContainsKey(key))
                         {
