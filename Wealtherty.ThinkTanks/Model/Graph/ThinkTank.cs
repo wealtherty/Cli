@@ -8,7 +8,7 @@ public class ThinkTank : Node
     
     public string Name { get; set; }
     
-    public DateTime FoundedOn { get; set; }
+    public DateTime? FoundedOn { get; set; }
     
     public string Website { get; set; }
     

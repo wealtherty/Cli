@@ -13,7 +13,7 @@ public class Appointment
     public string ThinkTankName { get; set; }
         
     [Format("dd/MM/yyyy")]
-    public DateTime ThinkTankFoundedOn { get; set; }
+    public DateTime? ThinkTankFoundedOn { get; set; }
         
         
     public string OfficerId { get; set; }

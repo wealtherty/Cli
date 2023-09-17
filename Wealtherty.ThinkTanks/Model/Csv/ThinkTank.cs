@@ -10,7 +10,7 @@ public class ThinkTank
     public string Name { get; set; }
     
     [Format("d/M/yyyy")]
-    public DateTime FoundedOn { get; set; }
+    public DateTime? FoundedOn { get; set; }
 
     public string Website { get; set; }
  
