@@ -32,6 +32,8 @@ public class Appointment
     public string CompanyNumber { get; set; }
         
     public string CompanyName { get; set; }
+    
+    public string CompanyType { get; set; }
         
     [Format("dd/MM/yyyy")]
     public DateTime? CompanyDateOfCreation { get; set; }
@@ -45,4 +47,5 @@ public class Appointment
     public string CompanySicCodeCategory { get; set; }
         
     public string CompanySicCodeDescription { get; set; }
+    
 }
