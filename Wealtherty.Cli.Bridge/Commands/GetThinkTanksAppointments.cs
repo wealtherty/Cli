@@ -147,7 +147,14 @@ public class GetThinkTanksAppointments : Command
                 }
             }
         }
+
+        var rows = appointments
+            .Values
+            .OrderBy(x => x.OfficerName)
+            .OrderBy(x => x.OfficerAppointedOn)
+            .OrderBy(x => x.CompanySicCode)
+            .ToArray();
         
-        await outputWriter.WriteToCsvFileAsync(appointments.Values.ToArray(), "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv", useOutputDirectory: false);
+        await outputWriter.WriteToCsvFileAsync(rows, "..\\Wealtherty.ThinkTanks\\Resources\\Appointments.csv", useOutputDirectory: false);
     }
 }
