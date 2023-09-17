@@ -32,3 +32,4 @@
 - Unrecognised SIC Codes were ignored, eg 7260, 7499 and 8514.  We can only assume that these codes were once valid but company records weren't updated when they become invalid.
 - Companies that are now dormant are moved to SIC Code 99999.  Unfortunately, we're unable to determine what their original values were.
 - Progress Britain doesn't have a date_founded within OTT.
+- Companies House doesn't have Appointed-On dates for some Appointments.  See John Hedley Greenborough (https://find-and-update.company-information.service.gov.uk/officers/XkeESSrDDictj_iY0NlXVcXH0tY/appointments).  
