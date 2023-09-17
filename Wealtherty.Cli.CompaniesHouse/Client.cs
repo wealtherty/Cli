@@ -18,7 +18,7 @@ public class Client
     private static readonly AsyncRetryPolicy Retry = Policy
         .Handle<HttpRequestException>(x => !x.Message.Contains("404"))
         .WaitAndRetryAsync(Enumerable.Range(0, 30).Select(_ => TimeSpan.FromMinutes(1)),
-            (exception, span) => Log.Debug(exception, "Error calling Companies House - Sleeping for: {@Span}", span));
+            (exception, span) => Log.Warning(exception, "Error calling Companies House - Sleeping for: {@Span}", span));
 
     private readonly ICompaniesHouseClient _companiesHouseClient;
 

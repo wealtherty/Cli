@@ -44,7 +44,6 @@ public abstract class Command
     private void InitialiseLogging()
     {
         Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console()
             .WriteTo.File("Log.txt")
             .MinimumLevel.Is(LogLevel)
             .CreateLogger();
