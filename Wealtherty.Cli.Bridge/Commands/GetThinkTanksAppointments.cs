@@ -52,11 +52,12 @@ public class GetThinkTanksAppointments : Command
                 continue;
             }
 
-            if (companyProfile.Data.SicCodes == null)
+            if (companyProfile.Data.SicCodes == null || companyProfile.Data.SicCodes.Length == 0)
             {
                 Log.Warning(
                     "Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, CompanyType: {CompanyType}",
-                    thinkTank.PoliticalWing, thinkTank.Name, companyProfile.Data.CompanyNumber, companyProfile.Data.Type);
+                    thinkTank.PoliticalWing, thinkTank.Name, companyProfile.Data.CompanyNumber,
+                    companyProfile.Data.Type);
                 continue;
             }
 
@@ -111,11 +112,11 @@ public class GetThinkTanksAppointments : Command
                         continue;
                     }
 
-                    if (appointmentCompany.Data.SicCodes == null)
+                    if (appointmentCompany.Data.SicCodes == null || appointmentCompany.Data.SicCodes.Length == 0)
                     {
                         Log.Warning(
-                            "Ignoring: Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}",
-                            thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber);
+                            "Ignoring: Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, CompanyType: {CompanyType}",
+                            thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber, appointmentCompany.Data.Type);
                         continue;
                     }
 
