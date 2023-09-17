@@ -1,21 +1,21 @@
-OttId,CompanyNumber,ThinkTank,Website,Approach,Confirmed
-EU-1351,01553005,Adam Smith Institute,http://www.adamsmith.org,Searched Companies House for founder - Madsen Pirie,No
-EU-1351,02732176,Adam Smith Institute,http://www.adamsmith.org,Searched Companies House for founder - Madsen Pirie,No
-EU-1351,05648068,Adam Smith Institute,http://www.adamsmith.org,Searched Companies House for founder - Madsen Pirie,No
-EU-1853,07810169,Bow Group,http://www.bowgroup.org,Searched Companies House for chair - Ben Harris-Quinney,No
-EU-1853,08114075,Bow Group,http://www.bowgroup.org,Searched Companies House for chair - Ben Harris-Quinney,No
-EU-1682,01174651,Centre for Policy Studies,https://cps.org.uk,Searched Companies House,Yes - website search for 1174651
-EU-1256,05391145,Compass,www.compassonline.org.uk,Company number listed on website,n/a
-EU-1414,02977740,Demos,http://www.demos.co.uk,Company number listed on accounts on website,n/a
-EU-1414,02667039,Demos,http://www.demos.co.uk,Company number listed on accounts on website,n/a
-EU-1488,02292601,Institute for Public Policy Research,http://www.ippr.org,Searched Companies House,Yes - website search for 02292601
-EU-1488,04041367,Institute for Public Policy Research,http://www.ippr.org,Searched Companies House Officers,Yes - Carys Roberts is director of both
-EU-1496,00755502,Institute of Economic Affairs,http://www.iea.org.uk,Searched Companies House,Yes - website search for 755502
-EU-1875,14543238,Legatum Institute,www.li.com,Searched Companies House,Yes - website search for 14543238
-EU-1875,FC028686,Legatum Institute,www.li.com,Searched Companies House,Yes - Alan MCCORMICK is director of both
-EU-1875,07430903,Legatum Institute,www.li.com,Searched Companies House,Yes - Alan MCCORMICK is director of both
-EU-1217,04297905,Policy Exchange,http://www.policyexchange.org.uk,Searched Companies House,Yes - website search for 4297905
-N-EU-2200,03109611,Progressive Britain,https://www.progressivebritain.org,Searched Companies House,Yes - website search for 3109611
-EU-1162,05064109,Reform,https://reform.uk,Company number listed on website,n/a
-EU-1842,05137036,The Centre for Social Justice,https://www.centreforsocialjustice.org.uk,Searched Companies House,Yes - website search for 05137036
-EU-1842,06839220,The Centre for Social Justice,https://www.centreforsocialjustice.org.uk,Searched Companies House,Yes - website search for director - Heldreich
+OttId,ThinkTank,CompanyNumber,CompanyName,Approach,Confirmed
+EU-1351,Adam Smith Institute,01553005,A.S.I. (RESEARCH) LIMITED,Searched Companies House for founder - Madsen Pirie,No
+EU-1351,Adam Smith Institute,02732176,ADAM SMITH INTERNATIONAL LTD,Searched Companies House for founder - Madsen Pirie,No
+EU-1351,Adam Smith Institute,05648068,ADAM SMITH SERVICES LIMITED,Searched Companies House for founder - Madsen Pirie,No
+EU-1853,Bow Group,07810169,BOWFORWARD LIMITED,Searched Companies House for chair - Ben Harris-Quinney,No
+EU-1853,Bow Group,08114075,BOW PUBLICATIONS LIMITED,Searched Companies House for chair - Ben Harris-Quinney,No
+EU-1682,Centre for Policy Studies,01174651,CENTRE FOR POLICY STUDIES LIMITED,Searched Companies House,Yes - website search for 1174651
+EU-1256,Compass,05391145,COMPASS - TOGETHER FOR A GOOD SOCIETY LTD,Company number listed on website,n/a
+EU-1414,Demos,02977740,DEMOS,Company number listed on accounts on website,n/a
+EU-1414,Demos,02667039,DEMOS CONSULTING LIMITED,Company number listed on accounts on website,n/a
+EU-1488,Institute for Public Policy Research,02292601,INSTITUTE FOR PUBLIC POLICY RESEARCH,Searched Companies House,Yes - website search for 02292601
+EU-1488,Institute for Public Policy Research,04041367,I.P.P.R. TRADING LIMITED,Searched Companies House Officers,Yes - Carys Roberts is director of both
+EU-1496,Institute of Economic Affairs,00755502,INSTITUTE OF ECONOMIC AFFAIRS (THE),Searched Companies House,Yes - website search for 755502
+EU-1875,Legatum Institute,14543238,LEGATUM INSTITUTE LIMITED,Searched Companies House,Yes - website search for 14543238
+EU-1875,Legatum Institute,FC028686,LEGATUM INSTITUTE,Searched Companies House,Yes - Alan MCCORMICK is director of both
+EU-1875,Legatum Institute,07430903,THE LEGATUM INSTITUTE FOUNDATION,Searched Companies House,Yes - Alan MCCORMICK is director of both
+EU-1217,Policy Exchange,04297905,POLICY EXCHANGE LIMITED,Searched Companies House,Yes - website search for 4297905
+N-EU-2200,Progressive Britain,03109611,PROGRESSIVE BRITAIN LTD,Searched Companies House,Yes - website search for 3109611
+EU-1162,Reform,05064109,REFORM RESEARCH TRUST.,Company number listed on website,n/a
+EU-1842,The Centre for Social Justice,05137036,THE CENTRE FOR SOCIAL JUSTICE,Searched Companies House,Yes - website search for 05137036
+EU-1842,The Centre for Social Justice,06839220,THE CENTRE FOR SOCIAL JUSTICE CONSULTANCY LIMITED,Searched Companies House,Yes - website search for director - Heldreich
