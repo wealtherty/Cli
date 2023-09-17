@@ -33,3 +33,4 @@
 - Companies that are now dormant are moved to SIC Code 99999.  Unfortunately, we're unable to determine what their original values were.
 - Progress Britain doesn't have a date_founded within OTT.
 - Companies House doesn't have Appointed-On dates for some Appointments.  See John Hedley Greenborough (https://find-and-update.company-information.service.gov.uk/officers/XkeESSrDDictj_iY0NlXVcXH0tY/appointments).  
+- Many companies don't have SIC Codes, for various reasons.  For example, a dissolved company might not have any codes.  And, it isn't necessary for a LLP to have any codes.  Rather than ignore appointments of companies without any codes (or with unrecognised codes), I've assigned categorised them as Unknown.  This will skew the data and so Unknown warrents separate analysis
