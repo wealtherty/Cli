@@ -34,6 +34,7 @@ public class GetThinkTanksAppointments : Command
             .ToArray();
 
         var appointments = new Dictionary<string, Appointment>();
+        var officerIds = new HashSet<string>();
 
         foreach (var company in companies)
         {
@@ -60,22 +61,45 @@ public class GetThinkTanksAppointments : Command
             }
 
             var officers = await companiesHouseClient.GetOfficersAsync(company.CompanyNumber);
+            
+            Log.Debug("Got Company Officers - Company: {CompanyNumber}, Officers: {@Officers}", company.CompanyNumber, officers);
 
-            foreach (var officer in officers)
-            {
-                if (RolesToIgnore.Contains(officer.OfficerRole))
+            var officersOfInterest = officers
+                .Where(x => !RolesToIgnore.Contains(x.OfficerRole))
+                .Select(x => new
                 {
-                    Log.Warning(
-                        "Ignoring: Officer-Role is excluded - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, OfficerName: {OfficerName}, OfficerRole: {OfficerRole}",
-                        thinkTank.PoliticalWing, thinkTank.Name, company.CompanyNumber,
-                        officer.Name, officer.OfficerRole);
+                    Id = x.Links.Officer.OfficerId,
+                    Name = x.GetFormattedName()
+                })
+                .Distinct()
+                .ToArray();
+            
+            Log.Debug("Filtered Company Officers - Officers-of-interest: {OfficersOfInterest}", officersOfInterest);
+
+            foreach (var officer in officersOfInterest)
+            {
+                if (officerIds.Contains(officer.Id))
+                {
+                    Log.Debug("Ignoring duplicate Officer - Id: {OfficerId}", officer.Id);
                     continue;
                 }
+                
+                var officerAppointments = await companiesHouseClient.GetAppointmentsAsync(officer.Id);
+                Log.Debug("Got Officer Appointments - OfficerId: {OfficerId}, Appointments: {@Appointments}", officer.Id, officerAppointments);
 
-                var officerAppointments = await companiesHouseClient.GetAppointmentsAsync(officer.Links.Officer.OfficerId);
-
+                officerIds.Add(officer.Id);
+                
                 foreach (var officerAppointment in officerAppointments)
                 {
+                    if (RolesToIgnore.Contains(officerAppointment.OfficerRole))
+                    {
+                        Log.Warning(
+                            "Ignoring Appointment: Officer-Role is excluded - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, OfficerName: {OfficerName}, OfficerRole: {OfficerRole}",
+                            thinkTank.PoliticalWing, thinkTank.Name, company.CompanyNumber,
+                            officer.Name, officerAppointment.OfficerRole);
+                        continue;
+                    }
+
                     var appointmentCompany =
                         await companiesHouseClient.GetCompanyProfileAsync(officerAppointment.Appointed.CompanyNumber);
 
@@ -122,8 +146,8 @@ public class GetThinkTanksAppointments : Command
                             CompanySicCodeCategory = sicCode.Category,
                             CompanySicCodeDescription = sicCode.Description,
 
-                            OfficerId = officer.Links.Officer.OfficerId,
-                            OfficerName = officer.GetFormattedName(),
+                            OfficerId = officer.Id,
+                            OfficerName = officer.Name,
                             OfficerRole = officerAppointment.OfficerRole.ToString(),
 
                             OfficerAppointedOn = officerAppointment.AppointedOn,
@@ -132,16 +156,15 @@ public class GetThinkTanksAppointments : Command
                         
                         var appointedOnKey = appointment.OfficerAppointedOn.HasValue ? appointment.OfficerAppointedOn.Value.ToString("d") : "Unknown";
                         var resignedOnKey = appointment.OfficerResignedOn.HasValue ? appointment.OfficerResignedOn.Value.ToString("d") : "Unknown";
-                        var key = $"{appointment.ThinkTankId}_{appointment.CompanyNumber}_{appointment.CompanySicCode}_{appointment.OfficerId}_{appointedOnKey}_{resignedOnKey}";
+                        var key = $"{appointment.ThinkTankId}_{appointment.CompanyNumber}_{appointment.CompanySicCode}_{appointment.OfficerId}_{appointedOnKey}_{appointment.OfficerRole}_{resignedOnKey}";
 
                         if (appointments.ContainsKey(key))
                         {
-                            var origintal = appointments[key];
-                            
-                            Log.Warning("Ignoring: Duplicate - Original: {@Original}, Duplicate: {@Duplicate}", origintal, appointment);
+                            Log.Warning("Ignoring duplicate appointment - Key: {@Key}", key);
                             continue;
                         }
                         
+                        Log.Information("Added appointment - Key: {@Key}", key);
                         appointments.Add(key, appointment);
                     }
                 }
@@ -150,8 +173,8 @@ public class GetThinkTanksAppointments : Command
 
         var rows = appointments
             .Values
-            .OrderBy(x => x.OfficerName)
             .OrderBy(x => x.OfficerAppointedOn)
+            .OrderBy(x => x.OfficerName)
             .OrderBy(x => x.CompanySicCode)
             .ToArray();
         
