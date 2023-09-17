@@ -51,18 +51,8 @@ public class GetThinkTanksAppointments : Command
                     thinkTank.PoliticalWing, thinkTank.Name, company.CompanyNumber);
                 continue;
             }
-
-            if (companyProfile.Data.SicCodes == null || companyProfile.Data.SicCodes.Length == 0)
-            {
-                Log.Warning(
-                    "Ignoring: ThinkTank-Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, CompanyType: {CompanyType}",
-                    thinkTank.PoliticalWing, thinkTank.Name, companyProfile.Data.CompanyNumber,
-                    companyProfile.Data.Type);
-                continue;
-            }
-
-            var officers = await companiesHouseClient.GetOfficersAsync(company.CompanyNumber);
             
+            var officers = await companiesHouseClient.GetOfficersAsync(company.CompanyNumber);
             Log.Debug("Got Company Officers - Company: {CompanyNumber}, Officers: {@Officers}", company.CompanyNumber, officers);
 
             var officersOfInterest = officers
@@ -74,7 +64,6 @@ public class GetThinkTanksAppointments : Command
                 })
                 .Distinct()
                 .ToArray();
-            
             Log.Debug("Filtered Company Officers - Officers-of-interest: {OfficersOfInterest}", officersOfInterest);
 
             foreach (var officer in officersOfInterest)
@@ -87,8 +76,6 @@ public class GetThinkTanksAppointments : Command
                 
                 var officerAppointments = await companiesHouseClient.GetAppointmentsAsync(officer.Id);
                 Log.Debug("Got Officer Appointments - OfficerId: {OfficerId}, Appointments: {@Appointments}", officer.Id, officerAppointments);
-
-                officerIds.Add(officer.Id);
                 
                 foreach (var officerAppointment in officerAppointments)
                 {
@@ -112,25 +99,19 @@ public class GetThinkTanksAppointments : Command
                         continue;
                     }
 
-                    if (appointmentCompany.Data.SicCodes == null || appointmentCompany.Data.SicCodes.Length == 0)
+                    var appointmentCompanySicCodes = appointmentCompany.Data.SicCodes.OrEmpty().ToArray();
+                    if (!appointmentCompanySicCodes.Any())
                     {
                         Log.Warning(
                             "Ignoring: Company doesn't have any SIC Codes - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, CompanyType: {CompanyType}",
                             thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber, appointmentCompany.Data.Type);
-                        continue;
+
+                        appointmentCompanySicCodes = new[] { "Unknown" };
                     }
 
-                    foreach (var code in appointmentCompany.Data.SicCodes)
+                    foreach (var code in appointmentCompanySicCodes)
                     {
                         var sicCode = sicCodeReader.Read(code);
-
-                        if (sicCode == null)
-                        {
-                            Log.Warning(
-                                "Ignoring: SIC Code not recognised - PoliticalWing: {PoliticalWing}, ThinkTank: {ThinkTank}, CompanyNumber: {CompanyNumber}, SicCode: {SicCode}",
-                                thinkTank.PoliticalWing, thinkTank.Name, appointmentCompany.Data.CompanyNumber, code);
-                            continue;
-                        }
                         
                         var appointment = new Appointment
                         {
@@ -141,6 +122,7 @@ public class GetThinkTanksAppointments : Command
 
                             CompanyNumber = appointmentCompany.Data.CompanyNumber,
                             CompanyName = appointmentCompany.Data.GetFormattedName(),
+                            CompanyType = appointmentCompany.Data.Type.ToString(),
                             CompanyDateOfCreation = appointmentCompany.Data.DateOfCreation,
                             CompanyDateOfCessation = appointmentCompany.Data.DateOfCessation,
                             CompanySicCode = sicCode.Code,
@@ -169,6 +151,8 @@ public class GetThinkTanksAppointments : Command
                         appointments.Add(key, appointment);
                     }
                 }
+                
+                officerIds.Add(officer.Id);
             }
         }
 

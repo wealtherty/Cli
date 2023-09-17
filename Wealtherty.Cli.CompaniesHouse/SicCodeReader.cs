@@ -16,7 +16,14 @@ namespace Wealtherty.Cli.CompaniesHouse
 
         public SicCode Read(string code)
         {
-            return _sicCodes.SingleOrDefault(x => x.Code.Equals(code));
+            var sicCode = _sicCodes.SingleOrDefault(x => x.Code.Equals(code));
+
+            return sicCode ?? new SicCode
+            {
+                Code = code,
+                Category = "Unknown",
+                Description = "Unknown"
+            };
         }
         
         private static SicCode[] ReadSicCodes()
